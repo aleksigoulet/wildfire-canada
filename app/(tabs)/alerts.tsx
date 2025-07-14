@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function Index() {
+export default function Alerts() {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Map screen.</Text>
+      <Text>Alerts View</Text>
     </View>
   );
 }

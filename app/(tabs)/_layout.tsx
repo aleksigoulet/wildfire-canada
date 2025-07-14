@@ -1,43 +1,49 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: 'red' }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Map',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="map-o" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="learn"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Learn',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="book" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="prepare"
+        options={{
+          title: 'Prepare',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="check-square-o" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="emergency"
+        options={{
+          title: 'Emergency',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="fire" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="alerts"
+        options={{
+          title: 'Alerts',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="bell-o" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
         }}
       />
     </Tabs>
