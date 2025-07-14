@@ -2,7 +2,7 @@ import { Text, View, ScrollView, StyleSheet, Pressable, FlatList } from "react-n
 import LessonMarker from "@/components/lessonMarker";
 
 export default function Learn() {
-
+// test
   const data = [
     {
       id: '1',
