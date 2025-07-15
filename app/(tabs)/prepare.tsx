@@ -1,17 +1,50 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
-import { Link } from "expo-router"
+import { useEffect, useState } from "react";
+import { Link } from "expo-router";
+import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
+import { checklists as masterChecklist } from "@/assets/checklists/masterChecklists";
 
 export default function Prepare() {
+  const [ checklists, setChecklists ] = useState<any>(null);
+
+  // load the checklists when the view is initialized
+  useEffect(() => {
+    getObjectData('checklists')
+    .then((data) => {
+      // set the checklist state to the stored checklist object
+      setChecklists(data);
+
+      // if no checklists stored, then create a checklist object from the master checklists
+      if (!data) {
+        console.log('checklists does not exist yet, creating...')
+        storeObjectData('checklists', masterChecklist);
+        setChecklists(masterChecklist);
+      }
+    })
+  }, []); // dependencies not needed because we do not need to run effect again 
+          // when the checklists state changes
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Remaining Tasks</Text>
 
-      <Link 
-        style={styles.checklistButton}
-        href={'/checklist'}
-      >
-        <Text>Create my go-kit</Text>
-      </Link>
+      {
+        checklists ? 
+        checklists.map((checklist: any) => {
+          return (
+            <Link 
+              style={styles.checklistButton}
+              href={`/checklist?id=${checklist.metadata.id}`}
+              key={ checklist.metadata.id }
+            >
+              <Text>{ checklist.metadata.checklistDisplayText }</Text>
+            </Link>
+          )
+        }) : 
+        null
+      }
+
 
       <Text style={styles.titleText}>Completed Tasks</Text>
     </View>

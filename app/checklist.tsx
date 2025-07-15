@@ -1,30 +1,44 @@
 import { Text, View, StyleSheet, Pressable, SafeAreaView, Button } from "react-native";
-import { useState } from "react";
-import { useRouter, Link } from "expo-router";
+import { useEffect, useState } from "react";
+import { useRouter, Link, useLocalSearchParams } from "expo-router";
+import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function Prepare() {
   const router = useRouter();
+  const { id } = useLocalSearchParams();
 
-  const items = [
-    {id: 1, text: 'Food Rations', checked: false},
-    {id: 2, text: 'Flashlight', checked: false},
-    {id: 3, text: 'Blankets', checked: false},
-    {id: 4, text: 'Emergency Contact Information', checked: false},
-    {id: 5, text: 'First Aid Kit', checked: false},
-  ]
+  const [listItems, setListItems] = useState<any>(null);
 
-  const [listItems, setListItems] = useState(items)
+
+  useEffect(() => {
+    getObjectData('checklists')
+    .then(data => {
+      data.forEach((checklist: any) => {
+        if (checklist.metadata.id != id) {
+          return;
+        }
+        setListItems(checklist.content.items)
+      })
+    })
+  }, [])
 
   return (
     <SafeAreaView style={{flex: 1, padding: 20}}>
-      <Button title="Back" onPress={() => router.dismiss()} />
+      <Button 
+          title="back" 
+          onPress={() => { 
+            handleSaveOnClose(id, listItems);
+            router.dismiss();
+          }} 
+        />
 
       <View style={styles.container}>
         <Text style={styles.titleText}>Checklist Example</Text>
         
         <View>
-          { listItems.map((item) => {
+          { 
+            listItems?.map((item: any) => {
             return (
               <Pressable 
                 key={item.id}
@@ -34,7 +48,7 @@ export default function Prepare() {
                   // https://react.dev/learn/updating-arrays-in-state
 
                   // change the checked state of the clicked item
-                  const newItems = listItems.map(listItem => {
+                  const newItems = listItems?.map((listItem: any) => {
                     // if the item is the pressed item, then change checked state
                     if (item.id === listItem.id) {
                       return {
@@ -65,12 +79,38 @@ export default function Prepare() {
           }
         </View>
         {/* <Link href={'/(tabs)/prepare'}>Complete</Link> */}
-        <Button title="complete" onPress={() => router.dismiss()} />
+        <Button 
+          title="complete" 
+          onPress={() => { 
+            handleSaveOnClose(id, listItems);
+            router.dismiss();
+          }} 
+        />
       </View>
 
 
     </SafeAreaView>
   );
+}
+
+function handleSaveOnClose(id: any, items: any) {
+  // get the currently stored checklist object
+  getObjectData('checklists')
+  .then((data: any) => {
+    data.forEach((checklist: any) => {
+      // if not the current checklist then do nothing
+      if (checklist.metadata.id != id) {
+        return;
+      }
+
+      // if in the current checklist then store the new state of items
+      checklist.content.items = items;
+
+    });
+
+    // store the edited checklist object
+    storeObjectData('checklists', data);
+  })
 }
 
 const styles = StyleSheet.create({
