@@ -1,20 +1,23 @@
 import { Text, View, Pressable, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 
 // type definition for component properties
 type LessonProps = {
   title: string;
+  number: string;
 };
 
 export default function LessonMarker(props: LessonProps) {
   return (
-    <Pressable 
-      onPress={() => {alert(props.title)}}
-      style={styles.lessonButton}
-    >
-      <View style={styles.lessonTitle}>
-        <Text style={styles.lessonTitleText}>{props.title}</Text>
+    <Link href={`/lesson?number=${props.number}`}>
+      <View 
+        style={styles.lessonButton}
+      >
+        <View style={styles.lessonTitle}>
+          <Text style={styles.lessonTitleText}>{props.title}</Text>
+        </View>
       </View>
-    </Pressable>
+    </Link>
   )
 }
 

@@ -4,7 +4,7 @@ import { useRouter, Link, useLocalSearchParams } from "expo-router";
 import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-export default function Prepare() {
+export default function Checklist() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
 

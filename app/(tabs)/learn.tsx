@@ -1,30 +1,8 @@
 import { Text, View, ScrollView, StyleSheet, Pressable, FlatList } from "react-native";
 import LessonMarker from "@/components/lessonMarker";
+import lessons from "@/assets/lessons";
 
 export default function Learn() {
-// test
-  const data = [
-    {
-      id: '1',
-      title: 'Lesson 1'
-    },
-    {
-      id: '2',
-      title: 'Lesson 2'
-    },
-    {
-      id: '3',
-      title: 'Lesson 3'
-    },
-    {
-      id: '4',
-      title: 'Lesson 4'
-    },
-    {
-      id: '5',
-      title: 'Lesson 5'
-    }
-  ]
 
   return (
     <View
@@ -40,10 +18,10 @@ export default function Learn() {
       </View>
 
       <FlatList
-        data={data}
+        data={lessons}
         inverted={true}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => <LessonMarker title={item.title} />}
+        keyExtractor={item => item.metadata.id}
+        renderItem={({item}) => <LessonMarker title={item.metadata.title} number={item.metadata.id} />}
         // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
         contentContainerStyle={styles.scrollContainer}
         ItemSeparatorComponent={() => {
