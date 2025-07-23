@@ -1,0 +1,4651 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-563422.48988806, -456587.33083712]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025-Route 13-SDCRA - SDCRA",
+        "startdate": "2025-03-10T14:15:00Z",
+        "hectares": 13740.84,
+        "lat": 44.654167,
+        "lon": -101.98389,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1296609.4736345, -471498.48316877]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Munger Mountain Prescribed - W",
+        "startdate": "2025-04-10T16:00:00Z",
+        "hectares": 18.225,
+        "lat": 43.37417,
+        "lon": -110.759445,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-444494.67794747, -357211.83240209]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025 Hwy 12 MM 176 - NDSRA - N",
+        "startdate": "2025-03-13T19:15:00Z",
+        "hectares": 141.75,
+        "lat": 45.63353,
+        "lon": -100.626945,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1835873.54611062, -144864.31140829]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "3 Cent 301-3 Prescribed Burn -",
+        "startdate": "2025-04-23T15:00:08Z",
+        "hectares": 130.41,
+        "lat": 44.6852,
+        "lon": -118.24,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1827745.38464439, -142114.09375498]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Deer Prescribed - ORWWF",
+        "startdate": "2025-04-23T15:00:00Z",
+        "hectares": 65.205,
+        "lat": 44.7335,
+        "lon": -118.1581,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1724440.91695205, -70511.1432284]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Starvation 4A Prescribed Burn",
+        "startdate": "2025-04-24T16:10:34Z",
+        "hectares": 46.17,
+        "lat": 45.646946,
+        "lon": -117.25972,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-432153.51713421, -419430.45274984]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025-Buffalo - SDCRA",
+        "startdate": "2025-04-11T17:50:00Z",
+        "hectares": 247.455,
+        "lat": 45.093887,
+        "lon": -100.404724,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dd0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1745125.27754756, 122211.88034706]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Limber Jim 603 Prescribed  - O",
+        "startdate": "2025-04-23T14:30:00Z",
+        "hectares": 16.2,
+        "lat": 47.18833,
+        "lon": -118.37972,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dcf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1323868.74574087, -519988.51168883]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Star Valley Front Prescribed B",
+        "startdate": "2025-04-11T13:00:00Z",
+        "hectares": 184.275,
+        "lat": 42.90333,
+        "lon": -110.93255,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dce",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1720371.18257042, -62750.21810348]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Starvation 9 Prescribed Burn -",
+        "startdate": "2025-05-01T11:00:00Z",
+        "hectares": 931.5,
+        "lat": 45.724,
+        "lon": -117.245,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dcd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1809547.18725843, -105422.47201806]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Little Dean 724 Prescribed Bur",
+        "startdate": "2025-05-01T15:00:00Z",
+        "hectares": 147.825,
+        "lat": 45.093887,
+        "lon": -118.10889,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dcc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1549728.43864414, 342706.03274412]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "N70296",
+        "startdate": "2025-05-08T23:44:00Z",
+        "hectares": 2.3,
+        "lat": 49.654,
+        "lon": -116.9481,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dcb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1055407.47602551, 746993.86376647]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-060-2025",
+        "startdate": "2025-05-06T21:17:00Z",
+        "hectares": 47.9,
+        "lat": 54.5073,
+        "lon": -111.7808,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dca",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1487771.72478841, 1424107.10886056]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90324",
+        "startdate": "2025-05-13T15:56:00Z",
+        "hectares": 7,
+        "lat": 59.0185,
+        "lon": -122.4546,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1412854.2823122, 1102047.20794131]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-032-2025",
+        "startdate": "2025-05-04T21:35:00Z",
+        "hectares": 3.7,
+        "lat": 56.5645,
+        "lon": -119.079,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-947125.26691057, 877675.7997878]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-079-2025",
+        "startdate": "2025-05-13T18:30:00Z",
+        "hectares": 67,
+        "lat": 55.9158,
+        "lon": -110.6297,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-956126.36587071, 877538.42455035]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-072-2025",
+        "startdate": "2025-05-10T17:45:00Z",
+        "hectares": 53,
+        "lat": 55.8944,
+        "lon": -110.7717,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1466294.59677904, 1389393.62227039]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90338",
+        "startdate": "2025-05-16T17:44:00Z",
+        "hectares": 0.1,
+        "lat": 58.8091,
+        "lon": -121.8498,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1491589.43989643, 1474291.00684149]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90304",
+        "startdate": "2025-05-09T03:18:00Z",
+        "hectares": 38.2,
+        "lat": 59.4235,
+        "lon": -122.8976,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1489496.86875313, 1469445.69793863]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90302",
+        "startdate": "2025-05-09T02:23:00Z",
+        "hectares": 3.3,
+        "lat": 59.3912,
+        "lon": -122.8261,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [203241.45437482, -210037.32640116]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Munger Shaw - MNMNS",
+        "startdate": "2025-05-12T18:37:00Z",
+        "hectares": 509.895,
+        "lat": 47.080276,
+        "lon": -92.34389,
+        "agency": "conus",
+        "stage_of_control": "95% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1417802.91995536, -150125.04105587]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Sawlog - MTBDF",
+        "startdate": "2025-05-01T18:07:18Z",
+        "hectares": 822.15,
+        "lat": 45.828056,
+        "lon": -113.25278,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1473626.29521955, -55312.43113782]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Big Creek - MTBRF",
+        "startdate": "2025-05-07T21:30:00Z",
+        "hectares": 30.375,
+        "lat": 46.49018,
+        "lon": -114.28886,
+        "agency": "conus",
+        "stage_of_control": "0% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dc0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1673345.54404657, -120692.37799618]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Shingle - IDNCF",
+        "startdate": "2025-05-05T17:33:00Z",
+        "hectares": 40.5,
+        "lat": 45.38064,
+        "lon": -116.44,
+        "agency": "conus",
+        "stage_of_control": "0% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dbf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1816885.94294037, -146930.94339938]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "UM 140 Training Burn - ORWWF",
+        "startdate": "2025-05-08T14:00:00Z",
+        "hectares": 0.405,
+        "lat": 44.72778,
+        "lon": -118.01111,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dbe",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1720282.02007017, -70580.64535514]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Starvation 7A Prescribed  - OR",
+        "startdate": "2025-05-08T15:00:00Z",
+        "hectares": 66.015,
+        "lat": 45.659,
+        "lon": -117.21,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dbd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57228.93114045, -215314.73351329]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Chippewa National Forest Presc",
+        "startdate": "2025-04-01T12:00:00Z",
+        "hectares": 0,
+        "lat": 47.068054,
+        "lon": -94.2525,
+        "agency": "conus",
+        "stage_of_control": "Prescribed",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dbc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-412279.05078659, 557705.92925595]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE004",
+        "startdate": "2025-05-03T05:00:00Z",
+        "hectares": 40315.7,
+        "lat": 53.8681,
+        "lon": -101.38,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dbb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-67253.43734313, 142610.37500244]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA062",
+        "startdate": "2025-05-13T05:00:00Z",
+        "hectares": 4008.3,
+        "lat": 50.2808,
+        "lon": -95.9481,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dba",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1242625.80289902, 861793.77246558]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-073-2025",
+        "startdate": "2025-05-23T22:05:00Z",
+        "hectares": 1,
+        "lat": 55.0238,
+        "lon": -115.1402,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-387417.23583936, 762119.39574664]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE018",
+        "startdate": "2025-05-23T05:00:00Z",
+        "hectares": 4,
+        "lat": 55.7522,
+        "lon": -101.3106,
+        "agency": "mb",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1442481.94255758, 1407733.48778202]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90322",
+        "startdate": "2025-05-12T22:22:00Z",
+        "hectares": 4,
+        "lat": 59.0531,
+        "lon": -121.5954,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-315458.50412294, 335419.35266403]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA066",
+        "startdate": "2025-05-24T05:00:00Z",
+        "hectares": 4.4,
+        "lat": 51.9275,
+        "lon": -99.6378,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1457383.03765231, 1446443.01946231]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90356",
+        "startdate": "2025-05-21T18:19:00Z",
+        "hectares": 1.5,
+        "lat": 59.3225,
+        "lon": -122.125,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1092235.48180759, 1208117.51894246]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-017-2025",
+        "startdate": "2025-05-02T21:10:00Z",
+        "hectares": 5,
+        "lat": 58.4766,
+        "lon": -114.523,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1270358.20148366, 1085178.75533531]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-040-2025",
+        "startdate": "2025-05-24T20:11:00Z",
+        "hectares": 7.6,
+        "lat": 56.8811,
+        "lon": -116.7507,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1423616.27231447, 1497031.22507489]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90283",
+        "startdate": "2025-05-07T20:03:00Z",
+        "hectares": 8,
+        "lat": 59.8764,
+        "lon": -121.9447,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1466089.1394789, 1446956.60699936]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90392",
+        "startdate": "2025-05-27T01:42:00Z",
+        "hectares": 0,
+        "lat": 59.2935,
+        "lon": -122.2718,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1274591.87338922, 867542.65616711]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-077-2025",
+        "startdate": "2025-05-25T19:48:00Z",
+        "hectares": 0.2,
+        "lat": 54.9815,
+        "lon": -115.6523,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2db0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1113282.38914955, 988417.35247043]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-071-2025",
+        "startdate": "2025-05-18T17:22:00Z",
+        "hectares": 79,
+        "lat": 56.4884,
+        "lon": -113.754,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2daf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1301281.91540606, 1084847.33230838]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-031-2025",
+        "startdate": "2025-05-03T00:01:00Z",
+        "hectares": 2074,
+        "lat": 56.7819,
+        "lon": -117.2366,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dae",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1551746.31250788, 1289974.86329354]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80395",
+        "startdate": "2025-05-27T21:45:00Z",
+        "hectares": 1,
+        "lat": 57.6493,
+        "lon": -122.4888,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dad",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1124727.61942905, 1224487.81035546]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-035-2025",
+        "startdate": "2025-05-28T01:08:00Z",
+        "hectares": 0.5,
+        "lat": 58.5283,
+        "lon": -115.156,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dac",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1378135.9917169, 1392453.42805133]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90408",
+        "startdate": "2025-05-28T05:18:00Z",
+        "hectares": 0,
+        "lat": 59.1598,
+        "lon": -120.4276,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2dab",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1375973.95635119, 1446925.74589737]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90399",
+        "startdate": "2025-05-27T23:57:00Z",
+        "hectares": 2,
+        "lat": 59.6301,
+        "lon": -120.7777,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2daa",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1389234.12891341, 1440851.84804781]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90400",
+        "startdate": "2025-05-28T00:09:00Z",
+        "hectares": 1,
+        "lat": 59.5302,
+        "lon": -120.9556,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [240518.04572614, -184818.82022218]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Camp House - MNMNS",
+        "startdate": "2025-05-11T17:36:00Z",
+        "hectares": 4888.755,
+        "lat": 47.29,
+        "lon": -91.84111,
+        "agency": "conus",
+        "stage_of_control": "98% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1080615.52093874, 1046345.30066683]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-091-2025",
+        "startdate": "2025-05-27T22:42:00Z",
+        "hectares": 4.1,
+        "lat": 57.0848,
+        "lon": -113.5104,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1417906.46430085, 1290791.82255575]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80430",
+        "startdate": "2025-05-29T06:35:00Z",
+        "hectares": 0,
+        "lat": 58.1538,
+        "lon": -120.3765,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1269328.26233506, 986148.05320655]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-036-2025",
+        "startdate": "2025-05-18T21:56:00Z",
+        "hectares": 0.3,
+        "lat": 56.026,
+        "lon": -116.1906,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1371411.74068257, 1407286.07664932]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90205",
+        "startdate": "2025-05-02T01:11:00Z",
+        "hectares": 162,
+        "lat": 59.31,
+        "lon": -120.42,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1454615.56485671, 1443128.61286229]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90336",
+        "startdate": "2025-05-16T01:16:00Z",
+        "hectares": 53,
+        "lat": 59.3052,
+        "lon": -122.0548,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1499871.36664819, 1458843.42147454]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90360",
+        "startdate": "2025-05-22T02:56:00Z",
+        "hectares": 1.4,
+        "lat": 59.262,
+        "lon": -122.9145,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1381940.51562448, 892595.237276]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "GWF-036-2025",
+        "startdate": "2025-05-31T13:25:00Z",
+        "hectares": 0.1,
+        "lat": 54.8716,
+        "lon": -117.3942,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1371513.83785157, 1413953.83726873]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90449",
+        "startdate": "2025-05-30T20:59:00Z",
+        "hectares": 0,
+        "lat": 59.3663,
+        "lon": -120.4686,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2da0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1168425.35019191, 1427843.69362253]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SS008-25",
+        "startdate": "2025-05-29T22:16:00Z",
+        "hectares": 11358,
+        "lat": 60.1708,
+        "lon": -117.1006,
+        "agency": "nt",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-10016.07192726, 183420.1898706]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "KEN_FIRE_032",
+        "startdate": "2025-05-29T13:46:00Z",
+        "hectares": 7716,
+        "lat": 50.6541,
+        "lon": -95.1425,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1464134.8212525, 1439476.68229193]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90364",
+        "startdate": "2025-05-23T03:22:00Z",
+        "hectares": 200,
+        "lat": 59.2382,
+        "lon": -122.1838,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2117290.8567327, 1080359.60045281]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "608",
+        "startdate": "2025-05-28T00:00:00Z",
+        "hectares": 170,
+        "lat": 53.5326,
+        "lon": -60.9805,
+        "agency": "nl",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1348953.95491564, 1405435.79807107]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90382",
+        "startdate": "2025-05-26T00:57:00Z",
+        "hectares": 29029,
+        "lat": 59.3743,
+        "lon": -120.0329,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1425917.48419474, 1400364.75381855]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90446",
+        "startdate": "2025-05-30T19:38:00Z",
+        "hectares": 0,
+        "lat": 59.0526,
+        "lon": -121.2708,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d9a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1467670.78004344, 1445057.91792416]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90365",
+        "startdate": "2025-05-23T03:25:00Z",
+        "hectares": 482,
+        "lat": 59.2715,
+        "lon": -122.2835,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d99",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1500927.16059098, 1483758.49178093]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90303",
+        "startdate": "2025-05-09T02:45:00Z",
+        "hectares": 17.1,
+        "lat": 59.4658,
+        "lon": -123.1238,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d98",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1341855.61302952, 736366.69212305]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EWF-036-2025",
+        "startdate": "2025-05-29T22:10:00Z",
+        "hectares": 738,
+        "lat": 53.6484,
+        "lon": -115.9887,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d97",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [304453.32539594, 149329.84278201]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_003",
+        "startdate": "2025-05-13T17:00:00Z",
+        "hectares": 1849.3,
+        "lat": 50.2532,
+        "lon": -90.7078,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d96",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-710817.51703895, 560419.73034844]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25WY-LRIR09",
+        "startdate": "2025-05-25T01:01:53Z",
+        "hectares": 950,
+        "lat": 53.5227,
+        "lon": -105.9352,
+        "agency": "sk",
+        "stage_of_control": "UC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d95",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1768316.72469717, 974406.767624]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "610",
+        "startdate": "2025-05-29T00:00:00Z",
+        "hectares": 2085,
+        "lat": 54.1838,
+        "lon": -66.5065,
+        "agency": "nl",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d94",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1453299.93763596, 1043392.96380655]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "GWF-028-2025",
+        "startdate": "2025-05-22T19:23:00Z",
+        "hectares": 97.2,
+        "lat": 55.9266,
+        "lon": -119.3389,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d93",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [780933.84968905, 511253.52685378]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "COC_FIRE_003",
+        "startdate": "2025-05-28T22:52:00Z",
+        "hectares": 150,
+        "lat": 52.9678,
+        "lon": -83.1494,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d92",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1534003.15732099, 911870.64972465]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "GWF-034-2025",
+        "startdate": "2025-05-31T07:17:00Z",
+        "hectares": 4.1,
+        "lat": 54.5321,
+        "lon": -119.744,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d91",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-225797.28493053, 659959.52878238]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO007",
+        "startdate": "2025-05-24T05:00:00Z",
+        "hectares": 88,
+        "lat": 54.9339,
+        "lon": -98.5919,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d90",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-245062.85233783, 306061.96971384]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA068",
+        "startdate": "2025-05-27T05:00:00Z",
+        "hectares": 41,
+        "lat": 51.7028,
+        "lon": -98.5811,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2073693.91728972, 2221616.12397727]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025BC001",
+        "startdate": "2025-04-10T17:28:00Z",
+        "hectares": 3.5,
+        "lat": 62.3422,
+        "lon": -139.9014,
+        "agency": "yt",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-411437.62678827, 633082.25208167]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE015",
+        "startdate": "2025-05-19T05:00:00Z",
+        "hectares": 27.9,
+        "lat": 54.5542,
+        "lon": -101.4856,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1403370.03150568, 1305627.2488647]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90428",
+        "startdate": "2025-05-29T06:33:00Z",
+        "hectares": 135.6,
+        "lat": 58.3317,
+        "lon": -120.2428,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1306878.74965797, 689559.24953597]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EWF-038-2025",
+        "startdate": "2025-05-30T21:57:00Z",
+        "hectares": 10.4,
+        "lat": 53.3453,
+        "lon": -115.2534,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1457266.47354237, 1446806.69830234]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90357",
+        "startdate": "2025-05-21T18:36:00Z",
+        "hectares": 0.4,
+        "lat": 59.326,
+        "lon": -122.1258,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d8a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1477505.77575693, 1328655.43079196]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90397",
+        "startdate": "2025-05-27T22:14:00Z",
+        "hectares": 27.9,
+        "lat": 58.2558,
+        "lon": -121.5936,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d89",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1413620.4167226, 1326783.09660534]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90406",
+        "startdate": "2025-05-28T03:08:00Z",
+        "hectares": 68.5,
+        "lat": 58.4746,
+        "lon": -120.553,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d88",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1461957.10917697, 1331250.42878948]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90461",
+        "startdate": "2025-06-01T01:21:00Z",
+        "hectares": 112.7,
+        "lat": 58.3356,
+        "lon": -121.3631,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d87",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1434189.17168874, 1324878.01527718]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80403",
+        "startdate": "2025-05-28T00:24:00Z",
+        "hectares": 8.5,
+        "lat": 58.3839,
+        "lon": -120.8721,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d86",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1482630.19765905, 1328429.30887793]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80418",
+        "startdate": "2025-05-29T01:18:00Z",
+        "hectares": 118.3,
+        "lat": 58.2347,
+        "lon": -121.6738,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d85",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1427294.38980718, 1321810.10265073]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80427",
+        "startdate": "2025-05-29T06:31:00Z",
+        "hectares": 4,
+        "lat": 58.383,
+        "lon": -120.7397,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d84",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73609.62618761, 840372.52409419]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO014",
+        "startdate": "2025-06-01T05:00:00Z",
+        "hectares": 0,
+        "lat": 56.6406,
+        "lon": -93.7725,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d83",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-414002.63612734, 271810.000896]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE020",
+        "startdate": "2025-05-26T05:00:00Z",
+        "hectares": 100,
+        "lat": 51.2778,
+        "lon": -100.9911,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d82",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-317135.47062105, 464086.49862888]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE021",
+        "startdate": "2025-05-26T05:00:00Z",
+        "hectares": 35,
+        "lat": 53.0936,
+        "lon": -99.805,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d81",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1492697.39859703, 1307969.30641678]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80396",
+        "startdate": "2025-05-27T22:23:00Z",
+        "hectares": 1885.4,
+        "lat": 58.0248,
+        "lon": -121.6888,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d80",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1447040.7345726, 1334432.48584699]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80402",
+        "startdate": "2025-05-28T00:22:00Z",
+        "hectares": 1014.2,
+        "lat": 58.4176,
+        "lon": -121.1458,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1505804.86019884, 1454014.97108899]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90469",
+        "startdate": "2025-06-02T02:12:00Z",
+        "hectares": 0,
+        "lat": 59.1984,
+        "lon": -122.9742,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1413973.45080921, 1290596.59377638]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80429",
+        "startdate": "2025-05-29T06:34:00Z",
+        "hectares": 27.1,
+        "lat": 58.1662,
+        "lon": -120.312,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [3067.97004106, 137006.30361061]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "KEN_FIRE_014",
+        "startdate": "2025-05-08T20:58:00Z",
+        "hectares": 1607.2,
+        "lat": 50.2347,
+        "lon": -94.9568,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1229969.81389738, 1199765.00623557]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-040-2025",
+        "startdate": "2025-05-30T23:44:00Z",
+        "hectares": 395,
+        "lat": 57.999,
+        "lon": -116.7572,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-136693.83026909, 374912.13194996]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA069",
+        "startdate": "2025-06-01T05:00:00Z",
+        "hectares": 0.6,
+        "lat": 52.3711,
+        "lon": -97.0311,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d7a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [505128.00440942, 466087.45718152]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NIP_FIRE_005",
+        "startdate": "2025-05-28T18:15:00Z",
+        "hectares": 8881,
+        "lat": 52.9445,
+        "lon": -87.3653,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d79",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-386652.76729408, 762350.17289229]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE019",
+        "startdate": "2025-05-25T05:00:00Z",
+        "hectares": 1,
+        "lat": 55.755,
+        "lon": -101.2986,
+        "agency": "mb",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d78",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1455264.20111659, 1229554.52804498]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80473",
+        "startdate": "2025-06-02T21:53:00Z",
+        "hectares": 15,
+        "lat": 57.5005,
+        "lon": -120.5583,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d77",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72011.55708358, 798438.04841793]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO010",
+        "startdate": "2025-05-29T05:00:00Z",
+        "hectares": 20947.7,
+        "lat": 56.2558,
+        "lon": -96.1878,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d76",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-218397.32000439, 679421.34459878]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO015",
+        "startdate": "2025-06-02T05:00:00Z",
+        "hectares": 0.2,
+        "lat": 55.1156,
+        "lon": -98.4914,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d75",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1415787.29157355, 1522595.6343177]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FS004-25",
+        "startdate": "2025-05-29T21:06:00Z",
+        "hectares": 0.5,
+        "lat": 60.1213,
+        "lon": -122.0071,
+        "agency": "nt",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d74",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1334120.66482849, 1064624.55113046]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-046-2025",
+        "startdate": "2025-05-29T01:39:00Z",
+        "hectares": 11.7,
+        "lat": 56.5033,
+        "lon": -117.634,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d73",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [274095.92295039, -22929.9296654]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FOR_FIRE_004",
+        "startdate": "2025-05-12T22:00:00Z",
+        "hectares": 3593,
+        "lat": 48.7218,
+        "lon": -91.2767,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d72",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1420136.03096564, 1363724.26006053]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90401",
+        "startdate": "2025-05-28T00:16:00Z",
+        "hectares": 772,
+        "lat": 58.764,
+        "lon": -120.9158,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d71",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1456258.34710212, 347263.0675437]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "N20464",
+        "startdate": "2025-06-01T17:55:00Z",
+        "hectares": 8.7,
+        "lat": 49.9704,
+        "lon": -115.739,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d70",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-919007.80732247, 1202510.09211774]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025WB5",
+        "startdate": "2025-06-03T04:04:17Z",
+        "hectares": 0.1,
+        "lat": 58.8739,
+        "lon": -111.5512,
+        "agency": "pc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-352749.38814771, 885907.12599956]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO002",
+        "startdate": "2025-05-07T05:00:00Z",
+        "hectares": 71067.4,
+        "lat": 56.9142,
+        "lon": -100.9369,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1139711.87661933, 1021318.4558441]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-089-2025",
+        "startdate": "2025-05-27T20:50:00Z",
+        "hectares": 9536.3,
+        "lat": 56.7056,
+        "lon": -114.3362,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1577438.3300037, 1070451.28982867]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70477",
+        "startdate": "2025-06-02T22:57:00Z",
+        "hectares": 0.3,
+        "lat": 55.7133,
+        "lon": -121.3741,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1615487.72783352, 1129150.0541507]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70492",
+        "startdate": "2025-06-03T23:27:00Z",
+        "hectares": 0.2,
+        "lat": 56.0615,
+        "lon": -122.3333,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1570943.58957102, 1072385.42483493]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70484",
+        "startdate": "2025-06-03T17:45:00Z",
+        "hectares": 0.2,
+        "lat": 55.7535,
+        "lon": -121.2901,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d6a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1317347.41127277, 540047.64085168]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "102",
+        "startdate": "2025-05-28T17:45:00Z",
+        "hectares": 138.4,
+        "lat": 52.0217,
+        "lon": -75.2894,
+        "agency": "qc",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d69",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-538302.31636583, 521325.5064735]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25HB-BATTLE",
+        "startdate": "2025-05-07T23:16:12Z",
+        "hectares": 3341.5,
+        "lat": 53.4064,
+        "lon": -103.2383,
+        "agency": "sk",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d68",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1059296.78791594, 988892.73720368]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "MWF-016-2025",
+        "startdate": "2025-05-27T23:35:00Z",
+        "hectares": 21000,
+        "lat": 56.6335,
+        "lon": -112.8951,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d67",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1289341.49993779, 1033720.20861903]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-054-2025",
+        "startdate": "2025-06-03T04:22:00Z",
+        "hectares": 1.4,
+        "lat": 56.3772,
+        "lon": -116.7611,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d66",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-493228.60170869, 712253.42327781]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25DB-PELICAN2",
+        "startdate": "2025-05-24T07:00:56Z",
+        "hectares": 34028,
+        "lat": 55.1897,
+        "lon": -102.9175,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d65",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1733085.19385555, 1533445.73461952]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90421",
+        "startdate": "2025-05-29T01:13:00Z",
+        "hectares": 5000,
+        "lat": 58.8946,
+        "lon": -127.2444,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d64",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1433097.94855473, 712330.64191312]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EWF-030-2025",
+        "startdate": "2025-05-25T22:49:00Z",
+        "hectares": 320,
+        "lat": 53.1647,
+        "lon": -117.1797,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d63",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1436743.32339158, 1370551.00265257]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90243",
+        "startdate": "2025-05-03T21:00:00Z",
+        "hectares": 0.5,
+        "lat": 58.7607,
+        "lon": -121.2344,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d62",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1422606.78934467, 1470314.2439713]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90323",
+        "startdate": "2025-05-12T22:27:00Z",
+        "hectares": 14195,
+        "lat": 59.6552,
+        "lon": -121.7276,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d61",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1419156.22827777, 1441559.50395058]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90391",
+        "startdate": "2025-05-27T00:29:00Z",
+        "hectares": 2095,
+        "lat": 59.4256,
+        "lon": -121.4581,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d60",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1266219.42509459, 844537.45277474]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-076-2025",
+        "startdate": "2025-05-25T19:13:00Z",
+        "hectares": 16852,
+        "lat": 54.8061,
+        "lon": -115.4103,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1257205.01184755, 1024947.89358217]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-052-2025",
+        "startdate": "2025-06-03T02:37:00Z",
+        "hectares": 0.7,
+        "lat": 56.399,
+        "lon": -116.211,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1071392.74401543, 1066715.60392273]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-099-2025",
+        "startdate": "2025-05-29T18:31:00Z",
+        "hectares": 437.6,
+        "lat": 57.2886,
+        "lon": -113.4596,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43908.91468729, 155483.49309435]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA061",
+        "startdate": "2025-05-12T05:00:00Z",
+        "hectares": 203720,
+        "lat": 50.3997,
+        "lon": -95.6208,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-183657.06125322, 624196.49568084]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO006",
+        "startdate": "2025-05-21T05:00:00Z",
+        "hectares": 2287.1,
+        "lat": 54.6267,
+        "lon": -97.8967,
+        "agency": "mb",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1503694.39124588, 1453106.59075659]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90420",
+        "startdate": "2025-05-29T01:32:00Z",
+        "hectares": 0.2,
+        "lat": 59.1991,
+        "lon": -122.9329,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d5a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1393865.53227798, 1012413.62487257]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "GWF-037-2025",
+        "startdate": "2025-06-01T22:27:00Z",
+        "hectares": 3.2,
+        "lat": 55.8613,
+        "lon": -118.2508,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d59",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1356230.94121892, 1360808.93125753]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-047-2025",
+        "startdate": "2025-06-04T16:40:00Z",
+        "hectares": 4,
+        "lat": 58.9682,
+        "lon": -119.8473,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d58",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1740173.24252326, 374723.01223642]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "K50498",
+        "startdate": "2025-06-04T21:26:00Z",
+        "hectares": 4,
+        "lat": 49.3099,
+        "lon": -119.5655,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d57",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-939132.45908676, 1164531.08947373]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025WB7",
+        "startdate": "2025-06-03T04:11:42Z",
+        "hectares": 0.5,
+        "lat": 58.4877,
+        "lon": -111.7215,
+        "agency": "pc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d56",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [726917.10795606, -1714.75039254]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WAW_FIRE_002",
+        "startdate": "2025-06-02T18:08:00Z",
+        "hectares": 10.8,
+        "lat": 48.4779,
+        "lon": -85.1488,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d55",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-430950.92991971, 639151.03803481]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE028",
+        "startdate": "2025-06-02T05:00:00Z",
+        "hectares": 4784.6,
+        "lat": 54.5908,
+        "lon": -101.8011,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d54",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1460822.49053974, 307656.55524254]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "N10504",
+        "startdate": "2025-06-05T20:44:00Z",
+        "hectares": 0,
+        "lat": 49.6188,
+        "lon": -115.623,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d53",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-892803.3675966, 1226475.01302489]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "MWF-025-2025",
+        "startdate": "2025-05-29T00:00:00Z",
+        "hectares": 32759,
+        "lat": 59.1492,
+        "lon": -111.2072,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d52",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1123407.1929539, 1075653.92271203]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-110-2025",
+        "startdate": "2025-06-04T19:39:00Z",
+        "hectares": 7.5,
+        "lat": 57.2271,
+        "lon": -114.3482,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d51",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1205906.88095142, 797331.40557353]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WWF-023-2025",
+        "startdate": "2025-05-28T21:38:00Z",
+        "hectares": 2773,
+        "lat": 54.5644,
+        "lon": -114.275,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d50",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-824257.2780031, 635408.23986867]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25BR-NEEB",
+        "startdate": "2025-06-03T22:23:27Z",
+        "hectares": 0.5,
+        "lat": 54.0027,
+        "lon": -107.8673,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1746878.52702772, 546000.89535078]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "K20500",
+        "startdate": "2025-06-04T23:06:00Z",
+        "hectares": 0.5,
+        "lat": 50.7139,
+        "lon": -120.5733,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [229157.68480343, -175751.76125235]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Jenkins Creek - MNSUF",
+        "startdate": "2025-05-12T15:07:00Z",
+        "hectares": 6538.725,
+        "lat": 47.37583,
+        "lon": -91.98444,
+        "agency": "conus",
+        "stage_of_control": "94% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-978302.82145533, 792086.68407682]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-095-2025",
+        "startdate": "2025-06-05T19:39:00Z",
+        "hectares": 1,
+        "lat": 55.0852,
+        "lon": -110.7801,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-6067.01231907, 87323.16595384]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "KEN_FIRE_020",
+        "startdate": "2025-05-12T21:24:00Z",
+        "hectares": 36043,
+        "lat": 49.7863,
+        "lon": -95.0845,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-295210.11072472, 321535.68390491]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA071",
+        "startdate": "2025-06-05T05:00:00Z",
+        "hectares": 0.2,
+        "lat": 51.8147,
+        "lon": -99.3272,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d4a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1108550.067269, 809839.21715053]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-099-2025",
+        "startdate": "2025-06-06T17:52:00Z",
+        "hectares": 0,
+        "lat": 54.9304,
+        "lon": -112.857,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d49",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1200117.34724706, 1170116.99977411]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-037-2025",
+        "startdate": "2025-05-30T19:44:00Z",
+        "hectares": 1060,
+        "lat": 57.8322,
+        "lon": -116.1001,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d48",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1137208.87927368, 1053846.84933801]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-094-2025",
+        "startdate": "2025-05-29T00:21:00Z",
+        "hectares": 83673.9,
+        "lat": 56.9977,
+        "lon": -114.46,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d47",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-210091.13370788, 598169.52803363]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NO005",
+        "startdate": "2025-05-20T05:00:00Z",
+        "hectares": 58790,
+        "lat": 54.3772,
+        "lon": -98.2917,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d46",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1482355.17836186, 1120389.15220738]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80497",
+        "startdate": "2025-06-04T20:19:00Z",
+        "hectares": 1851,
+        "lat": 56.479,
+        "lon": -120.2635,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d45",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [159180.65915705, 245536.68862251]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "RED_FIRE_017",
+        "startdate": "2025-06-05T17:13:00Z",
+        "hectares": 2.6,
+        "lat": 51.1905,
+        "lon": -92.7044,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d44",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1108551.06446823, 1021176.27053633]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-085-2025",
+        "startdate": "2025-05-27T19:16:00Z",
+        "hectares": 132247.6,
+        "lat": 56.789,
+        "lon": -113.8376,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d43",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1299667.83282277, 1158231.34619817]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-050-2025",
+        "startdate": "2025-06-02T19:50:00Z",
+        "hectares": 4876,
+        "lat": 57.4203,
+        "lon": -117.6394,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d42",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1252900.95297585, 1091302.48876923]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-044-2025",
+        "startdate": "2025-05-28T21:20:00Z",
+        "hectares": 42702,
+        "lat": 56.9877,
+        "lon": -116.5083,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d41",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-944061.69840163, 865920.87304121]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-097-2025",
+        "startdate": "2025-06-05T23:12:00Z",
+        "hectares": 250,
+        "lat": 55.818,
+        "lon": -110.5347,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d40",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-573746.22902055, 795831.32278717]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LA-DAVIS",
+        "startdate": "2025-06-05T19:16:00Z",
+        "hectares": 4,
+        "lat": 55.8487,
+        "lon": -104.3896,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-683738.64989244, 735200.98463717]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LA-PISEW",
+        "startdate": "2025-05-21T17:54:29Z",
+        "hectares": 159485,
+        "lat": 55.1392,
+        "lon": -105.9867,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-795640.68847706, 752278.42446984]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LX-SANDY",
+        "startdate": "2025-06-03T23:33:46Z",
+        "hectares": 8,
+        "lat": 55.1024,
+        "lon": -107.7946,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-923321.54199831, 1297006.03133923]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "2025WB3",
+        "startdate": "2025-05-27T18:01:37Z",
+        "hectares": 4125,
+        "lat": 59.7051,
+        "lon": -112.0715,
+        "agency": "pc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-383569.80558262, 762286.14845807]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE025",
+        "startdate": "2025-05-27T05:00:00Z",
+        "hectares": 38482,
+        "lat": 55.7572,
+        "lon": -101.2486,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1356625.70879217, 1398743.69872101]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90474",
+        "startdate": "2025-06-02T22:31:00Z",
+        "hectares": 1411,
+        "lat": 59.2901,
+        "lon": -120.1144,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d3a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1359107.32672372, 1385453.10197316]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90475",
+        "startdate": "2025-06-02T22:27:00Z",
+        "hectares": 1894,
+        "lat": 59.1681,
+        "lon": -120.0637,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d39",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1491377.38043475, 1334341.54753316]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90425",
+        "startdate": "2025-05-29T06:17:00Z",
+        "hectares": 1710,
+        "lat": 58.2515,
+        "lon": -121.8555,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d38",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1491838.40640326, 1439914.02285834]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90220",
+        "startdate": "2025-05-02T21:57:00Z",
+        "hectares": 1074,
+        "lat": 59.1351,
+        "lon": -122.6396,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d37",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1425306.76132549, 1275048.55452189]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80476",
+        "startdate": "2025-06-02T22:20:00Z",
+        "hectares": 2271,
+        "lat": 57.9937,
+        "lon": -120.3887,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d36",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1442081.78583582, 1326574.10417299]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80320",
+        "startdate": "2025-05-12T02:07:00Z",
+        "hectares": 7009,
+        "lat": 58.3694,
+        "lon": -121.011,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d35",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1426262.66430947, 1320164.44942933]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80426",
+        "startdate": "2025-05-29T06:29:00Z",
+        "hectares": 686,
+        "lat": 58.3728,
+        "lon": -120.7117,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d34",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1182629.82078749, 1023282.25594686]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-101-2025",
+        "startdate": "2025-05-30T00:38:00Z",
+        "hectares": 599.5,
+        "lat": 56.6027,
+        "lon": -115.0281,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d33",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1459114.97381134, 1449790.58253576]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90216",
+        "startdate": "2025-05-02T20:35:00Z",
+        "hectares": 160998,
+        "lat": 59.344,
+        "lon": -122.1785,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d32",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1373591.75330139, 1400512.23454928]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90407",
+        "startdate": "2025-05-28T04:55:00Z",
+        "hectares": 23,
+        "lat": 59.2446,
+        "lon": -120.4087,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d31",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1157692.49415601, 1013940.80853601]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-095-2025",
+        "startdate": "2025-05-29T01:06:00Z",
+        "hectares": 769.5,
+        "lat": 56.5912,
+        "lon": -114.5851,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d30",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-550268.74895311, 809709.7364956]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LA-JAYSMITH",
+        "startdate": "2025-05-20T20:57:05Z",
+        "hectares": 13687,
+        "lat": 56.0058,
+        "lon": -104.0427,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1196599.94166998, 995418.89458824]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-092-2025",
+        "startdate": "2025-05-27T22:53:00Z",
+        "hectares": 60408.8,
+        "lat": 56.3196,
+        "lon": -115.105,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1180138.16821524, 1032749.63195923]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-100-2025",
+        "startdate": "2025-05-30T00:32:00Z",
+        "hectares": 7999.4,
+        "lat": 56.6925,
+        "lon": -115.0375,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1413561.8210822, 1523217.98877287]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FS003-25",
+        "startdate": "2025-05-29T21:02:00Z",
+        "hectares": 643.4,
+        "lat": 60.135,
+        "lon": -121.9743,
+        "agency": "nt",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2227863.55982363, 945722.98710797]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "109",
+        "startdate": "2025-05-30T18:44:00Z",
+        "hectares": 150,
+        "lat": 51.9644,
+        "lon": -60.5908,
+        "agency": "qc",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72304.85674713, 23564.99415162]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA057",
+        "startdate": "2025-05-10T05:00:00Z",
+        "hectares": 8904.7,
+        "lat": 49.2069,
+        "lon": -95.9931,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d2a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-11288.25813225, 95438.44397831]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA063",
+        "startdate": "2025-05-15T05:00:00Z",
+        "hectares": 6549.3,
+        "lat": 49.8594,
+        "lon": -95.1575,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d29",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-917367.07752199, 1348674.87822365]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SS007-25",
+        "startdate": "2025-05-28T19:18:00Z",
+        "hectares": 327.7,
+        "lat": 60.1796,
+        "lon": -112.2191,
+        "agency": "nt",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d28",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-696411.70934954, 792949.90441981]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LX-SANTO",
+        "startdate": "2025-06-02T22:43:20Z",
+        "hectares": 9700,
+        "lat": 55.64,
+        "lon": -106.35,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d27",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-685103.79610968, 658400.17791718]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25WY-DITCH02",
+        "startdate": "2025-05-26T23:57:57Z",
+        "hectares": 150000,
+        "lat": 54.4445,
+        "lon": -105.8007,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d26",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1610092.59751513, 1448865.52026199]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90413",
+        "startdate": "2025-05-29T00:11:00Z",
+        "hectares": 10666,
+        "lat": 58.735,
+        "lon": -124.6088,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d25",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1537710.52420605, 1529980.78433598]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90463",
+        "startdate": "2025-06-01T16:34:00Z",
+        "hectares": 837,
+        "lat": 59.7024,
+        "lon": -124.0924,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d24",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [59690.98762488, 108563.37438977]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "KEN_FIRE_034",
+        "startdate": "2025-06-02T21:28:00Z",
+        "hectares": 23,
+        "lat": 49.9744,
+        "lon": -94.1648,
+        "agency": "on",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d23",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1224772.4763436, 963888.47937651]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-078-2025",
+        "startdate": "2025-05-26T22:51:00Z",
+        "hectares": 163,
+        "lat": 55.9638,
+        "lon": -115.3827,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d22",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1055036.14520306, 765784.66896875]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-096-2025",
+        "startdate": "2025-06-05T22:06:00Z",
+        "hectares": 1.5,
+        "lat": 54.6741,
+        "lon": -111.8525,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1392798.40070958, 1531096.45308788]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FS002-25",
+        "startdate": "2025-05-29T20:56:00Z",
+        "hectares": 1423.1,
+        "lat": 60.2799,
+        "lon": -121.6826,
+        "agency": "nt",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [274023.85976454, -54018.58664145]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FOR_FIRE_009",
+        "startdate": "2025-06-02T21:45:00Z",
+        "hectares": 54,
+        "lat": 48.4432,
+        "lon": -91.3022,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1072160.79331372, 1048270.73069658]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-115-2025",
+        "startdate": "2025-06-07T18:08:00Z",
+        "hectares": 300,
+        "lat": 57.124,
+        "lon": -113.3828,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [269304.09941562, -90323.10468301]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FOR_FIRE_012",
+        "startdate": "2025-06-05T17:41:00Z",
+        "hectares": 0.7,
+        "lat": 48.1206,
+        "lon": -91.3935,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-876412.13950974, 1314088.36527311]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "MWF-026-2025",
+        "startdate": "2025-05-29T21:09:00Z",
+        "hectares": 14152,
+        "lat": 59.9698,
+        "lon": -111.3218,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1022831.52246069, 1022669.74605927]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "MWF-023-2025",
+        "startdate": "2025-05-28T19:11:00Z",
+        "hectares": 150,
+        "lat": 57.024,
+        "lon": -112.4626,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1033976.47568002, 969005.8109661]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "MWF-027-2025",
+        "startdate": "2025-06-05T23:06:00Z",
+        "hectares": 7,
+        "lat": 56.5215,
+        "lon": -112.3991,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d1a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-959547.03176949, 624021.1332774]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25DN-OLIR01",
+        "startdate": "2025-05-05T15:20:53Z",
+        "hectares": 1515,
+        "lat": 53.634,
+        "lon": -109.8673,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1251520.33913577, 934053.890772]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-105-2025",
+        "startdate": "2025-05-30T11:30:00Z",
+        "hectares": 36,
+        "lat": 55.6265,
+        "lon": -115.6418,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1375944.03874947, 1089570.89609684]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-058-2025",
+        "startdate": "2025-06-08T00:00:00Z",
+        "hectares": 0.1,
+        "lat": 56.5815,
+        "lon": -118.4313,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1751567.4784712, 372939.56453802]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "K50510",
+        "startdate": "2025-06-06T21:32:00Z",
+        "hectares": 0.5,
+        "lat": 49.2563,
+        "lon": -119.7014,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1414754.03757805, 1540933.25119178]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FS001-25",
+        "startdate": "2025-05-29T20:50:00Z",
+        "hectares": 3653.6,
+        "lat": 60.2795,
+        "lon": -122.1301,
+        "agency": "nt",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-407370.00082075, 600085.92704365]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE023",
+        "startdate": "2025-05-27T05:00:00Z",
+        "hectares": 4921,
+        "lat": 54.2578,
+        "lon": -101.37,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1577477.67024536, 1070575.83213794]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70501",
+        "startdate": "2025-06-05T01:02:00Z",
+        "hectares": 60,
+        "lat": 55.7142,
+        "lon": -121.3755,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1578402.48634696, 1122470.99235101]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80519",
+        "startdate": "2025-06-07T21:00:00Z",
+        "hectares": 1,
+        "lat": 56.146,
+        "lon": -121.7332,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-694361.1984731, 618693.26203912]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25WY-MLIR16",
+        "startdate": "2025-06-07T15:30:38Z",
+        "hectares": 1,
+        "lat": 54.0725,
+        "lon": -105.8382,
+        "agency": "sk",
+        "stage_of_control": "UC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1434966.52048314, 1365549.09991731]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90507",
+        "startdate": "2025-06-05T22:32:00Z",
+        "hectares": 1,
+        "lat": 58.725,
+        "lon": -121.17,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1537905.21493207, 989885.43710602]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70422",
+        "startdate": "2025-05-29T03:05:00Z",
+        "hectares": 13061,
+        "lat": 55.178,
+        "lon": -120.2754,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1430690.57688077, 1326219.50922768]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80506",
+        "startdate": "2025-06-05T22:26:00Z",
+        "hectares": 0.2,
+        "lat": 58.408,
+        "lon": -120.825,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1322253.73814363, 1296612.6300834]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-036-2025",
+        "startdate": "2025-05-29T20:00:00Z",
+        "hectares": 41242,
+        "lat": 58.5362,
+        "lon": -118.8626,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1493963.10062689, 1467432.5536807]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90305",
+        "startdate": "2025-05-09T03:28:00Z",
+        "hectares": 1406,
+        "lat": 59.3569,
+        "lon": -122.8838,
+        "agency": "bc",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1222403.48762208, 930100.66951542]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SWF-088-2025",
+        "startdate": "2025-05-27T20:05:00Z",
+        "hectares": 10521,
+        "lat": 55.6763,
+        "lon": -115.1735,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77575.32208279, 264324.57213301]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "EA070",
+        "startdate": "2025-06-04T05:00:00Z",
+        "hectares": 56,
+        "lat": 51.3806,
+        "lon": -96.1239,
+        "agency": "mb",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d0a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [170461.67656492, 200686.78703274]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "RED_FIRE_018",
+        "startdate": "2025-06-06T18:11:00Z",
+        "hectares": 9.3,
+        "lat": 50.7809,
+        "lon": -92.5666,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d09",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1587698.03243347, 344739.31467427]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "118",
+        "startdate": "2025-06-06T17:27:00Z",
+        "hectares": 10.4,
+        "lat": 49.5542,
+        "lon": -72.5475,
+        "agency": "qc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d08",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [246003.02498499, -94709.52548246]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Horse River  - MNSUF",
+        "startdate": "2025-05-22T19:01:00Z",
+        "hectares": 5.265,
+        "lat": 48.092667,
+        "lon": -91.708,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d07",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [205473.10690198, 380426.1832295]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_016",
+        "startdate": "2025-06-07T16:35:00Z",
+        "hectares": 76,
+        "lat": 52.3962,
+        "lon": -91.9443,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [62072.90718648, 404511.9516209]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "RED_FIRE_012",
+        "startdate": "2025-05-28T18:35:00Z",
+        "hectares": 156346.7,
+        "lat": 52.6561,
+        "lon": -94.071,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-879227.65870615, 1321357.53707262]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SS009-25",
+        "startdate": "2025-05-30T17:00:00Z",
+        "hectares": 14167,
+        "lat": 60.0281,
+        "lon": -111.4061,
+        "agency": "nt",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [202150.94918801, 405381.5262429]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_017",
+        "startdate": "2025-06-07T16:53:00Z",
+        "hectares": 1042,
+        "lat": 52.6244,
+        "lon": -91.976,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-969839.40134947, 802099.87033304]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-090-2025",
+        "startdate": "2025-05-26T22:00:00Z",
+        "hectares": 66845,
+        "lat": 55.1931,
+        "lon": -110.6881,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [237317.03443403, 9506.14976527]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "FOR_FIRE_014",
+        "startdate": "2025-06-07T18:53:00Z",
+        "hectares": 2.3,
+        "lat": 49.031,
+        "lon": -91.7529,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1120805.85166984, 851844.40556053]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "LWF-103-2025",
+        "startdate": "2025-06-08T16:38:00Z",
+        "hectares": 0,
+        "lat": 55.2683,
+        "lon": -113.2327,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2d00",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-722663.46383642, 819422.49243409]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LX-KNEE",
+        "startdate": "2025-05-26T16:57:40Z",
+        "hectares": 7367,
+        "lat": 55.8351,
+        "lon": -106.8477,
+        "agency": "sk",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cff",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [398873.17595246, 433378.11707529]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_019",
+        "startdate": "2025-06-08T00:04:00Z",
+        "hectares": 1400,
+        "lat": 52.7518,
+        "lon": -89.0069,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cfe",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [230482.08325933, 308850.86119875]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_018",
+        "startdate": "2025-06-07T17:24:00Z",
+        "hectares": 5521,
+        "lat": 51.7353,
+        "lon": -91.6294,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cfd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-284188.02883593, 481946.80200669]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE027",
+        "startdate": "2025-06-01T05:00:00Z",
+        "hectares": 12025,
+        "lat": 53.2775,
+        "lon": -99.3258,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cfc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1309639.89449667, 1408883.47631116]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "HWF-048-2025",
+        "startdate": "2025-06-07T18:03:00Z",
+        "hectares": 1,
+        "lat": 59.5412,
+        "lon": -119.397,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cfb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1582084.95545879, 1002887.70184404]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70525",
+        "startdate": "2025-06-08T04:05:00Z",
+        "hectares": 0.5,
+        "lat": 55.1288,
+        "lon": -121.007,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cfa",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [456014.94634325, 294504.40427432]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "NIP_FIRE_006",
+        "startdate": "2025-05-30T15:56:00Z",
+        "hectares": 1083,
+        "lat": 51.4448,
+        "lon": -88.371,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [858521.4060371, -50705.6812077]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "CHA_FIRE_008",
+        "startdate": "2025-06-08T21:37:00Z",
+        "hectares": 2,
+        "lat": 47.848,
+        "lon": -83.5198,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1479176.2122675, 66928.51486571]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "Banana Lake - MTMTS",
+        "startdate": "2025-05-31T20:25:00Z",
+        "hectares": 337.365,
+        "lat": 47.51461,
+        "lon": -114.8405,
+        "agency": "conus",
+        "stage_of_control": "100% contained",
+        "response_type": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1966681.50717751, 1028629.31579592]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "R20528",
+        "startdate": "2025-06-08T18:43:00Z",
+        "hectares": 1.1,
+        "lat": 53.8001,
+        "lon": -126.6141,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1597661.0990093, 1287368.61367395]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G80352",
+        "startdate": "2025-05-20T00:11:00Z",
+        "hectares": 61050,
+        "lat": 57.4485,
+        "lon": -123.1818,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1579075.99495676, 1072352.31574536]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G70530",
+        "startdate": "2025-06-08T20:11:00Z",
+        "hectares": 1,
+        "lat": 55.7232,
+        "lon": -121.4109,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2116356.71487394, 534690.85362179]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "V70527",
+        "startdate": "2025-06-08T18:39:00Z",
+        "hectares": 10,
+        "lat": 49.2056,
+        "lon": -125.1863,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2030039.59928064, 562166.57734538]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "V50536",
+        "startdate": "2025-06-08T23:48:00Z",
+        "hectares": 0,
+        "lat": 49.777,
+        "lon": -124.292,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1878008.99702035, 1021189.07085078]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "R10537",
+        "startdate": "2025-06-08T23:26:00Z",
+        "hectares": 0,
+        "lat": 54.1191,
+        "lon": -125.3466,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1349394.39425372, 1125529.72454897]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-059-2025",
+        "startdate": "2025-06-08T19:51:00Z",
+        "hectares": 0.1,
+        "lat": 56.9775,
+        "lon": -118.2323,
+        "agency": "ab",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cf0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-694361.1984731, 618693.26203912]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25WY-WASKESIU",
+        "startdate": "2025-06-07T15:30:38Z",
+        "hectares": 1,
+        "lat": 54.0725,
+        "lon": -105.8382,
+        "agency": "sk",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cef",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-396323.34504111, 681582.01087747]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "WE017",
+        "startdate": "2025-05-21T05:00:00Z",
+        "hectares": 307781.3,
+        "lat": 55.0097,
+        "lon": -101.3247,
+        "agency": "mb",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cee",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1499055.90482808, 1455025.12151458]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "G90351",
+        "startdate": "2025-05-19T23:42:00Z",
+        "hectares": 0.2,
+        "lat": 59.2333,
+        "lon": -122.872,
+        "agency": "bc",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ced",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1386629.5084985, 632760.81448151]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "RWF-050-2025",
+        "startdate": "2025-06-08T23:42:00Z",
+        "hectares": 0.7,
+        "lat": 52.6229,
+        "lon": -116.1201,
+        "agency": "ab",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cec",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1099485.66566624, -125900.40969522]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SUD_FIRE_020",
+        "startdate": "2025-06-08T22:10:00Z",
+        "hectares": 0.1,
+        "lat": 46.7553,
+        "lon": -80.6198,
+        "agency": "on",
+        "stage_of_control": "BH",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ceb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1072659.66377491, -174007.42254998]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SUD_FIRE_019",
+        "startdate": "2025-06-08T19:41:00Z",
+        "hectares": 0.2,
+        "lat": 46.3901,
+        "lon": -81.0947,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2cea",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1787756.44298239, 458314.77668553]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "K60532",
+        "startdate": "2025-06-08T22:44:00Z",
+        "hectares": 0.3,
+        "lat": 49.8405,
+        "lon": -120.6194,
+        "agency": "bc",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [182991.40652338, 409165.68175638]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_014",
+        "startdate": "2025-06-06T15:22:00Z",
+        "hectares": 13657,
+        "lat": 52.6667,
+        "lon": -92.2598,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [186277.32297935, 401773.96402592]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_013",
+        "startdate": "2025-06-06T15:07:00Z",
+        "hectares": 2647,
+        "lat": 52.5982,
+        "lon": -92.2155,
+        "agency": "on",
+        "stage_of_control": "OC",
+        "response_type": "MON"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1264479.12210074, 1043783.57360119]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "PWF-056-2025",
+        "startdate": "2025-06-05T19:53:00Z",
+        "hectares": 2,
+        "lat": 56.5404,
+        "lon": -116.4278,
+        "agency": "ab",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [299009.8446073, 372576.73856265]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "SLK_FIRE_012",
+        "startdate": "2025-06-06T14:56:00Z",
+        "hectares": 2.5,
+        "lat": 52.2749,
+        "lon": -90.5652,
+        "agency": "on",
+        "stage_of_control": "UC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-629805.51590452, 623235.35006369]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25LF-SHOE",
+        "startdate": "2025-05-07T22:21:40Z",
+        "hectares": 500281,
+        "lat": 54.209,
+        "lon": -104.8583,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "FUL"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "activefires_current.fid--7da839b8_197523b3d7c_-2ce4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-479252.27437837, 649275.74473312]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "firename": "25DB-WOLF",
+        "startdate": "2025-05-19T20:02:39Z",
+        "hectares": 130822,
+        "lat": 54.633,
+        "lon": -102.5755,
+        "agency": "sk",
+        "stage_of_control": "OC",
+        "response_type": "MOD"
+      }
+    }
+  ],
+  "totalFeatures": 244,
+  "numberMatched": 244,
+  "numberReturned": 244,
+  "timeStamp": "2025-06-09T01:08:56.002Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3978"
+    }
+  }
+}
