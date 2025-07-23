@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "expo-router";
 import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
 import { checklists as masterChecklist } from "@/assets/checklists/masterChecklists";
+import ProfileHeader from "@/components/profileHeader";
 
 export default function Prepare() {
   const [ checklists, setChecklists ] = useState<any>(null);
@@ -26,33 +27,37 @@ export default function Prepare() {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>Remaining Tasks</Text>
+    <View style={{flex: 1}}>
+      <ProfileHeader />
+      <View style={styles.contentContainer}>
 
-      {
-        checklists ? 
-        checklists.map((checklist: any) => {
-          return (
-            <Link 
-              style={styles.checklistButton}
-              href={`/checklist?id=${checklist.metadata.id}`}
-              key={ checklist.metadata.id }
-            >
-              <Text>{ checklist.metadata.checklistDisplayText }</Text>
-            </Link>
-          )
-        }) : 
-        null
-      }
+        <Text style={styles.titleText}>Remaining Tasks</Text>
+
+        {
+          checklists ? 
+          checklists.map((checklist: any) => {
+            return (
+              <Link 
+                style={styles.checklistButton}
+                href={`/checklist?id=${checklist.metadata.id}`}
+                key={ checklist.metadata.id }
+              >
+                <Text>{ checklist.metadata.checklistDisplayText }</Text>
+              </Link>
+            )
+          }) : 
+          null
+        }
 
 
-      <Text style={styles.titleText}>Completed Tasks</Text>
+        <Text style={styles.titleText}>Completed Tasks</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     flex: 1,
     padding: 20
   },

@@ -1,10 +1,12 @@
-import { Text, View, ScrollView, StyleSheet, Pressable, FlatList } from "react-native";
+import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView } from "react-native";
 import LessonMarker from "@/components/lessonMarker";
+import ProfileHeader from "@/components/profileHeader";
 import lessons from "@/assets/lessons";
 
 export default function Learn() {
 
   return (
+    
     <View
       style={{
         flex: 1,
@@ -12,11 +14,9 @@ export default function Learn() {
         alignItems: "stretch",
       }}
     >
-
-      <View style={styles.header}>
-
-      </View>
-
+      
+      <ProfileHeader />
+      
       <FlatList
         data={lessons}
         inverted={true}
@@ -38,15 +38,10 @@ export default function Learn() {
         }}
       />
     </View>
-  );
+  );  
 }
 
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: 'grey',
-    height: 100
-  },
-
   scrollContainer: {
     alignItems: 'center',
     paddingVertical: 300

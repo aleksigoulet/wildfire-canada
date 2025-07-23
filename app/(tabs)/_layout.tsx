@@ -7,21 +7,24 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          title: "Map",
           headerShown: false,
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="map-o" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="learn"
+        name="(learn)"
         options={{
           title: 'Learn',
+          headerShown: false,
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="book" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="prepare"
+        name="(prepare)"
         options={{
           title: 'Prepare',
+          headerShown: false,
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="check-square-o" color={color} />,
         }}
       />
@@ -46,6 +49,17 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
         }}
       />
+      {/* <Tabs.Screen 
+        name="profile" 
+        options={{
+          // animation: 'slide_from_bottom',
+          // animation: 'fade',
+          // headerShown: false,
+          headerTitle: '',
+          // headerBackTitle: 'Back',
+          href: null,
+        }}
+      /> */}
     </Tabs>
   );
 }
