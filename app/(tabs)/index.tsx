@@ -1,5 +1,5 @@
-import { Text, View, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
-import { useState } from "react";
+import { Text, View, StyleSheet, TouchableOpacity, Pressable, ActivityIndicator } from "react-native";
+import { useState, useRef } from "react";
 import Mapbox, { 
   MapView, 
   LocationPuck, 
@@ -8,6 +8,7 @@ import Mapbox, {
   SymbolLayer, 
   FillLayer, 
   Images, 
+  Image,
   CircleLayer,
   MarkerView, 
 } from "@rnmapbox/maps";
@@ -52,10 +53,17 @@ export default function Index() {
   const [ fireData, setFireData ] = useState<FeatureCollection>(emptyFireData);
   const [ fireDataDownloadActivity, setFireDataDownloadActivity ] = useState<boolean>(false);
 
-  const [ selectedFeature, setSelectedFeature ] = useState<any>(null);
+  const [ selectedFeature, setSelectedFeature ] = useState<any>('');
   const [ showCurrentFires, setShowCurrentFires ] = useState<boolean>(true);
 
 
+  // const getImageName = (featureID: any) => {
+  //   console.log(featureID);
+  //   if (featureID === selectedFeature) {
+  //     return "pin-blue"
+  //   }
+  //   return "pin"
+  // }
  
   return (
     <View
@@ -77,9 +85,16 @@ export default function Index() {
           // compassFadeWhenNorth={true}
           rotateEnabled={false}
           scaleBarEnabled={false}
+          pitchEnabled={false}
           onPress={() => {
             setSelectedFeature(null);
             setPopupText('');
+
+            const resetFeatures = fireData.features.map((feature) => {
+              return { ...feature, properties: {...feature.properties, selected: false}}
+            })
+
+            setFireData({...fireData, features: resetFeatures});
           }}
           onDidFinishLoadingMap={async () => {
             // console.log('finished loading map');
@@ -144,28 +159,139 @@ export default function Index() {
 
           {/* add fire layer */}
 
-          {/* <ShapeSource 
+          {/* fire layer implementation with shapesource adapted from following resources
+            https://docs.mapbox.com/mapbox-gl-js/example/cluster/
+            https://rnmapbox.github.io/docs/examples/SymbolCircleLayer/Earthquakes
+          
+          */}
+
+          <Images>
+            <Image
+              name="pin"
+            >
+              <View
+                style={{
+                  width: 10,
+                  height: 10,
+                  backgroundColor: 'red'
+
+                }}
+              ></View>
+            </Image>
+            <Image
+              name="pin-blue"
+            >
+              <View
+                style={{
+                  width: 10,
+                  height: 10,
+                  backgroundColor: 'blue'
+
+                }}
+              ></View>
+            </Image>
+          </Images>
+
+
+          <ShapeSource 
             id="fires"
             // url="../../fireData.json"
             // shape={json}
             shape={fireData}
             cluster={true}
-            onPress={(event)=>{
+            clusterRadius={50}
+            onPress={async (event)=>{
               console.log(event.features)
               const feature = event.features[0]
               if ( feature.properties ) {
-                setPopupText(feature.properties.firename)
+                setPopupText(feature.properties?.firename);
+                setSelectedFeature(feature.id);
+
+                const newFeatures = fireData.features.map((feat) => {
+                  if ( feat.id == feature.id ) {
+                    return { ...feat, properties: {...feat.properties, selected: true} };
+                  } else {
+                    return { ...feat, properties: {...feat.properties, selected: false} };
+                  }
+                })
+
+                setFireData({...fireData, features: newFeatures});
               }
             }}
           >
-            <CircleLayer
-              id="exampleCircles"
-              sourceID="fires"
+
+            <SymbolLayer
+              id="pointCount"
+              filter={['has', 'point_count']}
+              style={{
+                textField: ['get', 'point_count_abbreviated'],
+                textFont: ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                visibility: currentFireLayerVis,
+              }}
+            />
+            
+            <CircleLayer 
+              id="clusteredPoints"
+              belowLayerID="pointCount"
+              filter={['has', 'point_count']}
+              style={{
+                circleColor: 'orange',
+                // circleColor: [
+                //   'case',
+                //   ['boolean', ['feature-state', 'click'], false],
+                //   'blue',
+                //   'red'
+                // ],
+                circleRadius: 10,
+                visibility: currentFireLayerVis,
+              }}
+            />
+
+            <SymbolLayer
+              id="singlePointCustom"
+              filter={['!', ['has', 'point_count']]}
+              style={{
+                iconImage: 'pin',
+                // iconImage: getImageName(['get', 'id'])
+                // iconImage: [
+                //   'case',
+                //   true,
+                //   'pin-blue',
+                //   'pin'
+                // ]
+                // iconSize: [
+                //   'case',
+                //   ['==', ['get', 'id'], 'activefires_current.fid-39e62338_19859b53c17_b5e'],
+                //   2,
+                //   1
+                // ]
+                iconSize: [
+                  'case',
+                  ['boolean', ['get', 'selected'], false],
+                  2,
+                  1
+                ],
+                visibility: currentFireLayerVis
+              }}
+            />
+
+            {/* <SymbolLayer 
+              id="selectedPoint"
+              filter={['==', ['get', 'id'], selectedFeature]}
+              style={{
+                iconImage: 'pin-blue'
+              }}
+            /> */}
+
+            {/* <CircleLayer
+              id="singlePoint"
+              // sourceID="fires"
+              filter={['!', ['has', 'point_count']]}
               style={{
                 // circleColor: 'red',
                 circleColor: [
                   'case',
-                  ['boolean', ['feature-state', 'click'], false],
+                  ['boolean', ['feature-state', 'clicked']],
                   'blue',
                   'red'
                 ],
@@ -184,7 +310,7 @@ export default function Index() {
             /> */}
             {/* <Images images={{icon: require('../../assets/images/favicon.png')}}/> */}
             {/* <FillLayer id="pointsFill" style={{fillColor: 'black',}}></FillLayer> */}
-          {/* </ShapeSource> */}
+          </ShapeSource>
 
           {/* <MarkerView coordinate={[-110, 51]}>
             <View style={styles.markerBackground}>
@@ -193,7 +319,7 @@ export default function Index() {
           </MarkerView> */}
 
           <>
-          {showCurrentFires ? 
+          {/* {showCurrentFires ? 
             fireData.features.map((feature) => {
               // don't do anything if geometry type is not point
               // other geometry types may not have a coordinates property
@@ -210,7 +336,7 @@ export default function Index() {
                 // return a marker to display
                 return ( 
                   <MarkerView key={feature.id} coordinate={feature.geometry.coordinates}>
-                    <TouchableOpacity
+                    <Pressable
                       style={{
                         backgroundColor: ( feature.id === selectedFeature ) ? 'green' : 'red',
                         borderRadius: '50%',
@@ -222,12 +348,12 @@ export default function Index() {
                         setSelectedFeature(feature.id);
                       }}
                     >
-                    </TouchableOpacity>
+                    </Pressable>
                   </MarkerView>
                 )
               }
             }) : null
-          }
+          } */}
           </>
 
         </MapView>
@@ -241,15 +367,15 @@ export default function Index() {
         <TouchableOpacity 
           style={styles.layerPanel}
           onPress={() => {
-            // // if layer currently visible then hide the layer
-            // if ( currentFireLayerVis === LayerVisibility.Visible) {
-            //   setCurrentFireLayerVis(LayerVisibility.Hidden);
-            //   return
-            // }
-            // // default behaviour is to make layer visible
-            // setCurrentFireLayerVis(LayerVisibility.Visible);
+            // if layer currently visible then hide the layer
+            if ( currentFireLayerVis === LayerVisibility.Visible) {
+              setCurrentFireLayerVis(LayerVisibility.Hidden);
+              return
+            }
+            // default behaviour is to make layer visible
+            setCurrentFireLayerVis(LayerVisibility.Visible);
 
-            setShowCurrentFires(!showCurrentFires);
+            // setShowCurrentFires(!showCurrentFires);
           }}
         >
           <Text>Current Fires</Text>
