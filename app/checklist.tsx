@@ -6,6 +6,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function Checklist() {
   const router = useRouter();
+  // get id parameter from route
   const { id } = useLocalSearchParams();
 
   const [listItems, setListItems] = useState<any>(null);
