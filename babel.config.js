@@ -6,7 +6,7 @@ module.exports = function (api) {
       // the lines below cause compile errors but are included when installing 
       // commented out for now
       // ['@babel/preset-env', {targets: {node: 'current'}}],
-      // '@babel/preset-typescript'
+      '@babel/preset-typescript'
     ],
   };
 };
