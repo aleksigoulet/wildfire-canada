@@ -159,10 +159,10 @@ export default function Index() {
 
           {/* add fire layer */}
 
-          {/* fire layer implementation with shapesource adapted from following resources
+          {/* 
+            fire layer implementation with shapesource adapted from following resources
             https://docs.mapbox.com/mapbox-gl-js/example/cluster/
             https://rnmapbox.github.io/docs/examples/SymbolCircleLayer/Earthquakes
-          
           */}
 
           <Images>
