@@ -8,5 +8,6 @@ module.exports = function (api) {
       // ['@babel/preset-env', {targets: {node: 'current'}}],
       '@babel/preset-typescript'
     ],
+    plugins: ['react-native-reanimated/plugin'],
   };
 };

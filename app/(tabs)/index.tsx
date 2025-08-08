@@ -1,5 +1,5 @@
-import { Text, View, StyleSheet, TouchableOpacity, Pressable, ActivityIndicator } from "react-native";
-import { useState, useRef } from "react";
+import { Text, View, StyleSheet, TouchableOpacity, Pressable, ActivityIndicator, Dimensions } from "react-native";
+import { useState, useRef, useCallback } from "react";
 import Mapbox, { 
   MapView, 
   LocationPuck, 
@@ -12,8 +12,18 @@ import Mapbox, {
   CircleLayer,
   MarkerView, 
 } from "@rnmapbox/maps";
+
+import {
+  BottomSheetBackdrop,
+  BottomSheetModal,
+  BottomSheetView
+} from '@gorhom/bottom-sheet';
+
 import { FeatureCollection } from 'geojson';
 import { fixCoords } from "@/utils/geoJsonFix";
+
+
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 // create a dummy fire data object 
 // used as a place holder until real data can be loaded
@@ -45,7 +55,6 @@ enum LayerVisibility {
   Hidden = 'none'
 }
 
-
 export default function Index() {
   const [ popupText, setPopupText ] = useState('no text');
   // state to keep track of fire layer visibility
@@ -56,14 +65,24 @@ export default function Index() {
   const [ selectedFeature, setSelectedFeature ] = useState<any>('');
   const [ showCurrentFires, setShowCurrentFires ] = useState<boolean>(true);
 
+  const [ layersPanelVisibility, setLayersPanelVisibility ] = useState<boolean>(false);
 
-  // const getImageName = (featureID: any) => {
-  //   console.log(featureID);
-  //   if (featureID === selectedFeature) {
-  //     return "pin-blue"
-  //   }
-  //   return "pin"
-  // }
+
+  // layers panel modal view definitions
+  // ref and callbacks are adapted from bottom-sheet docs
+
+  // ref used to access methods of the BottomSheetModal component
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // callbacks for layers panel
+  // adapted from documentation
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const handleCloseModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.close();
+  }, []);
  
   return (
     <View
@@ -363,23 +382,7 @@ export default function Index() {
           <Text>{ popupText }</Text>
         </View>
 
-        {/* button for layer visibility panel */}
-        <TouchableOpacity 
-          style={styles.layerPanel}
-          onPress={() => {
-            // if layer currently visible then hide the layer
-            if ( currentFireLayerVis === LayerVisibility.Visible) {
-              setCurrentFireLayerVis(LayerVisibility.Hidden);
-              return
-            }
-            // default behaviour is to make layer visible
-            setCurrentFireLayerVis(LayerVisibility.Visible);
-
-            // setShowCurrentFires(!showCurrentFires);
-          }}
-        >
-          <Text>Current Fires</Text>
-        </TouchableOpacity>
+        
 
         {/* activity indicator to indicate status of fire data download */}
         <ActivityIndicator 
@@ -388,7 +391,75 @@ export default function Index() {
           style={styles.activityIndicator}
           color='#000'
         />
-   
+
+        {/* Button to toggle layers panel */}
+        <Pressable 
+          style={styles.layerMenu}
+          // onPress={() => setLayersPanelVisibility(true)}
+          onPress={handlePresentModalPress}
+        >
+          <Ionicons name="layers-outline" size={24} color="black" />
+        </Pressable>
+
+        {/* Layers selection panel (modal) */}
+
+        {/* backdrop component implementation provided by user 
+            JerryVerhoeven on Jun 5, 2023 in following post
+            https://github.com/gorhom/react-native-bottom-sheet/issues/187
+        */}
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          // onChange={handleSheetChanges}
+          // backdropComponent={renderBackdrop}
+          handleStyle={{paddingBottom: 0}}
+          backdropComponent={ props => (
+            <BottomSheetBackdrop {...props}
+              opacity={0.5}
+              enableTouchThrough={false}
+              appearsOnIndex={0}
+              disappearsOnIndex={-1}
+              style={[{ backgroundColor: 'rgba(0, 0, 0, 1)' }, StyleSheet.absoluteFillObject]} 
+            />
+          )}
+        >
+          <BottomSheetView style={styles.modalContainer}>
+            <View style={styles.modalTitleRow}>
+              <Text style={styles.modalTitle}>Layers</Text>
+              <Pressable
+                onPress={handleCloseModalPress}
+              >
+                <Ionicons name="close" size={24} color="black" />
+              </Pressable>
+            </View>
+            {/* button for layer visibility panel */}
+            <Pressable 
+              style={[ styles.layerButton, 
+                currentFireLayerVis === LayerVisibility.Visible ? 
+                styles.layerButtonSelected :
+                null
+              ]}
+              onPress={() => {
+                // if layer currently visible then hide the layer
+                if ( currentFireLayerVis === LayerVisibility.Visible) {
+                  setCurrentFireLayerVis(LayerVisibility.Hidden);
+                  return
+                }
+                // default behaviour is to make layer visible
+                setCurrentFireLayerVis(LayerVisibility.Visible);
+              }}
+            >
+              <Text>Current Fires</Text>
+
+              {/* display checkmark if layer is visible */}
+              {
+                currentFireLayerVis === LayerVisibility.Visible ?
+                <Ionicons name="checkmark-sharp" size={16} color="black" /> :
+                null
+              }
+            </Pressable>
+          </BottomSheetView>
+        </BottomSheetModal>
+
       </View>
     </View>
   );
@@ -431,22 +502,57 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 16
   },
+  
 
-  layerPanel: {
-    backgroundColor: '#ccc',
-    justifyContent: 'center',
+  layerButton: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+
+  layerButtonSelected: {
+    backgroundColor: '#ccc',
+  },
+
+  layerMenu: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 25,
+    width: 50,
+    height: 50,
     position: 'absolute',
     top: 70,
     right: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
   },
 
   activityIndicator: {
     position: 'absolute',
     top: 120,
     right: 20
-  }
+  },
+
+  modalContainer: {
+    flex: 1,
+    alignItems: 'stretch',
+    paddingHorizontal: 20,
+    height: Dimensions.get('window').height * 0.45, 
+  },
+
+  modalTitleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+  },
 })
