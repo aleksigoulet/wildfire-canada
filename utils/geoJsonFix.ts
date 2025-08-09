@@ -2,6 +2,8 @@
 import { FeatureCollection, Feature, Geometry, GeoJsonProperties, Position } from 'geojson';
 import proj4 from 'proj4';
 
+// use of proj4js adapted from following article
+// https://omurbilgili.medium.com/unveiling-the-magic-of-proj4js-transforming-geospatial-data-with-ease-81724cf2d53a
 
 // define the two coordinate systems to convert between
 // define in global scope to prevent repetitive definitions when iterating

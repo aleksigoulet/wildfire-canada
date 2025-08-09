@@ -19,11 +19,16 @@ import {
   BottomSheetView
 } from '@gorhom/bottom-sheet';
 
+import LayerVisibilityButton from "@/components/layerVisibilityButton";
 import { FeatureCollection } from 'geojson';
 import { fixCoords } from "@/utils/geoJsonFix";
 
+// type imports
+import { OnPressEvent } from "@rnmapbox/maps/lib/typescript/src/types/OnPressEvent";
+import { LayerVisibility } from "@/types/commonTypes";
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 // create a dummy fire data object 
 // used as a place holder until real data can be loaded
@@ -49,35 +54,35 @@ const emptyFireData : FeatureCollection = {
 // API public access token
 Mapbox.setAccessToken(process.env.EXPO_PUBLIC_MB_TOKEN as string);
 
-// define ts enum for layer visibility state
-enum LayerVisibility {
-  Visible = 'visible',
-  Hidden = 'none'
-}
 
 export default function Index() {
   const [ popupText, setPopupText ] = useState('no text');
   // state to keep track of fire layer visibility
   const [ currentFireLayerVis, setCurrentFireLayerVis ] = useState<LayerVisibility>(LayerVisibility.Visible);
+
+  // state for fire perimeter layer
   const [ perimeterLayerVis, setPerimeterLayerVis ] = useState<LayerVisibility>(LayerVisibility.Hidden);
+
+  // states for map data
   const [ fireData, setFireData ] = useState<FeatureCollection>(emptyFireData);
   const [ firePerimeterData, setFirePerimeterData ] = useState<FeatureCollection>(emptyFireData);
+
+  // state for activity indicator when downloading
   const [ fireDataDownloadActivity, setFireDataDownloadActivity ] = useState<boolean>(false);
 
+  // state to keep track of selected fire
   const [ selectedFeature, setSelectedFeature ] = useState<any>('');
-  const [ showCurrentFires, setShowCurrentFires ] = useState<boolean>(true);
-
-  const [ layersPanelVisibility, setLayersPanelVisibility ] = useState<boolean>(false);
 
 
-  // layers panel modal view definitions
-  // ref and callbacks are adapted from bottom-sheet docs
+  // LAYERS PANEL MODAL VIEW DEFINITIONS //
+
+  // ref and callbacks are adapted from bottom-sheet library docs
 
   // ref used to access methods of the BottomSheetModal component
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  // callbacks for layers panel
-  // adapted from documentation
+  // callbacks for layers panel visibility
+  // adapted from bottom-sheet documentation
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
@@ -85,6 +90,107 @@ export default function Index() {
   const handleCloseModalPress = useCallback(() => {
     bottomSheetModalRef.current?.close();
   }, []);
+
+
+  // CALLBACKS //
+
+  const handleDismissSelectedFire = () => {
+    // update appropriate states
+    setSelectedFeature(null);
+    setPopupText('');
+
+    // update the fire data feature collection so that 
+    // the selected property is false for every feature
+    const resetFeatures = fireData.features.map((feature) => {
+      return { ...feature, properties: {...feature.properties, selected: false}}
+    })
+
+    setFireData({...fireData, features: resetFeatures});
+  }
+
+  const handleSelectingFire = async ( event: OnPressEvent ) => {
+      console.log(event.features);
+      const feature = event.features[0]
+      if ( feature.properties ) {
+        setPopupText(feature.properties?.firename);
+        setSelectedFeature(feature.id);
+
+        const newFeatures = fireData.features.map((feat) => {
+          if ( feat.id == feature.id ) {
+            return { ...feat, properties: {...feat.properties, selected: true} };
+          } else {
+            return { ...feat, properties: {...feat.properties, selected: false} };
+          }
+        })
+
+        setFireData({...fireData, features: newFeatures});
+      }
+  }
+
+  const handleDownloadMapData = async () => {
+    // show an activity indicator for the data downloading
+    setFireDataDownloadActivity(true);
+
+    // fetch and store current fire data
+    fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=activefires_current&maxFeatures=100000&outputFormat=JSON')
+    .then(response => response.json())
+    .then((rawJson) => {
+      // CFWIS datamart coordinates are in wrong format
+      // this fixes the coordinates
+      const json : FeatureCollection = fixCoords( rawJson );
+
+      // udpate the fire data
+      setFireData(json);
+
+      // stop the activity indicator
+      setFireDataDownloadActivity(false);
+    })
+    .catch((error) => {
+      // need to have locally stored data in case service not available
+      console.error(
+        "Error downloading fire data: " + 
+        error + 
+        " \n   ... reverting to locally stored data");
+
+      // import fire data - currently stored locally
+      const rawJson : FeatureCollection = require('../../assets/fireData.json');
+
+      // CFWIS datamart coordinates are in wrong format
+      // this fixes the coordinates
+      const json : FeatureCollection = fixCoords( rawJson );
+
+      // update the fire data
+      setFireData(json);
+
+      // stop the activity indicator
+      setFireDataDownloadActivity(false);
+    })
+
+
+    // fetch and store current fire perimeter data
+    fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=m3_polygons_current&maxFeatures=100000&outputFormat=JSON')
+    .then(response => response.json())
+    .then((rawJson) => {
+      // CFWIS datamart coordinates are in wrong format
+      // this fixes the coordinates
+      const json : FeatureCollection = fixCoords( rawJson );
+
+      // set the fire perimeter data
+      setFirePerimeterData(json);
+    })
+    .catch((error) => {
+      // need to have locally stored data in case service not available
+      console.error(
+        "Error downloading fire perimeter data: " + 
+        error + 
+        " \n   ... no locally stored data"
+      );
+
+      // display an alert to the user
+      alert('Error downloading Fire Perimeter Data.');
+    })
+  }
+
  
   return (
     <View
@@ -102,97 +208,11 @@ export default function Index() {
           projection="mercator"
           // change the style of the map
           // styleURL="mapbox://styles/mapbox/outdoors-v12"
-          // compassEnabled={true}
-          // compassFadeWhenNorth={true}
           rotateEnabled={false}
           scaleBarEnabled={false}
           pitchEnabled={false}
-          onPress={() => {
-            setSelectedFeature(null);
-            setPopupText('');
-
-            const resetFeatures = fireData.features.map((feature) => {
-              return { ...feature, properties: {...feature.properties, selected: false}}
-            })
-
-            setFireData({...fireData, features: resetFeatures});
-          }}
-          onDidFinishLoadingMap={async () => {
-            // console.log('finished loading map');
-            // console.log(fireData);
-
-            // show an activity indicator for the data downloading
-            setFireDataDownloadActivity(true);
-
-
-            fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=activefires_current&maxFeatures=100000&outputFormat=JSON')
-            .then(response => response.json())
-            .then((rawJson) => {
-              // CFWIS datamart coordinates are in wrong format
-              // this fixes the coordinates
-              const json : FeatureCollection = fixCoords( rawJson );
-              setFireData(json);
-
-              // stop the activity indicator
-              setFireDataDownloadActivity(false);
-              // console.log(json);
-            })
-            .catch((error) => {
-              // need to have locally stored data in case service not available
-              console.error(
-                "Error downloading fire data: " + 
-                error + 
-                " \n   ... reverting to locally stored data");
-
-              // import fire data - currently stored locally
-              const rawJson : FeatureCollection = require('../../assets/fireData.json');
-
-              // CFWIS datamart coordinates are in wrong format
-              // this fixes the coordinates
-              const json : FeatureCollection = fixCoords( rawJson );
-
-              setFireData(json);
-
-              // stop the activity indicator
-              setFireDataDownloadActivity(false);
-            })
-
-
-            fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=m3_polygons_current&maxFeatures=100000&outputFormat=JSON')
-            .then(response => response.json())
-            .then((rawJson) => {
-              // CFWIS datamart coordinates are in wrong format
-              // this fixes the coordinates
-              const json : FeatureCollection = fixCoords( rawJson );
-              setFirePerimeterData(json);
-
-              // stop the activity indicator
-              // setFireDataDownloadActivity(false);
-              // console.log(json);
-            })
-            .catch((error) => {
-              // need to have locally stored data in case service not available
-              console.error(
-                "Error downloading fire perimeter data: " + 
-                error + 
-                " \n   ... no locally stored data");
-
-              alert('Error downloading Fire Perimeter Data.');
-
-              // import fire data - currently stored locally
-              // const rawJson : FeatureCollection = require('../../assets/fireData.json');
-
-              // CFWIS datamart coordinates are in wrong format
-              // this fixes the coordinates
-              // const json : FeatureCollection = fixCoords( rawJson );
-
-              // setFireData(json);
-
-              // stop the activity indicator
-              // setFireDataDownloadActivity(false);
-            })
-
-          }}
+          onPress={ handleDismissSelectedFire }
+          onDidFinishLoadingMap={ handleDownloadMapData }
         >
           {/* show the user's location */}
           <LocationPuck
@@ -252,29 +272,10 @@ export default function Index() {
 
           <ShapeSource 
             id="fires"
-            // url="../../fireData.json"
-            // shape={json}
             shape={fireData}
             cluster={true}
             clusterRadius={50}
-            onPress={async (event)=>{
-              console.log(event.features)
-              const feature = event.features[0]
-              if ( feature.properties ) {
-                setPopupText(feature.properties?.firename);
-                setSelectedFeature(feature.id);
-
-                const newFeatures = fireData.features.map((feat) => {
-                  if ( feat.id == feature.id ) {
-                    return { ...feat, properties: {...feat.properties, selected: true} };
-                  } else {
-                    return { ...feat, properties: {...feat.properties, selected: false} };
-                  }
-                })
-
-                setFireData({...fireData, features: newFeatures});
-              }
-            }}
+            onPress={ handleSelectingFire }
           >
 
             <SymbolLayer
@@ -306,6 +307,7 @@ export default function Index() {
 
             <SymbolLayer
               id="singlePointCustom"
+              belowLayerID="clusteredPoints"
               filter={['!', ['has', 'point_count']]}
               style={{
                 iconImage: 'pin',
@@ -332,41 +334,6 @@ export default function Index() {
               }}
             />
 
-            {/* <SymbolLayer 
-              id="selectedPoint"
-              filter={['==', ['get', 'id'], selectedFeature]}
-              style={{
-                iconImage: 'pin-blue'
-              }}
-            /> */}
-
-            {/* <CircleLayer
-              id="singlePoint"
-              // sourceID="fires"
-              filter={['!', ['has', 'point_count']]}
-              style={{
-                // circleColor: 'red',
-                circleColor: [
-                  'case',
-                  ['boolean', ['feature-state', 'clicked']],
-                  'blue',
-                  'red'
-                ],
-                visibility: currentFireLayerVis,
-              }}
-            /> */}
-
-            {/* <CircleLayer
-              id="selectedCircle"
-              sourceID="fires"
-              filter={["has", 'id']}
-              style={{
-                circleColor: 'green',
-                visibility: currentFireLayerVis,
-              }}
-            /> */}
-            {/* <Images images={{icon: require('../../assets/images/favicon.png')}}/> */}
-            {/* <FillLayer id="pointsFill" style={{fillColor: 'black',}}></FillLayer> */}
           </ShapeSource>
 
           <ShapeSource
@@ -375,60 +342,15 @@ export default function Index() {
           >
             <FillLayer
               id="perimeters"
+              belowLayerID="singlePointCustom"
               style={{
                 visibility: perimeterLayerVis,
                 fillColor: 'red',
                 fillOpacity: 0.5,
                 fillOutlineColor: 'green'
               }}
-            >
-
-            </FillLayer>
+            />
           </ShapeSource>
-
-          {/* <MarkerView coordinate={[-110, 51]}>
-            <View style={styles.markerBackground}>
-              <Text>This is a view</Text>
-            </View>
-          </MarkerView> */}
-
-          <>
-          {/* {showCurrentFires ? 
-            fireData.features.map((feature) => {
-              // don't do anything if geometry type is not point
-              // other geometry types may not have a coordinates property
-              // adapted from solution by user Shaun Luttin:
-              // https://stackoverflow.com/questions/55621480/cant-access-coordinates-member-of-geojson-feature-collection
-              if (feature.geometry.type === 'Point') {
-                // if coordinates do not exist, then don't do anything
-                const [lon, lat] = feature.geometry.coordinates;
-
-                if (lat > 90 || lat < -90 || lon > 180 || lon < -180) {
-                  return;
-                }
-
-                // return a marker to display
-                return ( 
-                  <MarkerView key={feature.id} coordinate={feature.geometry.coordinates}>
-                    <Pressable
-                      style={{
-                        backgroundColor: ( feature.id === selectedFeature ) ? 'green' : 'red',
-                        borderRadius: '50%',
-                        height: 10,
-                        width: 10,
-                      }}
-                      onPress={() => {
-                        setPopupText(feature.properties?.firename);
-                        setSelectedFeature(feature.id);
-                      }}
-                    >
-                    </Pressable>
-                  </MarkerView>
-                )
-              }
-            }) : null
-          } */}
-          </>
 
         </MapView>
 
@@ -451,7 +373,7 @@ export default function Index() {
         <Pressable 
           style={styles.layerMenu}
           // onPress={() => setLayersPanelVisibility(true)}
-          onPress={handlePresentModalPress}
+          onPress={ handlePresentModalPress }
         >
           <Ionicons name="layers-outline" size={24} color="black" />
         </Pressable>
@@ -481,62 +403,25 @@ export default function Index() {
             <View style={styles.modalTitleRow}>
               <Text style={styles.modalTitle}>Layers</Text>
               <Pressable
-                onPress={handleCloseModalPress}
+                onPress={ handleCloseModalPress }
               >
                 <Ionicons name="close" size={24} color="black" />
               </Pressable>
             </View>
-            {/* button for layer visibility panel */}
-            <Pressable 
-              style={[ styles.layerButton, 
-                currentFireLayerVis === LayerVisibility.Visible ? 
-                styles.layerButtonSelected :
-                null
-              ]}
-              onPress={() => {
-                // if layer currently visible then hide the layer
-                if ( currentFireLayerVis === LayerVisibility.Visible) {
-                  setCurrentFireLayerVis(LayerVisibility.Hidden);
-                  return
-                }
-                // default behaviour is to make layer visible
-                setCurrentFireLayerVis(LayerVisibility.Visible);
-              }}
-            >
-              <Text>Current Fires</Text>
 
-              {/* display checkmark if layer is visible */}
-              {
-                currentFireLayerVis === LayerVisibility.Visible ?
-                <Ionicons name="checkmark-sharp" size={16} color="black" /> :
-                null
-              }
-            </Pressable>
-            <Pressable 
-              style={[ styles.layerButton, 
-                perimeterLayerVis === LayerVisibility.Visible ? 
-                styles.layerButtonSelected :
-                null
-              ]}
-              onPress={() => {
-                // if layer currently visible then hide the layer
-                if ( perimeterLayerVis === LayerVisibility.Visible) {
-                  setPerimeterLayerVis(LayerVisibility.Hidden);
-                  return
-                }
-                // default behaviour is to make layer visible
-                setPerimeterLayerVis(LayerVisibility.Visible);
-              }}
-            >
-              <Text>Fire Perimeters</Text>
+            {/* buttons to toggle layer visibility */}
+            <LayerVisibilityButton 
+              title="Current Fires"
+              state={ currentFireLayerVis } 
+              setter={ setCurrentFireLayerVis }
+            />
 
-              {/* display checkmark if layer is visible */}
-              {
-                perimeterLayerVis === LayerVisibility.Visible ?
-                <Ionicons name="checkmark-sharp" size={16} color="black" /> :
-                null
-              }
-            </Pressable>
+            <LayerVisibilityButton 
+              title="Fire Perimeters"
+              state={ perimeterLayerVis } 
+              setter={ setPerimeterLayerVis }
+            />
+
           </BottomSheetView>
         </BottomSheetModal>
 
