@@ -35,7 +35,7 @@ const emptyFireData : FeatureCollection = {
       "id": "empty",
       "geometry": {
         "type": "Point",
-        // coordinate does not exist 
+        // coordinate in wrong format
         "coordinates": [-563422.48988806, -456587.33083712]
       },
       "properties": {
