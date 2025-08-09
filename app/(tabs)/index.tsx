@@ -59,7 +59,9 @@ export default function Index() {
   const [ popupText, setPopupText ] = useState('no text');
   // state to keep track of fire layer visibility
   const [ currentFireLayerVis, setCurrentFireLayerVis ] = useState<LayerVisibility>(LayerVisibility.Visible);
+  const [ perimeterLayerVis, setPerimeterLayerVis ] = useState<LayerVisibility>(LayerVisibility.Hidden);
   const [ fireData, setFireData ] = useState<FeatureCollection>(emptyFireData);
+  const [ firePerimeterData, setFirePerimeterData ] = useState<FeatureCollection>(emptyFireData);
   const [ fireDataDownloadActivity, setFireDataDownloadActivity ] = useState<boolean>(false);
 
   const [ selectedFeature, setSelectedFeature ] = useState<any>('');
@@ -154,6 +156,42 @@ export default function Index() {
               // stop the activity indicator
               setFireDataDownloadActivity(false);
             })
+
+
+            fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=m3_polygons_current&maxFeatures=100000&outputFormat=JSON')
+            .then(response => response.json())
+            .then((rawJson) => {
+              // CFWIS datamart coordinates are in wrong format
+              // this fixes the coordinates
+              const json : FeatureCollection = fixCoords( rawJson );
+              setFirePerimeterData(json);
+
+              // stop the activity indicator
+              // setFireDataDownloadActivity(false);
+              // console.log(json);
+            })
+            .catch((error) => {
+              // need to have locally stored data in case service not available
+              console.error(
+                "Error downloading fire perimeter data: " + 
+                error + 
+                " \n   ... no locally stored data");
+
+              alert('Error downloading Fire Perimeter Data.');
+
+              // import fire data - currently stored locally
+              // const rawJson : FeatureCollection = require('../../assets/fireData.json');
+
+              // CFWIS datamart coordinates are in wrong format
+              // this fixes the coordinates
+              // const json : FeatureCollection = fixCoords( rawJson );
+
+              // setFireData(json);
+
+              // stop the activity indicator
+              // setFireDataDownloadActivity(false);
+            })
+
           }}
         >
           {/* show the user's location */}
@@ -331,6 +369,23 @@ export default function Index() {
             {/* <FillLayer id="pointsFill" style={{fillColor: 'black',}}></FillLayer> */}
           </ShapeSource>
 
+          <ShapeSource
+            id="firePerimeters"
+            shape={firePerimeterData}
+          >
+            <FillLayer
+              id="perimeters"
+              style={{
+                visibility: perimeterLayerVis,
+                fillColor: 'red',
+                fillOpacity: 0.5,
+                fillOutlineColor: 'green'
+              }}
+            >
+
+            </FillLayer>
+          </ShapeSource>
+
           {/* <MarkerView coordinate={[-110, 51]}>
             <View style={styles.markerBackground}>
               <Text>This is a view</Text>
@@ -457,6 +512,31 @@ export default function Index() {
                 null
               }
             </Pressable>
+            <Pressable 
+              style={[ styles.layerButton, 
+                perimeterLayerVis === LayerVisibility.Visible ? 
+                styles.layerButtonSelected :
+                null
+              ]}
+              onPress={() => {
+                // if layer currently visible then hide the layer
+                if ( perimeterLayerVis === LayerVisibility.Visible) {
+                  setPerimeterLayerVis(LayerVisibility.Hidden);
+                  return
+                }
+                // default behaviour is to make layer visible
+                setPerimeterLayerVis(LayerVisibility.Visible);
+              }}
+            >
+              <Text>Fire Perimeters</Text>
+
+              {/* display checkmark if layer is visible */}
+              {
+                perimeterLayerVis === LayerVisibility.Visible ?
+                <Ionicons name="checkmark-sharp" size={16} color="black" /> :
+                null
+              }
+            </Pressable>
           </BottomSheetView>
         </BottomSheetModal>
 
@@ -513,6 +593,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 20,
     paddingVertical: 10,
+    marginBottom: 16
   },
 
   layerButtonSelected: {
