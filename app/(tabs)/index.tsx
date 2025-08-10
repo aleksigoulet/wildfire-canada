@@ -54,9 +54,17 @@ const emptyFireData : FeatureCollection = {
 // API public access token
 Mapbox.setAccessToken(process.env.EXPO_PUBLIC_MB_TOKEN as string);
 
+type FireDetails = {
+  firename: string;
+  hectares: string;
+  responseType: string;
+  controlStage: string;
+  startDate: string;
+}
+
 
 export default function Index() {
-  const [ popupText, setPopupText ] = useState('no text');
+  const [ popupText, setPopupText ] = useState<FireDetails | null>(null);
   // state to keep track of fire layer visibility
   const [ currentFireLayerVis, setCurrentFireLayerVis ] = useState<LayerVisibility>(LayerVisibility.Visible);
 
@@ -97,7 +105,7 @@ export default function Index() {
   const handleDismissSelectedFire = () => {
     // update appropriate states
     setSelectedFeature(null);
-    setPopupText('');
+    setPopupText(null);
 
     // update the fire data feature collection so that 
     // the selected property is false for every feature
@@ -112,7 +120,15 @@ export default function Index() {
       console.log(event.features);
       const feature = event.features[0]
       if ( feature.properties ) {
-        setPopupText(feature.properties?.firename);
+        const fireDetails : FireDetails = {
+          firename: feature.properties.firename,
+          hectares: feature.properties.hectares,
+          responseType: feature.properties.response_type,
+          controlStage: feature.properties.stage_of_control,
+          startDate: feature.properties.startdate
+        }
+
+        setPopupText(fireDetails);
         setSelectedFeature(feature.id);
 
         const newFeatures = fireData.features.map((feat) => {
@@ -354,9 +370,29 @@ export default function Index() {
 
         </MapView>
 
+
+        {/* fire info panel */}
         <View style={[styles.popupContainer, { display: selectedFeature ? 'flex' : 'none'}]}>
-          <Text style={styles.popupTitle}>Fire Name</Text>
-          <Text>{ popupText }</Text>
+          <View style={styles.popupRow}>
+            <Text style={styles.popupTitle}>Fire Name:</Text>
+            <Text style={styles.detailsText}>{ popupText?.firename }</Text>
+          </View>
+          <View style={styles.popupRow}>
+            <Text style={styles.popupTitle}>Stage of Control:</Text>
+            <Text style={styles.detailsText}>{ popupText?.controlStage }</Text>
+          </View>
+          <View style={styles.popupRow}>
+            <Text style={styles.popupTitle}>Response Type:</Text>
+            <Text style={styles.detailsText}>{ popupText?.responseType }</Text>
+          </View>
+          <View style={styles.popupRow}>
+            <Text style={styles.popupTitle}>Start Date:</Text>
+            <Text style={styles.detailsText}>{ popupText?.startDate }</Text>
+          </View>
+          <View style={styles.popupRow}>
+            <Text style={styles.popupTitle}>Hectares:</Text>
+            <Text style={styles.detailsText}>{ popupText?.hectares }</Text>
+          </View>
         </View>
 
         
@@ -452,22 +488,32 @@ const styles = StyleSheet.create({
 
   popupContainer: {
     width: "90%",
-    height: 100,
+    height: 150,
     backgroundColor: '#ccc',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     borderRadius: 20,
     position: 'absolute',
     bottom: 20,
-    left: 20
+    left: 20,
+    padding: 24
+  },
+
+  popupRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10
   },
 
   popupTitle: {
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontWeight: '500',
+    // marginBottom: 10,
     fontSize: 16
   },
   
+  detailsText: {
+    fontSize: 16,
+  },
 
   layerButton: {
     borderColor: 'gray',
