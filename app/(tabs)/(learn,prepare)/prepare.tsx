@@ -1,6 +1,5 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
 import { Link } from "expo-router";
-import { removeValue } from "@/utils/storageHandlers";
 import ProfileHeader from "@/components/profileHeader";
 
 import { useContext } from 'react';
@@ -17,9 +16,6 @@ export default function Prepare() {
 
   // badges context
   const { getNumberCompletedBadges } = useContext(BadgesContext);
-
-  // for testing only
-  // removeValue('checklists');
 
 
   return (

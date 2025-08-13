@@ -32,6 +32,7 @@ async function removeValue(key: string) {
   } catch(e) {
     // remove error
     console.error('AsyncStorage: error removing value: \n' + e);
+    throw e;
   }
 
   console.log('Removed item at ' + key);

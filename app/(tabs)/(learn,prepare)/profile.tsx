@@ -4,8 +4,6 @@ import { useContext } from "react";
 import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
 
-import { removeValue } from "@/utils/storageHandlers";
-
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
@@ -14,9 +12,6 @@ export default function Profile() {
   const { points } = useContext(PointsContext);
 
   const { badges, getNumberCompletedBadges } = useContext(BadgesContext);
-
-  // testing only
-  // removeValue( 'badges' );
 
   return (
     <View style={styles.container}>
