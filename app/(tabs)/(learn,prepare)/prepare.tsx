@@ -5,10 +5,14 @@ import ProfileHeader from "@/components/profileHeader";
 
 import { useContext } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
+import { PointsContext } from "@/context/PointsContext";
 
 export default function Prepare() {
   // Use the checklist context
   const { checklists, setChecklists } = useContext(ChecklistContext);
+
+  // points context
+  const { points, setPoints } = useContext(PointsContext);
 
   // for testing only
   // removeValue('checklists');
@@ -16,7 +20,7 @@ export default function Prepare() {
 
   return (
     <View style={{flex: 1}}>
-      <ProfileHeader />
+      <ProfileHeader points={points}/>
       <View style={styles.contentContainer}>
 
         <Text style={styles.titleText}>Remaining Tasks</Text>

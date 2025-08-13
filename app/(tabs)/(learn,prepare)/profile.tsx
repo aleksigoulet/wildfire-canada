@@ -1,11 +1,14 @@
 import { Text, StyleSheet, View, ScrollView } from "react-native"
 import { Image } from "expo-image";
+import { useContext } from "react";
+import { PointsContext } from "@/context/PointsContext";
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 
 export default function Profile() {
+  const { points, setPoints } = useContext(PointsContext);
 
   const badges = [
     {
@@ -54,7 +57,7 @@ export default function Profile() {
         <View style={[styles.overviewContainer, {marginTop: 25}]}>
           <View style={styles.scoreSection}>
             <View style={styles.scoreBox}>
-              <Text>250</Text>
+              <Text>{ points }</Text>
             </View>
             <Text style={styles.scoreTitle}>Prepardness Score</Text>
           </View>

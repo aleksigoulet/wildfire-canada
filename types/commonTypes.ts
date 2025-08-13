@@ -1,7 +1,16 @@
+import { ReactNode } from "react";
+
 // define ts enum for MapBox layer visibility state
 enum LayerVisibility {
   Visible = 'visible',
   Hidden = 'none'
+}
+
+// Type for props passed to context providers.
+// Use of ReactNode adapted from following blog post:
+// https://blog.logrocket.com/react-children-prop-typescript/
+type ContextProviderProps = {
+  children: ReactNode;
 }
 
 // types for checklist collection
@@ -24,4 +33,4 @@ type ChecklistItem = {
   checked: boolean;
 }
 
-export { LayerVisibility, ChecklistsCollection }
+export { LayerVisibility, ChecklistsCollection, ContextProviderProps }

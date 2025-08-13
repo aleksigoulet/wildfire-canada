@@ -6,12 +6,16 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { useContext } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
+import { PointsContext } from "@/context/PointsContext";
 
 export default function Checklist() {
   const router = useRouter();
 
   // get id parameter from route
   const { id } = useLocalSearchParams();
+
+  // points context
+  const { points, setPoints } = useContext(PointsContext);
 
   // get the checklist context.
   // needed so that Prepare view can be correctly updated when completing a checklist.
@@ -139,6 +143,7 @@ export default function Checklist() {
 
             // if all checkboxes have been checked,
             // then update checklist completion status
+            // and add points
             if (allCheckboxesTrue) {
               console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
 
@@ -151,6 +156,17 @@ export default function Checklist() {
               }              
               
               setCurrentChecklist(updatedChecklist);
+
+              // set the new value for poitns
+              const newPoints = points + 10
+              
+              // store new points value in local storage
+              // needs to be done before updating context for correct behaviour
+              storeObjectData('points', newPoints)
+
+              // update points context
+              setPoints(newPoints);
+
 
               // save the checklist with updated state and navigate back to Prepare view.
               handleSaveOnClose(updatedChecklist);

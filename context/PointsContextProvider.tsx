@@ -1,9 +1,7 @@
 import { useState, useEffect, useCallback, ReactNode } from "react";
-import { ChecklistContext } from "./ChecklistContext";
+import { PointsContext } from "./PointsContext";
 import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
-import { checklists as masterChecklists } from "@/assets/checklists/masterChecklists";
-
-import { ChecklistsCollection, ContextProviderProps } from "@/types/commonTypes";
+import { ContextProviderProps } from "@/types/commonTypes";
 
 /* 
 
@@ -29,38 +27,39 @@ How to implement correct types
 // Need to define a context provider so that data can be loaded asynchronously 
 // into the context from local storage (using AsyncStorage).
 
-export default function ChecklistContextProvider({ children }: ContextProviderProps) {
-  const [ checklistContextData, setChecklistContextData ] = useState<ChecklistsCollection>(masterChecklists);
+export default function PointsContextProvider({ children }: ContextProviderProps) {
+  const [ points, setPoints ] = useState<number>(0);
 
-  const getStoredChecklistData = useCallback(async () => {
-    const data = await getObjectData('checklists');
+  const getStoredPoints = useCallback(async () => {
+    const data = await getObjectData('points');
 
     // set the checklist state to the stored checklist object
-    setChecklistContextData(data);
+    setPoints(data);
 
     // if no checklists stored, then create a checklist object from the master checklists
-    if (!data) {
-      console.log('ChecklistContextProvider: checklists does not exist yet, creating...')
-      storeObjectData('checklists', masterChecklists);
-      setChecklistContextData(masterChecklists);
+    // need to use null explicitly as 0 is falsy
+    if (data == null) {
+      console.log('PointsContextProvider: no stored value for points, creating now...')
+      storeObjectData('points', 0);
+      setPoints(0);
     }
       
   }, [])
 
   useEffect(() => {
-    getStoredChecklistData();
+    getStoredPoints();
   }, [])
 
 
   // adapted from resources listed under "updating the context"
   const contextValue = {
-    checklists: checklistContextData,
-    setChecklists: setChecklistContextData
+    points: points,
+    setPoints: setPoints
   }
 
   return (
-    <ChecklistContext.Provider value={contextValue}>
+    <PointsContext.Provider value={contextValue}>
       { children }
-    </ChecklistContext.Provider>
+    </PointsContext.Provider>
   )
 }

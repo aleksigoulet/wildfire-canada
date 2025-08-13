@@ -1,9 +1,14 @@
 import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView } from "react-native";
+import { useContext } from "react";
 import LessonMarker from "@/components/lessonMarker";
 import ProfileHeader from "@/components/profileHeader";
 import lessons from "@/assets/lessons";
 
+import { PointsContext } from "@/context/PointsContext";
+
 export default function Learn() {
+  // points context
+  const { points, setPoints } = useContext(PointsContext);
 
   return (
     
@@ -15,7 +20,7 @@ export default function Learn() {
       }}
     >
       
-      <ProfileHeader />
+      <ProfileHeader points={points}/>
       
       <FlatList
         data={lessons}
