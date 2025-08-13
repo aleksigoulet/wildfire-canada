@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import ProfileHeader from "@/components/profileHeader";
 
@@ -21,7 +21,7 @@ export default function Prepare() {
   return (
     <View style={{flex: 1}}>
       <ProfileHeader points={points}  badges={getNumberCompletedBadges()}/>
-      <View style={styles.contentContainer}>
+      <ScrollView style={styles.contentContainer}>
 
         <Text style={styles.titleText}>Remaining Tasks</Text>
 
@@ -66,7 +66,7 @@ export default function Prepare() {
           null
         }
 
-      </View>
+      </ScrollView>
     </View>
   );
 }
