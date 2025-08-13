@@ -42,4 +42,15 @@ type Badge = {
   complete: boolean;
 }
 
-export { LayerVisibility, ChecklistsCollection, ContextProviderProps, BadgesCollection, Badge }
+type Profile = {
+  username: string;
+}
+
+export { 
+  LayerVisibility, 
+  ChecklistsCollection, 
+  ContextProviderProps, 
+  BadgesCollection, 
+  Badge,
+  Profile 
+}

@@ -27,7 +27,7 @@ export default function ProfileHeader(props: any) {
               }}
             />
             <View>
-              <Text>Username</Text>
+              <Text>{ props.username }</Text>
               <Text>Beginner</Text>
             </View>
           </View>

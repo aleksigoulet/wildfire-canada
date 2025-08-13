@@ -3,6 +3,7 @@ import { Image } from "expo-image";
 import { useContext } from "react";
 import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
+import { ProfileContext } from "@/context/ProfileContext";
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
@@ -12,6 +13,9 @@ export default function Profile() {
   const { points } = useContext(PointsContext);
 
   const { badges, getNumberCompletedBadges } = useContext(BadgesContext);
+
+  // profile context
+  const { profile } = useContext(ProfileContext);
 
   return (
     <View style={styles.container}>
@@ -23,7 +27,7 @@ export default function Profile() {
             style={styles.profileImage}
           />
           <View>
-            <Text style={styles.nameText}>John Doe</Text>
+            <Text style={styles.nameText}>{ profile?.username }</Text>
             <Text>Beginner</Text>
           </View>
         </View>

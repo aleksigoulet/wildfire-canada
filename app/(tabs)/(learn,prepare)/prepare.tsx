@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
 import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
+import { ProfileContext } from "@/context/ProfileContext";
 
 export default function Prepare() {
   // Use the checklist context
@@ -17,10 +18,17 @@ export default function Prepare() {
   // badges context
   const { getNumberCompletedBadges } = useContext(BadgesContext);
 
+  // profile context
+  const { profile } = useContext(ProfileContext);
+
 
   return (
     <View style={{flex: 1}}>
-      <ProfileHeader points={points}  badges={getNumberCompletedBadges()}/>
+      <ProfileHeader 
+        points={points}  
+        badges={getNumberCompletedBadges()}
+        username={profile?.username}
+      />
       <ScrollView style={styles.contentContainer}>
 
         <Text style={styles.titleText}>Remaining Tasks</Text>

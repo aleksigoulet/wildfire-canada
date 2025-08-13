@@ -1,8 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
+import ProfileContextProvider from '@/context/ProfileContextProvider';
 
 export default function TabLayout() {
   return (
+    <ProfileContextProvider>
     <Tabs screenOptions={{ tabBarActiveTintColor: 'red' }}>
       <Tabs.Screen
         name="index"
@@ -49,17 +51,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
         }}
       />
-      {/* <Tabs.Screen 
-        name="profile" 
-        options={{
-          // animation: 'slide_from_bottom',
-          // animation: 'fade',
-          // headerShown: false,
-          headerTitle: '',
-          // headerBackTitle: 'Back',
-          href: null,
-        }}
-      /> */}
     </Tabs>
+    </ProfileContextProvider>
   );
 }
