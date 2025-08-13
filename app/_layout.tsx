@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import ChecklistContextProvider from "@/context/ChecklistContextProvider";
 
 export default function RootLayout() {
   return (
@@ -10,24 +11,26 @@ export default function RootLayout() {
     // https://github.com/gorhom/react-native-bottom-sheet/issues/249
     <GestureHandlerRootView>
       <BottomSheetModalProvider>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen 
-            name="lesson" 
-            options={{
-              animation: 'slide_from_bottom',
-              headerShown: false
-            }}
-          />
-          <Stack.Screen 
-            name="checklist" 
-            options={{
-              animation: 'slide_from_bottom',
-              // animation: 'fade',
-              headerShown: false
-            }}
-          />
-        </Stack>
+        <ChecklistContextProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen 
+              name="lesson" 
+              options={{
+                animation: 'slide_from_bottom',
+                headerShown: false
+              }}
+            />
+            <Stack.Screen 
+              name="checklist" 
+              options={{
+                animation: 'slide_from_bottom',
+                // animation: 'fade',
+                headerShown: false
+              }}
+            />
+          </Stack>
+        </ChecklistContextProvider>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
   );

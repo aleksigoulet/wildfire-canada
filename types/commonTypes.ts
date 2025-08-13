@@ -4,5 +4,24 @@ enum LayerVisibility {
   Hidden = 'none'
 }
 
+// types for checklist collection
+type ChecklistsCollection = {
+  metadata: {
+    checklistName: string;
+    checklistDisplayText: string;
+    completionStatus: boolean;
+    id: number;
+  },
+  content: {
+    introMessage: string;
+    items: ChecklistItem[]
+  }
+}[]
 
-export { LayerVisibility }
+type ChecklistItem = {
+  id: number;
+  text: string;
+  checked: boolean;
+}
+
+export { LayerVisibility, ChecklistsCollection }

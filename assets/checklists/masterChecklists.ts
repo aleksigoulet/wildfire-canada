@@ -1,4 +1,6 @@
-const checklists = [
+import { ChecklistsCollection } from "@/types/commonTypes";
+
+const checklists: ChecklistsCollection = [
   {
     metadata: {
       checklistName: "Go-Kit Checklist",

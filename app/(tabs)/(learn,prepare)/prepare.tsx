@@ -1,29 +1,17 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
-import { useEffect, useState } from "react";
 import { Link } from "expo-router";
-import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
-import { checklists as masterChecklist } from "@/assets/checklists/masterChecklists";
+import { removeValue } from "@/utils/storageHandlers";
 import ProfileHeader from "@/components/profileHeader";
 
+import { useContext } from 'react';
+import { ChecklistContext } from "@/context/ChecklistContext";
+
 export default function Prepare() {
-  const [ checklists, setChecklists ] = useState<any>(null);
+  // Use the checklist context
+  const { checklists, setChecklists } = useContext(ChecklistContext);
 
-  // load the checklists when the view is initialized
-  useEffect(() => {
-    getObjectData('checklists')
-    .then((data) => {
-      // set the checklist state to the stored checklist object
-      setChecklists(data);
-
-      // if no checklists stored, then create a checklist object from the master checklists
-      if (!data) {
-        console.log('checklists does not exist yet, creating...')
-        storeObjectData('checklists', masterChecklist);
-        setChecklists(masterChecklist);
-      }
-    })
-  }, []); // dependencies not needed because we do not need to run effect again 
-          // when the checklists state changes
+  // for testing only
+  // removeValue('checklists');
 
 
   return (
@@ -36,21 +24,44 @@ export default function Prepare() {
         {
           checklists ? 
           checklists.map((checklist: any) => {
-            return (
-              <Link 
-                style={styles.checklistButton}
-                href={`/checklist?id=${checklist.metadata.id}`}
-                key={ checklist.metadata.id }
-              >
-                <Text>{ checklist.metadata.checklistDisplayText }</Text>
-              </Link>
-            )
+            if ( !checklist.metadata.completionStatus ) {
+
+              return (
+                <Link 
+                  style={styles.checklistButton}
+                  href={`/checklist?id=${checklist.metadata.id}`}
+                  key={ checklist.metadata.id }
+                >
+                  <Text>{ checklist.metadata.checklistDisplayText }</Text>
+                </Link>
+              )
+            }
           }) : 
           null
         }
 
 
         <Text style={styles.titleText}>Completed Tasks</Text>
+
+        {
+          checklists ? 
+          checklists.map((checklist: any) => {
+            if ( checklist.metadata.completionStatus ) {
+
+              return (
+                <Link 
+                  style={styles.checklistButton}
+                  href={`/checklist?id=${checklist.metadata.id}`}
+                  key={ checklist.metadata.id }
+                >
+                  <Text>{ checklist.metadata.checklistDisplayText }</Text>
+                </Link>
+              )
+            }
+          }) : 
+          null
+        }
+
       </View>
     </View>
   );

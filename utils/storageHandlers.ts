@@ -25,4 +25,16 @@ async function getObjectData(key: string) {
   }
 }
 
-export { storeObjectData, getObjectData };
+
+async function removeValue(key: string) {
+  try {
+    await AsyncStorage.removeItem(key)
+  } catch(e) {
+    // remove error
+    console.error('AsyncStorage: error removing value: \n' + e);
+  }
+
+  console.log('Removed item at ' + key);
+}
+
+export { storeObjectData, getObjectData, removeValue };

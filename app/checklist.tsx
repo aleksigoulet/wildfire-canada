@@ -1,16 +1,47 @@
 import { Text, View, StyleSheet, Pressable, SafeAreaView, Button } from "react-native";
 import { useEffect, useState } from "react";
-import { useRouter, Link, useLocalSearchParams } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
+import { useContext } from 'react';
+import { ChecklistContext } from "@/context/ChecklistContext";
+
 export default function Checklist() {
   const router = useRouter();
+
   // get id parameter from route
   const { id } = useLocalSearchParams();
 
-  const [listItems, setListItems] = useState<any>(null);
+  // get the checklist context.
+  // needed so that Prepare view can be correctly updated when completing a checklist.
+  const { checklists, setChecklists } = useContext(ChecklistContext);
 
+  const [ currentChecklist, setCurrentChecklist ] = useState<any>(null);
+
+  const handleSaveOnClose = (checklist: any) => {
+    // get the currently stored checklist object
+    getObjectData('checklists')
+    .then((data: any) => {
+
+      // loop through checklist data
+      for (let i = 0; i < data.length; i++) {
+        // skip current iteration if not the current checklist
+        if (data[i].metadata.id != id) {
+          continue;
+        }
+
+        // update the current checklist in the data
+        data[i] = checklist;
+      }
+
+      // store the edited checklists object
+      storeObjectData('checklists', data);
+
+      // update checklist context
+      setChecklists(data);
+    })
+  }
 
   useEffect(() => {
     getObjectData('checklists')
@@ -18,8 +49,8 @@ export default function Checklist() {
       data.forEach((checklist: any) => {
         if (checklist.metadata.id != id) {
           return;
-        }
-        setListItems(checklist.content.items)
+        }      
+        setCurrentChecklist(checklist);
       })
     })
   }, [])
@@ -29,7 +60,7 @@ export default function Checklist() {
       <Button 
           title="back" 
           onPress={() => { 
-            handleSaveOnClose(id, listItems);
+            handleSaveOnClose(currentChecklist);
             router.dismiss();
           }} 
         />
@@ -39,7 +70,7 @@ export default function Checklist() {
         
         <View>
           { 
-            listItems?.map((item: any) => {
+            currentChecklist?.content.items.map((item: any) => {
             return (
               <Pressable 
                 key={item.id}
@@ -47,6 +78,8 @@ export default function Checklist() {
 
                   // implementation for items adapted from docs
                   // https://react.dev/learn/updating-arrays-in-state
+
+                  const listItems = currentChecklist.content.items;
 
                   // change the checked state of the clicked item
                   const newItems = listItems?.map((listItem: any) => {
@@ -62,8 +95,16 @@ export default function Checklist() {
                     }
                   });
 
-                  // set the state to the new array of items
-                  setListItems(newItems);
+                  // update the checklist with the new state of items
+                  const updatedChecklist = {
+                    ...currentChecklist,
+                    content: {
+                      ...currentChecklist.content,
+                      items: newItems
+                    }
+                  }
+
+                  setCurrentChecklist(updatedChecklist);
 
                 }}
                 style={styles.listItem}
@@ -79,11 +120,47 @@ export default function Checklist() {
           })
           }
         </View>
-        {/* <Link href={'/(tabs)/prepare'}>Complete</Link> */}
+
         <Button 
           title="complete" 
           onPress={() => { 
-            handleSaveOnClose(id, listItems);
+            // update the checklist completion state
+
+            // helper function to check a value is true
+            const itemChecked = (value: boolean) => value == true;
+
+            // map items arrays to array of values for checkbox status
+            const checkboxValues = currentChecklist.content.items.map((item: any) => {
+              return item.checked;
+            })
+
+            // check that all checkboxes have been checked
+            const allCheckboxesTrue = checkboxValues.every(itemChecked);
+
+            // if all checkboxes have been checked,
+            // then update checklist completion status
+            if (allCheckboxesTrue) {
+              console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
+
+              const updatedChecklist = {
+                ...currentChecklist,
+                metadata: {
+                  ...currentChecklist.metadata,
+                  completionStatus: true
+                }
+              }              
+              
+              setCurrentChecklist(updatedChecklist);
+
+              // save the checklist with updated state and navigate back to Prepare view.
+              handleSaveOnClose(updatedChecklist);
+              router.dismiss();
+              return;
+            }
+            
+
+            // save to storage and go back
+            handleSaveOnClose(currentChecklist);
             router.dismiss();
           }} 
         />
@@ -92,26 +169,6 @@ export default function Checklist() {
 
     </SafeAreaView>
   );
-}
-
-function handleSaveOnClose(id: any, items: any) {
-  // get the currently stored checklist object
-  getObjectData('checklists')
-  .then((data: any) => {
-    data.forEach((checklist: any) => {
-      // if not the current checklist then do nothing
-      if (checklist.metadata.id != id) {
-        return;
-      }
-
-      // if in the current checklist then store the new state of items
-      checklist.content.items = items;
-
-    });
-
-    // store the edited checklist object
-    storeObjectData('checklists', data);
-  })
 }
 
 const styles = StyleSheet.create({
