@@ -54,7 +54,7 @@ export default function ProfileHeader(props: any) {
         </View>
         <View style={styles.scoreSection}>
           <View style={styles.scoreBox}>
-            <Text>2</Text>
+            <Text>{props.badges}</Text>
           </View>
           <Text style={styles.scoreTitle}>Bagdes</Text>
         </View>

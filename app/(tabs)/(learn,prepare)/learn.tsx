@@ -5,10 +5,14 @@ import ProfileHeader from "@/components/profileHeader";
 import lessons from "@/assets/lessons";
 
 import { PointsContext } from "@/context/PointsContext";
+import { BadgesContext } from "@/context/BadgesContext";
 
 export default function Learn() {
   // points context
-  const { points, setPoints } = useContext(PointsContext);
+  const { points } = useContext(PointsContext);
+
+  //badges context
+  const { getNumberCompletedBadges } = useContext(BadgesContext);
 
   return (
     
@@ -20,7 +24,7 @@ export default function Learn() {
       }}
     >
       
-      <ProfileHeader points={points}/>
+      <ProfileHeader points={points} badges={getNumberCompletedBadges()}/>
       
       <FlatList
         data={lessons}

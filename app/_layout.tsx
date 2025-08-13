@@ -3,6 +3,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import ChecklistContextProvider from "@/context/ChecklistContextProvider";
 import PointsContextProvider from "@/context/PointsContextProvider";
+import BadgesContextProvider from "@/context/BadgesContextProvider";
 
 export default function RootLayout() {
   return (
@@ -14,24 +15,26 @@ export default function RootLayout() {
       <BottomSheetModalProvider>
         <ChecklistContextProvider>
           <PointsContextProvider>
-            <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen 
-                name="lesson" 
-                options={{
-                  animation: 'slide_from_bottom',
-                  headerShown: false
-                }}
-              />
-              <Stack.Screen 
-                name="checklist" 
-                options={{
-                  animation: 'slide_from_bottom',
-                  // animation: 'fade',
-                  headerShown: false
-                }}
-              />
-            </Stack>
+            <BadgesContextProvider>
+              <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen 
+                  name="lesson" 
+                  options={{
+                    animation: 'slide_from_bottom',
+                    headerShown: false
+                  }}
+                />
+                <Stack.Screen 
+                  name="checklist" 
+                  options={{
+                    animation: 'slide_from_bottom',
+                    // animation: 'fade',
+                    headerShown: false
+                  }}
+                />
+              </Stack>
+            </BadgesContextProvider>
           </PointsContextProvider>
         </ChecklistContextProvider>
       </BottomSheetModalProvider>

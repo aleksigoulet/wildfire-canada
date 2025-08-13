@@ -2,41 +2,21 @@ import { Text, StyleSheet, View, ScrollView } from "react-native"
 import { Image } from "expo-image";
 import { useContext } from "react";
 import { PointsContext } from "@/context/PointsContext";
+import { BadgesContext } from "@/context/BadgesContext";
+
+import { removeValue } from "@/utils/storageHandlers";
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 
 export default function Profile() {
-  const { points, setPoints } = useContext(PointsContext);
+  const { points } = useContext(PointsContext);
 
-  const badges = [
-    {
-      key: 1,
-      name: 'random',
-      complete: true,
-    },
-    {
-      key: 2,
-      name: 'random',
-      complete: true,
-    },
-    {
-      key: 3,
-      name: 'random',
-      complete: false,
-    },
-    {
-      key: 4,
-      name: 'random',
-      complete: false,
-    },
-    {
-      key: 5,
-      name: 'random',
-      complete: false,
-    }
-  ]
+  const { badges, getNumberCompletedBadges } = useContext(BadgesContext);
+
+  // testing only
+  // removeValue( 'badges' );
 
   return (
     <View style={styles.container}>
@@ -63,7 +43,7 @@ export default function Profile() {
           </View>
           <View style={styles.scoreSection}>
             <View style={styles.scoreBox}>
-              <Text>2</Text>
+              <Text>{ getNumberCompletedBadges() }</Text>
             </View>
             <Text style={styles.scoreTitle}>Bagdes</Text>
           </View>

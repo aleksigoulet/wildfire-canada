@@ -33,4 +33,13 @@ type ChecklistItem = {
   checked: boolean;
 }
 
-export { LayerVisibility, ChecklistsCollection, ContextProviderProps }
+// type for badges
+type BadgesCollection = Badge[]
+
+type Badge = {
+  key: number;
+  name: string;
+  complete: boolean;
+}
+
+export { LayerVisibility, ChecklistsCollection, ContextProviderProps, BadgesCollection, Badge }
