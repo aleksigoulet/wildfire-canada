@@ -37,8 +37,8 @@ export default function Learn() {
       <FlatList
         data={lessons}
         inverted={true}
-        keyExtractor={item => item.metadata.id}
-        renderItem={({item}) => <LessonMarker title={item.metadata.title} number={item.metadata.id} />}
+        keyExtractor={item => item.metadata.id.toString()}
+        renderItem={({item}) => <LessonMarker title={item.metadata.title} number={item.metadata.id.toString()} />}
         // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
         contentContainerStyle={styles.scrollContainer}
         ItemSeparatorComponent={() => {
