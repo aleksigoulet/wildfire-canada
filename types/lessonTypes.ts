@@ -87,8 +87,15 @@ enum ContentType {
   Page = 'page'
 }
 
+
+type LessonCompletionState = {
+  id: number;
+  completed: boolean;
+}
+
 export {
   LessonCollection,
   ContentType,
-  LessonTextContent
+  LessonTextContent,
+  LessonCompletionState
 }

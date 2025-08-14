@@ -1,24 +1,35 @@
 import { Text, View, StyleSheet, Pressable, SafeAreaView, Button, Image } from "react-native";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import lessons from "@/assets/lessons";
 import { LessonTextContent } from "@/types/lessonTypes";
 
+import { LessonsContext } from "@/context/LessonsContext";
+
 
 
 export default function Lesson() {
   const router = useRouter();
 
+  // use lessons context to update completion states
+  const { completeLessonById } = useContext(LessonsContext);
+
   // get lesson number from url params
   const { number } = useLocalSearchParams();
+
+  // variable used to update lesson completion state
+  let lessonNumber: number;
 
   // variable to store index of current lesson
   let lessonIndex = 0;
 
   // extract index of current lesson from search params
   if (typeof(number) === 'string') {
+    // set the lesson number (id)
+    lessonNumber = parseInt(number);
+
     // array index is lesson number - 1
     let newIndex = parseInt(number) - 1;
 
@@ -76,12 +87,17 @@ export default function Lesson() {
   let contentJSX;
 
 
-  // if all pages are completed the show completion message
+  // if all pages are completed then show completion message
   if ( currentPage === lessons[lessonIndex].pages.length ) {
     contentJSX = (
       <View>
         <Text>Lesson Complete!</Text>
-        <Button title="Complete Lesson" onPress={() => router.dismiss()}/>
+        <Button title="Complete Lesson" onPress={() => { 
+          // update the state of the current lesson to complete
+          completeLessonById(lessonNumber);
+          
+          router.dismiss()
+        }}/>
       </View>
     )
   } else {

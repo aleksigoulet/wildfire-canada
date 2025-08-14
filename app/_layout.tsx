@@ -4,6 +4,7 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import ChecklistContextProvider from "@/context/ChecklistContextProvider";
 import PointsContextProvider from "@/context/PointsContextProvider";
 import BadgesContextProvider from "@/context/BadgesContextProvider";
+import LessonsContextProvider from "@/context/LessonsContextProvider";
 
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -70,35 +71,37 @@ export default function RootLayout() {
     <GestureHandlerRootView>
       <BottomSheetModalProvider>
         <ChecklistContextProvider>
-          <PointsContextProvider>
-            <BadgesContextProvider>
-              <OnboardingContext.Provider value={contextValue}>
-                <Stack>
-                  <Stack.Protected guard={onboardingComplete}>
-                    <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
-                    <Stack.Screen 
-                      name="lesson" 
-                      options={{
-                        animation: 'slide_from_bottom',
-                        headerShown: false
-                      }}
-                    />
-                    <Stack.Screen 
-                      name="checklist" 
-                      options={{
-                        animation: 'slide_from_bottom',
-                        // animation: 'fade',
-                        headerShown: false
-                      }}
-                    />
-                  </Stack.Protected>
-                  <Stack.Protected guard={!onboardingComplete} >
-                    <Stack.Screen name="onboarding" options={{ headerShown: false }}/>
-                  </Stack.Protected>
-                </Stack>
-              </OnboardingContext.Provider>
-            </BadgesContextProvider>
-          </PointsContextProvider>
+          <LessonsContextProvider>
+            <PointsContextProvider>
+              <BadgesContextProvider>
+                <OnboardingContext.Provider value={contextValue}>
+                  <Stack>
+                    <Stack.Protected guard={onboardingComplete}>
+                      <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
+                      <Stack.Screen 
+                        name="lesson" 
+                        options={{
+                          animation: 'slide_from_bottom',
+                          headerShown: false
+                        }}
+                      />
+                      <Stack.Screen 
+                        name="checklist" 
+                        options={{
+                          animation: 'slide_from_bottom',
+                          // animation: 'fade',
+                          headerShown: false
+                        }}
+                      />
+                    </Stack.Protected>
+                    <Stack.Protected guard={!onboardingComplete} >
+                      <Stack.Screen name="onboarding" options={{ headerShown: false }}/>
+                    </Stack.Protected>
+                  </Stack>
+                </OnboardingContext.Provider>
+              </BadgesContextProvider>
+            </PointsContextProvider>
+          </LessonsContextProvider>
         </ChecklistContextProvider>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>

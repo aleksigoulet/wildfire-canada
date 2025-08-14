@@ -55,6 +55,7 @@ export default function Settings() {
             await removeValue('checklists');
             await removeValue('badges');
             await removeValue('points');
+            await removeValue('completedLessons');
 
             alert('Progress succesfully reset.')
           } catch (error) {
