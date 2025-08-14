@@ -4,6 +4,7 @@ import { useRouter, useLocalSearchParams } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import lessons from "@/assets/lessons";
+import { LessonTextContent } from "@/types/lessonTypes";
 
 
 
@@ -108,6 +109,22 @@ export default function Lesson() {
           />
         </View>
       )
+    } else if ( page.type === 'intro-multi' ) {
+
+      contentJSX = (
+        <View style={styles.content}>
+          {
+            page.content.multiText.map((paragraph: LessonTextContent) => {
+              return <Text key={ paragraph.id }>{ paragraph.text }</Text>
+            })
+          }
+          <Button 
+            title="Start Lesson" 
+            onPress={ handleNext }  
+          />
+        </View>
+      )
+
     } else if ( page.type === 'page' ) {
       contentJSX = (
         <View style={styles.content}>

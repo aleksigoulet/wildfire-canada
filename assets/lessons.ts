@@ -1,28 +1,33 @@
+import { LessonCollection, ContentType } from "@/types/lessonTypes";
+
 
 // requiring images in object inspired by answer by Walter Monecke
 // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
 
-const lessons: any = [
-    {
+const lessons: LessonCollection = [
+  {
     metadata: {
       id: 1,
       title: 'Lesson 1'
     },
     pages: [
       {
-        type: 'intro',
+        type: ContentType.IntroMulti,
         content: {
-          text: "Hey there! Welcome to your wildfire training bootcamp!",
-          objectives: [
+          multiText: [
             {
               id: 0,
-              item: "Understand the current situation"
+              text: "Hey there! Welcome to your wildfire training bootcamp!"
+            },
+            {
+              id: 1,
+              text: "The Chief has advised this wildfire season will be record-breaking, so we better get started!"
             }
           ]
         }
       },
       {
-        type: 'page',
+        type: ContentType.Page,
         content: [
           {
             id: 0,
@@ -47,7 +52,7 @@ const lessons: any = [
     },
     pages: [
       {
-        type: 'intro',
+        type: ContentType.Intro,
         content: {
           text: "In this lesson, we're going to learn about basic fire concepts.",
           objectives: [
@@ -59,7 +64,40 @@ const lessons: any = [
         }
       },
       {
-        type: 'page',
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
+  },
+  {
+    metadata: {
+      id: 3,
+      title: 'Lesson 3'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
         content: [
           {
             id: 0,
