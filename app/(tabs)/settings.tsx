@@ -76,6 +76,19 @@ export default function Settings() {
           }
         }}
       />
+      <Button 
+        title="Reset Onboarding"
+        onPress={async () => {
+          try {
+            await removeValue('onboardingComplete');
+
+            alert('Onboarding reset.');
+          } catch (error) {
+            console.error("Error in resetting onboarding [settings.tsx]: " + error);
+            alert("Error in resetting onboarding: \n" + error);
+          }
+        }}
+      />
 
 
       {/* Modal to edit profile information */}
