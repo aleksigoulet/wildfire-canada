@@ -38,6 +38,7 @@
     },
     "plugins": [
       "expo-router",
+      "expo-notifications",
       [
         "expo-splash-screen",
         {
@@ -52,10 +53,25 @@
         {
           "locationWhenlocationAlwaysAndWhenInUsePermissionInUsePermission": "Show current location on map."
         }
+      ],
+      [
+        "@rnmapbox/maps",
+        {}
+      ],
+      [
+        "@rnmapbox/maps",
+        {}
       ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "76468842-7ab2-40d2-8426-f3fe40211bdc"
+      }
+    },
+    "owner": "agoulet"
   }
 }

@@ -1,8 +1,49 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
+import { useEffect, useState } from 'react';
 import ProfileContextProvider from '@/context/ProfileContextProvider';
+import * as Notifications from 'expo-notifications';
+import { registerForPushNotificationsAsync } from '@/utils/notificationHandlers';
+
+
+// code below copied from expo notifications documentation
+// https://docs.expo.dev/versions/latest/sdk/notifications/#usage
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
+
 
 export default function TabLayout() {
+  // notification code below copied from documentation
+  // https://docs.expo.dev/versions/latest/sdk/notifications/#usage
+  const [notification, setNotification] = useState<Notifications.Notification | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    registerForPushNotificationsAsync().then((token) => console.log(token));
+
+    const notificationListener = Notifications.addNotificationReceivedListener(notification => {
+      setNotification(notification);
+    });
+
+    const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log(response);
+    });
+
+    return () => {
+      notificationListener.remove();
+      responseListener.remove();
+    };
+  }, []);
+
+  // end of copied code
+
   return (
     <ProfileContextProvider>
     <Tabs screenOptions={{ tabBarActiveTintColor: 'red' }}>
