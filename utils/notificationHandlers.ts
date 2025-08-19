@@ -11,43 +11,61 @@ import Constants from 'expo-constants';
  * If there is not stored permission value, then permission is requested from the user.
  */
 async function registerForPushNotificationsAsync() {
-  let token;
-
   if (Device.isDevice) {
     const { status: existingStatus } = await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
     if (existingStatus !== 'granted') {
       const { status } = await Notifications.requestPermissionsAsync();
+
+      if ( status === 'granted' ) {
+        
+        try {
+          const projectId =
+            Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
+          if (!projectId) {
+            throw new Error('Project ID not found');
+          }
+
+          const tokenToSend = (
+            await Notifications.getExpoPushTokenAsync({
+              projectId,
+            })
+          ).data;
+
+          const endpoint: string = process.env.EXPO_PUBLIC_NOTIFICATION_SERVER_ADD_TOKEN_URL as string;
+
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Api-Key ${process.env.EXPO_PUBLIC_NOTIFICATION_SERVER_API_KEY}`
+            },
+            body: JSON.stringify({
+              token: tokenToSend
+            })
+          })
+
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+
+        } catch (error) {
+          console.warn('Error submitting push token to server: ' + error)
+        }
+
+      }
+
       finalStatus = status;
     }
+
     if (finalStatus !== 'granted') {
-      alert('Failed to get push token for push notification!');
+      console.log('User did not allow push notifications')
       return;
     }
 
-    try {
-      const projectId =
-        Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
-      if (!projectId) {
-        throw new Error('Project ID not found');
-      }
-
-      token = (
-        await Notifications.getExpoPushTokenAsync({
-          projectId,
-        })
-      ).data;
-
-      console.log(token);
-
-    } catch (e) {
-      token = `${e}`;
-    }
   } else {
     alert('Must use physical device for Push Notifications');
   }
-
-  return token;
 }
 
 export {

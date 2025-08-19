@@ -26,7 +26,7 @@ export default function TabLayout() {
   );
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then((token) => console.log(token));
+    registerForPushNotificationsAsync()
 
     const notificationListener = Notifications.addNotificationReceivedListener(notification => {
       setNotification(notification);
