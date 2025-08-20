@@ -90,6 +90,19 @@ export default function Settings() {
           }
         }}
       />
+      <Button 
+        title="Delete Notifications"
+        onPress={async () => {
+          try {
+            await removeValue('notifications');
+
+            alert('Notifications reset.');
+          } catch (error) {
+            console.error("Error in resetting notifications [settings.tsx]: " + error);
+            alert("Error in resetting notifications: \n" + error);
+          }
+        }}
+      />
 
 
       {/* Modal to edit profile information */}

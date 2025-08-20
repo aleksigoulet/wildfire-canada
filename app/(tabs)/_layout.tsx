@@ -21,25 +21,10 @@ Notifications.setNotificationHandler({
 export default function TabLayout() {
   // notification code below copied from documentation
   // https://docs.expo.dev/versions/latest/sdk/notifications/#usage
-  const [notification, setNotification] = useState<Notifications.Notification | undefined>(
-    undefined
-  );
 
   useEffect(() => {
+    // register to app to receive notifications
     registerForPushNotificationsAsync()
-
-    const notificationListener = Notifications.addNotificationReceivedListener(notification => {
-      setNotification(notification);
-    });
-
-    const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log(response);
-    });
-
-    return () => {
-      notificationListener.remove();
-      responseListener.remove();
-    };
   }, []);
 
   // end of copied code
