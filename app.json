@@ -60,6 +60,12 @@
         }
       ],
       [
+        "expo-font",
+        {
+          "fonts": ["node_modules/@expo-google-fonts/jaro/400Regular/Jaro_400Regular.ttf"]
+        }
+      ],
+      [
         "@rnmapbox/maps",
         {}
       ],

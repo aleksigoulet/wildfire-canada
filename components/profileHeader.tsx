@@ -3,6 +3,11 @@ import { Image } from 'expo-image';
 import { Link } from "expo-router";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { SvgUri } from 'react-native-svg';
+
+import XPIcon from '@/assets/images/xp-icon.svg'
+import BadgeIcon from '@/assets/images/badge-icon.svg'
+
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
@@ -11,78 +16,72 @@ export default function ProfileHeader(props: any) {
   const insets = useSafeAreaInsets();
 
   return (
-    // this view needs inline styles for proper access to top inset
-    <View style={[styles.header, {paddingTop: insets.top, height: 120 + insets.top}]}>
-      {/* view for top line of header */}
-      <View style={styles.headerTopLine}>
-        {/* view for profile section */}
-        <Link href={'/profile'}>
-          <View style={styles.profileContainer}>
-            <Image 
-              placeholder={{blurhash}}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 25
-              }}
-            />
-            <View>
-              <Text>{ props.username }</Text>
-              <Text>Beginner</Text>
-            </View>
-          </View>
-        </Link>
-        
-        {/* view for level up section */}
-        <View>
-            <View style={styles.headerTopLine}>
-              <Text>Next Level</Text>
-              <Text>20/100 xp</Text>
-            </View>
-            <View style={styles.progressBar}>
-              <View style={[styles.progressBar, styles.progressIndicator]}></View>
-            </View>
-        </View>
-      </View>
+      // this view needs inline styles for proper access to top inset
+      <View style={[styles.header, { minHeight: insets.top + 70 }]}>
+        {/* top bar */}
+        <View style={[styles.headerTop, { height: insets.top }]}></View>
 
-      <View style={[styles.headerTopLine, {marginTop: 25}]}>
-        <View style={styles.scoreSection}>
-          <View style={styles.scoreBox}>
-            <Text>{props.points}</Text>
-          </View>
-          <Text style={styles.scoreTitle}>Prepardness Score</Text>
-        </View>
-        <View style={styles.scoreSection}>
-          <View style={styles.scoreBox}>
-            <Text>{props.badges}</Text>
-          </View>
-          <Text style={styles.scoreTitle}>Bagdes</Text>
-        </View>
-      </View>
+        <View style={styles.headerContentContainer}>
 
-    </View>
+          {/* view for top line of header */}
+          <View style={styles.headerContentRow}>
+            {/* view for profile section */}
+            <Link href={'/profile'}>
+              <View style={styles.profileContainer}>
+                <Image 
+                  placeholder={{blurhash}}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 25
+                  }}
+                />
+                <View>
+                  <Text style={styles.usernameText}>{ props.username }</Text>
+                  <Text style={styles.userLevelText}>Beginner</Text>
+                </View>
+              </View>
+            </Link>
+
+            {/* view for XP */}
+            <View style={styles.scoreSection}>
+              <XPIcon />
+              <Text style={styles.scoreText}>{ props.points }</Text>
+            </View>
+
+            {/* view for Badges */}
+            <View style={styles.scoreSection}>
+              <BadgeIcon />
+              <Text style={styles.scoreText}>{ props.badges }</Text>
+            </View>   
+                 
+          </View>
+
+        </View>
+
+      </View>
   )
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'lightgrey',
-    height: 120,
-    paddingHorizontal: 20,
-    boxShadow: '0px 1px 8px black',
-    zIndex: 10
+    backgroundColor: '#F7CFA1',
+    boxShadow: '0px 5px 0px #BD6C0F',
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    zIndex: 1
   },
 
-  edgeHeader: {
-    backgroundColor: 'lightgrey',
-    position: 'absolute',
-    height: 60,
-    width: '100%',
-    top: 0,
-    zIndex: 11
+  headerTop: {
+    backgroundColor: '#ED8F23',
+    boxShadow: '0px 5px 0px #A55F0D'
   },
 
-  headerTopLine: {
+  headerContentContainer: {
+    padding: 20,
+  },
+
+  headerContentRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
@@ -94,37 +93,25 @@ const styles = StyleSheet.create({
     gap: 10
   },
 
-  progressBar: {
-    width: 160,
-    height: 10,
-    borderRadius: 10,
-    backgroundColor: '#ACACAC'
-  },
-
-  progressIndicator: {
-    width: 60,
-    backgroundColor: 'grey'
-  },
-
   scoreSection: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    transform: [{skewX: '-10deg'}]
   },
 
-  scoreBox: {
-    width: 70,
-    height: 30,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-    
+  scoreText: {
+    fontSize: 36,
+    fontFamily: 'Jaro-Regular',
+    color: '#503716'
   },
 
-  scoreTitle: {
-    maxWidth: 110,
-    // fontStyle: 'italic',
+  usernameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
+
+  userLevelText: {
+    fontStyle: 'italic',
+    fontWeight: '500'
+  }
 })
