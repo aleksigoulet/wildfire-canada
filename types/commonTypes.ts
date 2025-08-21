@@ -19,6 +19,7 @@ type ChecklistsCollection = {
     checklistName: string;
     checklistDisplayText: string;
     completionStatus: boolean;
+    icon: string;
     id: number;
   },
   content: {

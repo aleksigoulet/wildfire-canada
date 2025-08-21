@@ -1,8 +1,10 @@
 import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import ProfileHeader from "@/components/profileHeader";
+import ChecklistButton from "@/components/checklistButton";
+import ChecklistCompleteButton from "@/components/checklistCompleteButton";
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
 import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
@@ -21,6 +23,38 @@ export default function Prepare() {
   // profile context
   const { profile } = useContext(ProfileContext);
 
+  // state used to keep track of whether there are checklists remaining
+  const [ remainingChecklists, setRemainingChecklists ] = useState<boolean>(true);
+
+  // state used to keep track of whether some of the checklists are completed
+  const [ completedChecklists, setCompletedChecklists ] = useState<boolean>(false);
+
+  useEffect(() => {
+    // check the completion state of every checklist
+    // if any checklist has been completed,
+    // then change completed checklists state to true
+    checklists.forEach((checklist) => {
+      if ( checklist.metadata.completionStatus ) {
+        setCompletedChecklists(true);
+      } 
+    })
+
+    // variable to store array of checklist completion states
+    // this will be used to determine if every checklist has been completed
+    const checklistCompletionStates = checklists.map((checklist) => {
+      return checklist.metadata.completionStatus;
+    })
+
+
+    // simple helper function that returns a boolean
+    const isTrue = (item : boolean) => item
+
+    // If every checklist was completed then update remaining checklists state
+    if (checklistCompletionStates.every(isTrue)) {
+      setRemainingChecklists(false);
+    }
+  },[ checklists ])
+
 
   return (
     <View style={{flex: 1}}>
@@ -31,7 +65,11 @@ export default function Prepare() {
       />
       <ScrollView style={styles.contentContainer}>
 
-        <Text style={styles.titleText}>Remaining Tasks</Text>
+        {
+          remainingChecklists ? 
+          <Text style={styles.titleText}>Remaining Tasks</Text> :
+          null
+        }
 
         {
           checklists ? 
@@ -39,21 +77,23 @@ export default function Prepare() {
             if ( !checklist.metadata.completionStatus ) {
 
               return (
-                <Link 
-                  style={styles.checklistButton}
-                  href={`/checklist?id=${checklist.metadata.id}`}
+                <ChecklistButton
+                  href={`/checklist?id=${ checklist.metadata.id }`}
+                  title={ checklist.metadata.checklistDisplayText }
+                  icon={ checklist.metadata.icon }
                   key={ checklist.metadata.id }
-                >
-                  <Text>{ checklist.metadata.checklistDisplayText }</Text>
-                </Link>
+                />
               )
             }
           }) : 
           null
         }
 
-
-        <Text style={styles.titleText}>Completed Tasks</Text>
+        {
+          completedChecklists ? 
+          <Text style={styles.titleText}>Completed Tasks</Text> :
+          null
+        }
 
         {
           checklists ? 
@@ -61,13 +101,12 @@ export default function Prepare() {
             if ( checklist.metadata.completionStatus ) {
 
               return (
-                <Link 
-                  style={styles.checklistButton}
-                  href={`/checklist?id=${checklist.metadata.id}`}
+                 <ChecklistCompleteButton
+                  href={`/checklist?id=${ checklist.metadata.id }`}
+                  title={ checklist.metadata.checklistDisplayText }
+                  icon={ checklist.metadata.icon }
                   key={ checklist.metadata.id }
-                >
-                  <Text>{ checklist.metadata.checklistDisplayText }</Text>
-                </Link>
+                />
               )
             }
           }) : 
@@ -87,7 +126,9 @@ const styles = StyleSheet.create({
 
   titleText: {
     fontWeight: 'bold',
-    marginBottom: 10,
+    fontSize: 20,
+    marginBottom: 16,
+    marginTop: 8
   },
 
   checklistButton: {
