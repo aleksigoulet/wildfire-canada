@@ -6,15 +6,8 @@ import { registerForPushNotificationsAsync } from '@/utils/notificationHandlers'
 
 
 import { useFonts } from 'expo-font';
-import createIconSetFromIcoMoon from '@expo/vector-icons/createIconSetFromIcoMoon';
+import { Icons } from '@/components/icons';
 
-// code for custom icon set copied from expo docs
-// https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
-const Icons = createIconSetFromIcoMoon(
-  require('@/assets/icomoon/selection.json'),
-  'IcoMoon',
-  'icomoon.ttf'
-);
 
 // code below copied from expo notifications documentation
 // https://docs.expo.dev/versions/latest/sdk/notifications/#usage
