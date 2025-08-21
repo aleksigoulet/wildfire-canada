@@ -1,10 +1,20 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ProfileContextProvider from '@/context/ProfileContextProvider';
 import * as Notifications from 'expo-notifications';
 import { registerForPushNotificationsAsync } from '@/utils/notificationHandlers';
 
+
+import { useFonts } from 'expo-font';
+import createIconSetFromIcoMoon from '@expo/vector-icons/createIconSetFromIcoMoon';
+
+// code for custom icon set copied from expo docs
+// https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
+const Icons = createIconSetFromIcoMoon(
+  require('@/assets/icomoon/selection.json'),
+  'IcoMoon',
+  'icomoon.ttf'
+);
 
 // code below copied from expo notifications documentation
 // https://docs.expo.dev/versions/latest/sdk/notifications/#usage
@@ -19,6 +29,12 @@ Notifications.setNotificationHandler({
 
 
 export default function TabLayout() {
+
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
+  });
+
+  
   // notification code below copied from documentation
   // https://docs.expo.dev/versions/latest/sdk/notifications/#usage
 
@@ -29,15 +45,35 @@ export default function TabLayout() {
 
   // end of copied code
 
+  // code below for icons copied from docs
+  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <ProfileContextProvider>
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'red' }}>
+    <Tabs 
+      screenOptions={{ 
+        tabBarActiveTintColor: '#E25706',
+        tabBarInactiveTintColor: '#303030',
+        tabBarLabelStyle: {
+          fontSize: 10,
+          marginTop: 6
+        },
+        tabBarStyle: {
+          backgroundColor: '#F1F5F2',
+          height: 96,
+          paddingTop: 4
+        }
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: "Map",
           headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="map-o" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='map-marker' size={24} color={color}/>,
         }}
       />
       <Tabs.Screen
@@ -45,7 +81,7 @@ export default function TabLayout() {
         options={{
           title: 'Learn',
           headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="book" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='book' size={24} color={color}/>,
         }}
       />
       <Tabs.Screen
@@ -53,28 +89,28 @@ export default function TabLayout() {
         options={{
           title: 'Prepare',
           headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="check-square-o" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='list-check' size={24} color={color}/>,
         }}
       />
       <Tabs.Screen
         name="emergency"
         options={{
           title: 'Emergency',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="fire" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='flame' size={24} color={color}/>,
         }}
       />
       <Tabs.Screen
         name="alerts"
         options={{
           title: 'Alerts',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="bell-o" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='bell' size={24} color={color}/>,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          tabBarIcon: ({ color }) => <Icons name='settings' size={24} color={color}/>,
         }}
       />
     </Tabs>
