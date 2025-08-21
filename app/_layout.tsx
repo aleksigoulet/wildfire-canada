@@ -75,7 +75,13 @@ export default function RootLayout() {
             <PointsContextProvider>
               <BadgesContextProvider>
                 <OnboardingContext.Provider value={contextValue}>
-                  <Stack>
+                  <Stack
+                    screenOptions={{
+                      contentStyle: {
+                        backgroundColor: 'white',
+                      }
+                    }}
+                  >
                     <Stack.Protected guard={onboardingComplete}>
                       <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
                       <Stack.Screen 

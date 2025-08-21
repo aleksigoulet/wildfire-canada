@@ -16,7 +16,13 @@ export default function NestedLayout({ segment }: { segment: string }) {
    }, [segment])
 
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        contentStyle: {
+          backgroundColor: 'white',
+        }
+      }}
+    >
       { rootScreen }
       <Stack.Screen name="profile" options={{ headerTitle: '', headerBackTitle: 'Back' }}/>
     </Stack>
