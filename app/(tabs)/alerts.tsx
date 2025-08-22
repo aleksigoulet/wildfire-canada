@@ -33,14 +33,12 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
       // then create a new notifications array and store 
       if ( storedNotifications == null ) {
         console.log('notifications data does not exist yet, creating...');
-
-        // 
        
 
         const newData = [{
           data: data.data.body,
-          key: 1,
-          time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
+          key: 1,        
+          time: Date.now()
         }];
 
         storeObjectData('notifications', newData);
@@ -52,8 +50,8 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
       
       storedNotifications.push({
         data: data.data.body,
-        key: storedNotifications.length + 1,  // key is needed for RN rendering
-        time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
+        key: storedNotifications.length + 1,  // key is needed for RN rendering        
+        time: Date.now()
       });
 
       storeObjectData('notifications', storedNotifications);
@@ -152,8 +150,8 @@ export default function Alerts() {
       // create a new object to update state
       const notificationObject = {
         data: notificationContent,
-        key: notificationsRef.current.length + 1,
-        time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
+        key: notificationsRef.current.length + 1,        
+        time: Date.now()
       }
 
       // add the new notification to the notification array

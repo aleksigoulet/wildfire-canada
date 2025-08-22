@@ -14,12 +14,51 @@ export default function Notification(props: any) {
     return null;
   }
 
+
+  // code for calculating time since notification was received
+
+  // create a new date object with the stored time
+  const receivedTime = new Date(props.time)
+
+  // new date object for curren time
+  const currentTime = new Date()
+
+  // calculate the time difference between notification time and current time
+  const timeDifference = currentTime.getTime() - receivedTime.getTime();
+
+  // variable that to display the time difference
+  // initially, calculate the time difference in minutes
+  // then it will get replaced with a string to display
+  let timeDiffDisplay : string | number = Math.floor(timeDifference / 60000);
+
+  // variables to calculate the time difference in hours and days if needed
+  const timeDiffHours = Math.floor(timeDifference / 3600000);
+  const timeDiffDays = Math.floor(timeDifference / 86400000);
+
+
+
+  if (timeDiffDisplay < 1) {
+    // time difference is less than a minute
+    timeDiffDisplay = 'now'
+  } else if (timeDiffDisplay > 59 && timeDiffDisplay < 1440) {
+    // time difference greater than 1 hour but less than 1 day
+    // display the number of hours
+    timeDiffDisplay = `${timeDiffHours}h ago`
+  } else if (timeDiffDisplay > 1440) {
+    // time difference is greater than 1 day
+    // display the number of days
+    timeDiffDisplay = `${timeDiffDays}d ago`
+  } else {
+    // otherwise display the difference in minutes
+    timeDiffDisplay = `${timeDiffDisplay}m ago`
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.notificationTopLine}>
         <Text style={styles.titleText}>{ props.data.title }</Text>
         {/* <Text style={styles.contentText}>{ `${props.time.getHours()}:${props.time.getMinutes()}` }</Text> */}
-        <Text style={styles.contentText}>{ props.time }</Text>
+        <Text style={styles.contentText}>{ timeDiffDisplay }</Text>
       </View>
         {
           props.data.notificationType === 'OR' ? 
@@ -38,8 +77,8 @@ export default function Notification(props: any) {
             null
         }
 
-      <Text style={[styles.contentText, { marginTop: 24 }]}>{ props.data.location }</Text>
-      <Text style={[ styles.contentText, { fontStyle: 'italic', fontWeight: '300' } ]}>{ props.data.authority }</Text>
+      <Text style={[styles.contentText, { marginTop: 24 }]}>Location: { props.data.location }</Text>
+      <Text style={[ styles.contentText, { fontStyle: 'italic', fontWeight: '300' } ]}>Issued by { props.data.authority }</Text>
     </View> 
   )
 }
