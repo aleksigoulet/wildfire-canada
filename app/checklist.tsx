@@ -1,12 +1,19 @@
-import { Text, View, StyleSheet, Pressable, SafeAreaView, Button } from "react-native";
+import { Text, View, StyleSheet, Pressable, SafeAreaView, Button, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Image } from "expo-image";
 
 import { useContext } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
 import { PointsContext } from "@/context/PointsContext";
+
+import { useFonts } from 'expo-font';
+import { Icons } from '@/components/icons';
+
+import CheckboxActive from '@/assets/images/checkbox-active.svg';
+import CheckboxInactive from '@/assets/images/checkbox-inactive.svg';
+import InterfaceButton from "@/components/interfaceButton";
 
 export default function Checklist() {
   const router = useRouter();
@@ -47,6 +54,63 @@ export default function Checklist() {
     })
   }
 
+  const handleComplete = () => {
+    // update the checklist completion state
+
+    // helper function to check a value is true
+    const itemChecked = (value: boolean) => value == true;
+
+    // map items arrays to array of values for checkbox status
+    const checkboxValues = currentChecklist.content.items.map((item: any) => {
+      return item.checked;
+    })
+
+    // check that all checkboxes have been checked
+    const allCheckboxesTrue = checkboxValues.every(itemChecked);
+
+    // if all checkboxes have been checked,
+    // then update checklist completion status
+    // and add points
+    if (allCheckboxesTrue) {
+      console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
+
+      const updatedChecklist = {
+        ...currentChecklist,
+        metadata: {
+          ...currentChecklist.metadata,
+          completionStatus: true
+        }
+      }              
+      
+      setCurrentChecklist(updatedChecklist);
+
+      // set the new value for poitns
+      const newPoints = points + 10
+      
+      // store new points value in local storage
+      // needs to be done before updating context for correct behaviour
+      storeObjectData('points', newPoints)
+
+      // update points context
+      setPoints(newPoints);
+
+
+      // save the checklist with updated state and navigate back to Prepare view.
+      handleSaveOnClose(updatedChecklist);
+      router.dismiss();
+      return;
+    }
+    
+
+    // save to storage and go back
+    handleSaveOnClose(currentChecklist);
+    router.dismiss();
+  }
+
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
+  });
+
   useEffect(() => {
     getObjectData('checklists')
     .then(data => {
@@ -59,129 +123,129 @@ export default function Checklist() {
     })
   }, [])
 
+  // code below for icons copied from docs
+  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={{flex: 1, padding: 20}}>
-      <Button 
-          title="back" 
-          onPress={() => { 
-            handleSaveOnClose(currentChecklist);
-            router.dismiss();
-          }} 
-        />
-
+      {/* container */}
       <View style={styles.container}>
-        <Text style={styles.titleText}>Checklist Example</Text>
-        
-        <View>
-          { 
-            currentChecklist?.content.items.map((item: any) => {
-            return (
-              <Pressable 
-                key={item.id}
-                onPress={() => {
 
-                  // implementation for items adapted from docs
-                  // https://react.dev/learn/updating-arrays-in-state
+        {/* View for header section */}
+        <View style={styles.headerContainer}>
 
-                  const listItems = currentChecklist.content.items;
+          {/* close button */}
+          <Pressable
+            onPress={() => { 
+              handleSaveOnClose(currentChecklist);
+              router.dismiss();
+            }} 
+          >
+            <Icons name="cross-small" size={24}/>
+          </Pressable>
 
-                  // change the checked state of the clicked item
-                  const newItems = listItems?.map((listItem: any) => {
-                    // if the item is the pressed item, then change checked state
-                    if (item.id === listItem.id) {
-                      return {
-                        ...listItem,
-                        checked: !listItem.checked
-                      }
-                    } else {
-                      // otherwise return item with no changes
-                      return listItem
-                    }
-                  });
+          {/* checklist title */}
+          <Text style={styles.titleText}>{ currentChecklist?.metadata.checklistName }</Text>
+          {/* <Text style={styles.titleText}>testing a long title name ahhhh why is this so annoying</Text> */}
 
-                  // update the checklist with the new state of items
-                  const updatedChecklist = {
-                    ...currentChecklist,
-                    content: {
-                      ...currentChecklist.content,
-                      items: newItems
-                    }
-                  }
-
-                  setCurrentChecklist(updatedChecklist);
-
-                }}
-                style={styles.listItem}
-              >
-                { 
-                  item.checked ? 
-                  <MaterialCommunityIcons name="checkbox-marked" size={24} color="black" /> : 
-                  <MaterialCommunityIcons name="checkbox-blank-outline" size={24} color="black" />
-                }
-                <Text>{item.text}</Text>
-              </Pressable>
-            )
-          })
-          }
         </View>
 
-        <Button 
-          title="complete" 
-          onPress={() => { 
-            // update the checklist completion state
 
-            // helper function to check a value is true
-            const itemChecked = (value: boolean) => value == true;
+        {/* container for content that scrolls */}
+        <ScrollView style={styles.scrollContainer}>
+        
+          {/* view for checklist intro message */}
+          <View style={styles.introSectionContainer}>
+            <Image 
+                source={require('@/assets/images/firefighter.png')}
+                style={{
+                  width: 46,
+                  height: 46
+                }}
+              />
 
-            // map items arrays to array of values for checkbox status
-            const checkboxValues = currentChecklist.content.items.map((item: any) => {
-              return item.checked;
+            {/* Container needed around text to make sure it wraps around correctly */}
+            <View style={{ flexShrink: 1 }}>
+              <Text style={styles.contentText}>{ currentChecklist?.content.introMessage }</Text>
+            </View>
+          </View>
+
+          {/* view for checklist items */}
+          <View>
+            { 
+              currentChecklist?.content.items.map((item: any) => {
+              return (
+                <Pressable 
+                  key={item.id}
+                  onPress={() => {
+
+                    // implementation for items adapted from docs
+                    // https://react.dev/learn/updating-arrays-in-state
+
+                    const listItems = currentChecklist.content.items;
+
+                    // change the checked state of the clicked item
+                    const newItems = listItems?.map((listItem: any) => {
+                      // if the item is the pressed item, then change checked state
+                      if (item.id === listItem.id) {
+                        return {
+                          ...listItem,
+                          checked: !listItem.checked
+                        }
+                      } else {
+                        // otherwise return item with no changes
+                        return listItem
+                      }
+                    });
+
+                    // update the checklist with the new state of items
+                    const updatedChecklist = {
+                      ...currentChecklist,
+                      content: {
+                        ...currentChecklist.content,
+                        items: newItems
+                      }
+                    }
+
+                    setCurrentChecklist(updatedChecklist);
+
+                  }}
+                  style={styles.listItem}
+                >
+                  { 
+                    item.checked ? 
+                    <CheckboxActive width={20}/> : 
+                    <CheckboxInactive width={20}/>
+                  }
+                  <View style={{ flexShrink: 1 }}>
+                    <Text 
+                      style={[
+                        styles.contentText,
+                        item.checked ? 
+                          null : 
+                          styles.contentTextInactive
+                      ]}
+                    >
+                      {item.text}
+                    </Text>
+                  </View>
+                </Pressable>
+              )
             })
-
-            // check that all checkboxes have been checked
-            const allCheckboxesTrue = checkboxValues.every(itemChecked);
-
-            // if all checkboxes have been checked,
-            // then update checklist completion status
-            // and add points
-            if (allCheckboxesTrue) {
-              console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
-
-              const updatedChecklist = {
-                ...currentChecklist,
-                metadata: {
-                  ...currentChecklist.metadata,
-                  completionStatus: true
-                }
-              }              
-              
-              setCurrentChecklist(updatedChecklist);
-
-              // set the new value for poitns
-              const newPoints = points + 10
-              
-              // store new points value in local storage
-              // needs to be done before updating context for correct behaviour
-              storeObjectData('points', newPoints)
-
-              // update points context
-              setPoints(newPoints);
-
-
-              // save the checklist with updated state and navigate back to Prepare view.
-              handleSaveOnClose(updatedChecklist);
-              router.dismiss();
-              return;
             }
-            
+          </View>
 
-            // save to storage and go back
-            handleSaveOnClose(currentChecklist);
-            router.dismiss();
-          }} 
-        />
+        </ScrollView>
+
       </View>
 
+      {/* button is outside of container so that it goes to bottom of screen */}
+      <View style={styles.buttonContainer}>
+        <InterfaceButton onPress={ handleComplete } title="Complete"/>
+      </View>
 
     </SafeAreaView>
   );
@@ -190,12 +254,50 @@ export default function Checklist() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20
+    paddingHorizontal: 20,
+    paddingTop: 12
+  },
+
+  scrollContainer: {
+    paddingTop: 36,
+  }, 
+
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 16,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
+  },
+
+  introSectionContainer: {
+    flexDirection: 'row',
+    gap: 18,
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+
+  buttonContainer: {
+    paddingHorizontal: 20,
+    marginBottom: 40,
+    paddingTop: 12
   },
 
   titleText: {
     fontWeight: 'bold',
-    marginBottom: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    flex: 1,
+    // need margin right to match size of icon for text to be centered
+    marginRight: 24
+  },
+
+  contentText: {
+    fontSize: 16,
+  },
+
+  contentTextInactive: {
+    color: '#6F6F6F'
   },
 
   checklistButton: {
@@ -209,7 +311,7 @@ const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
-    marginBottom: 10
+    gap: 12,
+    marginBottom: 16,
   }
 })
