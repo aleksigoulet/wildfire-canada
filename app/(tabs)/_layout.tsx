@@ -58,6 +58,9 @@ export default function TabLayout() {
           backgroundColor: '#F1F5F2',
           height: 96,
           paddingTop: 4
+        },
+        sceneStyle: {
+          backgroundColor: 'white'
         }
       }}
     >
@@ -96,6 +99,7 @@ export default function TabLayout() {
         name="alerts"
         options={{
           title: 'Alerts',
+          headerShown: false,
           tabBarIcon: ({ color }) => <Icons name='bell' size={24} color={color}/>,
         }}
       />

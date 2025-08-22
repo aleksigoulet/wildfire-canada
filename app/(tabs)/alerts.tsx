@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef, useCallback, use } from "react";
-import { Text, View, Button, AppState } from "react-native";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Text, View, Button, AppState, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 import { router } from "expo-router";
 import { getObjectData } from "@/utils/storageHandlers";
+import Notification from "@/components/notification";
 
 
 // code for notification background task is copied from expo documentation
@@ -23,6 +24,8 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
   // and if it does that is contains truthy values in 'body'
   // this check is needed for ts
   if ('data' in data && data.data.body) {
+    const currentTime = new Date();
+
     // check if there is any previously stored notifications
     getObjectData('notifications')
     .then(( storedNotifications ) => {
@@ -31,9 +34,13 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
       if ( storedNotifications == null ) {
         console.log('notifications data does not exist yet, creating...');
 
+        // 
+       
+
         const newData = [{
           data: data.data.body,
-          key: 1
+          key: 1,
+          time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
         }];
 
         storeObjectData('notifications', newData);
@@ -45,7 +52,8 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
       
       storedNotifications.push({
         data: data.data.body,
-        key: storedNotifications.length + 1  // key is needed for RN rendering
+        key: storedNotifications.length + 1,  // key is needed for RN rendering
+        time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
       });
 
       storeObjectData('notifications', storedNotifications);
@@ -139,10 +147,13 @@ export default function Alerts() {
       // collect the passed data from the notification
       const notificationContent = response.request.content.data;
 
+      const currentTime = new Date();
+
       // create a new object to update state
       const notificationObject = {
         data: notificationContent,
-        key: notificationsRef.current.length + 1
+        key: notificationsRef.current.length + 1,
+        time: `${currentTime.getHours()}:${currentTime.getMinutes()}`
       }
 
       // add the new notification to the notification array
@@ -210,23 +221,55 @@ export default function Alerts() {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Alerts View</Text>
-      <Button 
-        title="Send Push Code"
-        onPress={handleSendPushCode}
-      />
-      {
-        notifications?.map((notification: any) => {
-          return <Text key={ notification.key }>{ notification.data.content }</Text>
-        })
-      }
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+
+        <View style={styles.pageHeader}>
+          <Text style={styles.pageTitle}>Alerts</Text>
+          <Button 
+            title="Send Push Code"
+            onPress={handleSendPushCode}
+          />
+        </View>
+
+        <ScrollView>
+          <View style={styles.scrollContainer}>
+          {
+            notifications?.map((notification: any) => {
+              // return <Text key={ notification.key }>{ notification.data.content }</Text>
+              // console.log(notification);
+              return <Notification key={ notification.key } data={ notification.data } time={ notification.time }/>
+            })
+          }
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+
+  pageTitle: {
+    fontSize: 24,
+    fontWeight: '600'
+  },
+
+  pageHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+
+  scrollContainer: {
+    flex: 1,
+    gap: 20,
+    paddingTop: 22,
+    flexDirection: 'column-reverse',
+  }
+
+})
