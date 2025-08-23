@@ -9,6 +9,7 @@ import lessons from "@/assets/lessons";
 import { LessonTextContent } from "@/types/lessonTypes";
 
 import { LessonsContext } from "@/context/LessonsContext";
+import { PointsContext } from "@/context/PointsContext";
 
 
 
@@ -17,6 +18,9 @@ export default function Lesson() {
 
   // use lessons context to update completion states
   const { completeLessonById } = useContext(LessonsContext);
+
+  // use points context for updating XP
+  const { addPoints } = useContext(PointsContext)
 
   // get lesson number from url params
   const { number } = useLocalSearchParams();
@@ -75,6 +79,9 @@ export default function Lesson() {
   const handleComplete = () => {
     // update the state of the current lesson to complete
     completeLessonById(lessonNumber);
+
+    // add points for completing lesson
+    addPoints(20);
     
     router.dismiss()
   }

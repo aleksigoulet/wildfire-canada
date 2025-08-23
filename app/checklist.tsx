@@ -25,7 +25,7 @@ export default function Checklist() {
   const { id } = useLocalSearchParams();
 
   // points context
-  const { points, setPoints } = useContext(PointsContext);
+  const { addPoints } = useContext(PointsContext);
 
   // get the checklist context.
   // needed so that Prepare view can be correctly updated when completing a checklist.
@@ -94,15 +94,8 @@ export default function Checklist() {
       
       setCurrentChecklist(updatedChecklist);
 
-      // set the new value for poitns
-      const newPoints = points + 10
-      
-      // store new points value in local storage
-      // needs to be done before updating context for correct behaviour
-      storeObjectData('points', newPoints)
-
-      // update points context
-      setPoints(newPoints);
+      // udpate the number of points use has
+      addPoints(10);
 
 
       // save the checklist with updated state and navigate back to Prepare view.

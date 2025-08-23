@@ -7,9 +7,11 @@ import { Dispatch, SetStateAction } from "react";
 type PointsContext = {
   points: number;
   setPoints: Dispatch<SetStateAction<number>>;
+  addPoints: (newPoints: number) => void;
 }
 
 export const PointsContext = createContext<PointsContext>({
   points: 0,
-  setPoints: () => {}
+  setPoints: () => {},
+  addPoints: () => {}
 }); 

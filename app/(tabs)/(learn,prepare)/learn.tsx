@@ -1,6 +1,8 @@
 import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView } from "react-native";
 import { useContext } from "react";
 import LessonMarker from "@/components/lessonMarker";
+import LessonMarkerLocked from "@/components/lessonMarkerLocked";
+import LessonMarkerComplete from "@/components/lessonMarkerComplete";
 import ProfileHeader from "@/components/profileHeader";
 import lessons from "@/assets/lessons";
 
@@ -64,7 +66,7 @@ export default function Learn() {
 
           // element to render for completed lessons
           if ( isLessonComplete ) {
-            return <LessonMarker title={item.metadata.title} number={item.metadata.id.toString()} />
+            return <LessonMarkerComplete title={item.metadata.title} number={item.metadata.id.toString()} />
           }
 
           // element to render for the next lesson to complete
@@ -74,7 +76,7 @@ export default function Learn() {
           }
 
           // element to render for lessons that are locked
-          return <LessonMarker title={'Blocked'} number={item.metadata.id.toString()} />
+          return <LessonMarkerLocked title={'Blocked'} />
 
         }}
         // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist

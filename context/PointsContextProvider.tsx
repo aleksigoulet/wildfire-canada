@@ -51,10 +51,28 @@ export default function PointsContextProvider({ children }: ContextProviderProps
   }, [])
 
 
+  /**
+   * Function to add a given number of points to the existing points.
+   * @param { number } newPoints - The number of points to add
+   */
+  const addPoints = (newPoints: number) => {
+      // set the new value for poitns
+      const newTotal = points + newPoints;
+      
+      // store new points value in local storage
+      // needs to be done before updating context for correct behaviour
+      storeObjectData('points', newTotal);
+
+      // update points context
+      setPoints(newTotal);
+  }
+
+
   // adapted from resources listed under "updating the context"
   const contextValue = {
     points: points,
-    setPoints: setPoints
+    setPoints: setPoints,
+    addPoints: addPoints
   }
 
   return (
