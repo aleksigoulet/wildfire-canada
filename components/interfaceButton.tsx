@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Pressable, Text, StyleSheet } from "react-native"
 
 
@@ -6,13 +7,23 @@ type InterfaceButtonProps = {
   title: string;
   small?: boolean;
   light?: boolean;
+  inactive?: boolean;
+  icon?: ReactNode;
 }
 
 export default function InterfaceButton( props: InterfaceButtonProps ) {
 
   return (
     <Pressable 
-      onPress={ props.onPress } 
+      onPress={() => {
+        // if button is inactive then don't do anything
+        if ( props.inactive ) {
+          return;
+        }
+
+        // otherwise complete the passed event listener
+        props.onPress();
+      }} 
       style={({ pressed }) => [ 
         styles.lessonButton, 
         pressed ? 
@@ -26,10 +37,21 @@ export default function InterfaceButton( props: InterfaceButtonProps ) {
           null,
         props.light && pressed ? 
           styles.lightButtonPressed :
+          null,
+        props.inactive ? 
+          styles.inactiveButton : 
           null
       ]}
     >
-      <Text style={styles.lessonButtonText}>{ props.title }</Text>
+      { props.icon }
+      <Text 
+        style={[
+          styles.lessonButtonText,
+          props.inactive ? 
+            styles.inactiveText : 
+            null
+        ]}
+      >{ props.title }</Text>
     </Pressable>
   )
 }
@@ -49,7 +71,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 0,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 12
   },
 
   buttonPressed: {
@@ -79,4 +103,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
+
+  inactiveButton: {
+    backgroundColor: '#E9DDD0',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowColor: '#B78F62',
+    top: 0
+  },
+
+  inactiveText: {
+    color: '#4E4E4E'
+  }
 })

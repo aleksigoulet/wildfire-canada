@@ -11,9 +11,12 @@ import { PointsContext } from "@/context/PointsContext";
 import { useFonts } from 'expo-font';
 import { Icons } from '@/components/icons';
 
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+
 import CheckboxActive from '@/assets/images/checkbox-active.svg';
 import CheckboxInactive from '@/assets/images/checkbox-inactive.svg';
 import InterfaceButton from "@/components/interfaceButton";
+import { ChecklistItem } from "@/types/commonTypes";
 
 export default function Checklist() {
   const router = useRouter();
@@ -29,6 +32,21 @@ export default function Checklist() {
   const { checklists, setChecklists } = useContext(ChecklistContext);
 
   const [ currentChecklist, setCurrentChecklist ] = useState<any>(null);
+  const [ allItemsChecked, setAllItemsChecked ] = useState<boolean>(false);
+
+
+  // helper function to check a value is true
+  const itemChecked = (value: boolean) => value;
+
+  const allCheckboxesComplete = (): boolean => {
+    // map items arrays to array of values for checkbox status
+    const checkboxValues = currentChecklist?.content.items.map((item: any) => {
+      return item.checked;
+    })
+
+    // check that all checkboxes have been checked 
+    return checkboxValues?.every(itemChecked);
+  }
 
   const handleSaveOnClose = (checklist: any) => {
     // get the currently stored checklist object
@@ -57,19 +75,11 @@ export default function Checklist() {
   const handleComplete = () => {
     // update the checklist completion state
 
-    // helper function to check a value is true
-    const itemChecked = (value: boolean) => value == true;
-
-    // map items arrays to array of values for checkbox status
-    const checkboxValues = currentChecklist.content.items.map((item: any) => {
-      return item.checked;
-    })
-
     // check that all checkboxes have been checked
-    const allCheckboxesTrue = checkboxValues.every(itemChecked);
+    const allCheckboxesTrue = allCheckboxesComplete();
 
     // if all checkboxes have been checked,
-    // then update checklist completion status
+    // then update checklist completion state
     // and add points
     if (allCheckboxesTrue) {
       console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
@@ -107,6 +117,29 @@ export default function Checklist() {
     router.dismiss();
   }
 
+  const handleReset = () => {
+    const udpatedItems = currentChecklist.content.items.map(( item: ChecklistItem ) => {
+      return {
+        ...item,
+        checked: false
+      }
+    })
+
+    const updatedChecklist = {
+      ...currentChecklist,
+      metadata: {
+        ...currentChecklist.metadata,
+        completionStatus: false
+      },
+      content: {
+        ...currentChecklist.content,
+        items: udpatedItems
+      }
+    }
+
+    setCurrentChecklist(updatedChecklist);
+  }
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
   });
@@ -122,6 +155,11 @@ export default function Checklist() {
       })
     })
   }, [])
+
+  // effect for checking all boxes are checked
+  useEffect(() => {    
+    setAllItemsChecked(allCheckboxesComplete());
+  }, [currentChecklist])
 
   // code below for icons copied from docs
   // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
@@ -149,8 +187,6 @@ export default function Checklist() {
 
           {/* checklist title */}
           <Text style={styles.titleText}>{ currentChecklist?.metadata.checklistName }</Text>
-          {/* <Text style={styles.titleText}>testing a long title name ahhhh why is this so annoying</Text> */}
-
         </View>
 
 
@@ -181,6 +217,10 @@ export default function Checklist() {
                 <Pressable 
                   key={item.id}
                   onPress={() => {
+                    if ( currentChecklist.metadata.completionStatus ) {
+                      return
+                    }
+
 
                     // implementation for items adapted from docs
                     // https://react.dev/learn/updating-arrays-in-state
@@ -242,10 +282,22 @@ export default function Checklist() {
 
       </View>
 
-      {/* button is outside of container so that it goes to bottom of screen */}
-      <View style={styles.buttonContainer}>
-        <InterfaceButton onPress={ handleComplete } title="Complete"/>
-      </View>
+      {/* dynamically render button to give user option to reset checklist when it's completed */}
+      {
+        currentChecklist?.metadata.completionStatus ? 
+          <View style={styles.buttonContainer}>
+            <InterfaceButton 
+              onPress={ handleReset } 
+              title="Reset Checklist"
+              icon={
+                <FontAwesome6 name="arrow-rotate-right" size={16} color="black" />
+              }
+            />
+          </View> : 
+          <View style={styles.buttonContainer}>
+            <InterfaceButton onPress={ handleComplete } title="Complete" inactive={ !allItemsChecked }/>
+          </View>
+      }
 
     </SafeAreaView>
   );

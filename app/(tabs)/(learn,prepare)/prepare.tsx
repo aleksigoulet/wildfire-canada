@@ -30,6 +30,12 @@ export default function Prepare() {
   const [ completedChecklists, setCompletedChecklists ] = useState<boolean>(false);
 
   useEffect(() => {
+    // default checklist completion state is false - there are no completed checklist
+    // need to explicitly define this here so that state can be reset when 
+    // all checklists are reset
+    // this also cannot be defined in forEach loop below for correct behaviour
+    setCompletedChecklists(false);
+
     // check the completion state of every checklist
     // if any checklist has been completed,
     // then change completed checklists state to true

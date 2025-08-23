@@ -50,6 +50,7 @@ type Profile = {
 export { 
   LayerVisibility, 
   ChecklistsCollection, 
+  ChecklistItem,
   ContextProviderProps, 
   BadgesCollection, 
   Badge,
