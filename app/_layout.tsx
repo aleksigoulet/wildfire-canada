@@ -87,7 +87,9 @@ export default function RootLayout() {
                       <Stack.Screen 
                         name="lesson" 
                         options={{
-                          animation: 'slide_from_bottom',
+                          animation: 'slide_from_bottom', 
+                          animationDuration: 300,                         
+                          gestureEnabled: false,
                           headerShown: false
                         }}
                       />
@@ -95,8 +97,9 @@ export default function RootLayout() {
                         name="checklist" 
                         options={{
                           animation: 'slide_from_bottom',
-                          // animation: 'fade',
-                          headerShown: false
+                          animationDuration: 300,
+                          gestureEnabled: false,
+                          headerShown: false,
                         }}
                       />
                     </Stack.Protected>

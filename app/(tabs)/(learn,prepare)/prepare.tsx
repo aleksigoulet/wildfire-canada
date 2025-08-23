@@ -36,6 +36,9 @@ export default function Prepare() {
     // this also cannot be defined in forEach loop below for correct behaviour
     setCompletedChecklists(false);
 
+    // same as above for remaining checklists
+    setRemainingChecklists(true);
+
     // check the completion state of every checklist
     // if any checklist has been completed,
     // then change completed checklists state to true
