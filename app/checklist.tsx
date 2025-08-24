@@ -10,19 +10,26 @@ import { PointsContext } from "@/context/PointsContext";
 
 import { useFonts } from 'expo-font';
 import { Icons } from '@/components/icons';
+import XPIcon from '@/assets/images/xp-icon.svg'
 
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 import CheckboxActive from '@/assets/images/checkbox-active.svg';
 import CheckboxInactive from '@/assets/images/checkbox-inactive.svg';
 import InterfaceButton from "@/components/interfaceButton";
-import { ChecklistItem } from "@/types/commonTypes";
+import AddXpIcon from "@/components/addXpIcon";
+import { Checklist as ChecklistType, ChecklistItem } from "@/types/commonTypes";
 
 export default function Checklist() {
   const router = useRouter();
 
   // get id parameter from route
-  const { id } = useLocalSearchParams();
+  const { id, numberPoints } = useLocalSearchParams();
+
+  // convert the passed number of points to integer
+  // this is the number of points to add for completing the checklist
+  // defined by ChecklistButton component
+  const numberPointsInt = parseInt(numberPoints as string);
 
   // points context
   const { addPoints } = useContext(PointsContext);
@@ -84,18 +91,19 @@ export default function Checklist() {
     if (allCheckboxesTrue) {
       console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
 
-      const updatedChecklist = {
+      const updatedChecklist : ChecklistType = {
         ...currentChecklist,
         metadata: {
           ...currentChecklist.metadata,
-          completionStatus: true
+          completionStatus: true,
+          previouslyCompleted: true
         }
       }              
       
       setCurrentChecklist(updatedChecklist);
 
-      // udpate the number of points use has
-      addPoints(10);
+      // update user's XP points
+      addPoints(numberPointsInt);
 
 
       // save the checklist with updated state and navigate back to Prepare view.
@@ -271,7 +279,14 @@ export default function Checklist() {
             }
           </View>
 
+
         </ScrollView>
+
+        {
+          currentChecklist?.metadata.completionStatus ?
+            null : 
+            <AddXpIcon points={ numberPointsInt } style={ styles.xpIconPosition }/>
+        }
 
       </View>
 
@@ -343,6 +358,12 @@ const styles = StyleSheet.create({
 
   contentTextInactive: {
     color: '#6F6F6F'
+  },
+
+  xpIconPosition: {
+    position: "absolute",
+    bottom: 0,
+    right: 20,
   },
 
   checklistButton: {

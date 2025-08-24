@@ -6,6 +6,7 @@ const checklists: ChecklistsCollection = [
       checklistName: "Go-Kit Checklist",
       checklistDisplayText: "Create my go-kit",
       completionStatus: false,
+      previouslyCompleted: false,
       icon: 'exit-alt',
       id: 1
     },
@@ -25,6 +26,7 @@ const checklists: ChecklistsCollection = [
       checklistName: "Home Defense Checklist",
       checklistDisplayText: "Protect my home",
       completionStatus: false,
+      previouslyCompleted: false,
       icon: 'fire-shield',
       id: 2
     },
@@ -44,6 +46,7 @@ const checklists: ChecklistsCollection = [
       checklistName: "First Aid Kit Checklist",
       checklistDisplayText: "Create my first aid kit",
       completionStatus: false,
+      previouslyCompleted: false,
       icon: 'pharmacy',
       id: 3
     },

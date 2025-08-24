@@ -2,7 +2,6 @@ import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import ProfileHeader from "@/components/profileHeader";
 import ChecklistButton from "@/components/checklistButton";
-import ChecklistCompleteButton from "@/components/checklistCompleteButton";
 
 import { useContext, useEffect, useState } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
@@ -91,6 +90,7 @@ export default function Prepare() {
                   title={ checklist.metadata.checklistDisplayText }
                   icon={ checklist.metadata.icon }
                   key={ checklist.metadata.id }
+                  previouslyCompleted={ checklist.metadata.previouslyCompleted }
                 />
               )
             }
@@ -110,11 +110,13 @@ export default function Prepare() {
             if ( checklist.metadata.completionStatus ) {
 
               return (
-                 <ChecklistCompleteButton
+                 <ChecklistButton
                   href={`/checklist?id=${ checklist.metadata.id }`}
                   title={ checklist.metadata.checklistDisplayText }
                   icon={ checklist.metadata.icon }
-                  key={ checklist.metadata.id }
+                  key={ checklist.metadata.id } 
+                  previouslyCompleted={ checklist.metadata.previouslyCompleted }  
+                  complete               
                 />
               )
             }

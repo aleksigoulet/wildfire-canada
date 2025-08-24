@@ -14,11 +14,29 @@ type ContextProviderProps = {
 }
 
 // types for checklist collection
-type ChecklistsCollection = {
+// type ChecklistsCollection = {
+//   metadata: {
+//     checklistName: string;
+//     checklistDisplayText: string;
+//     completionStatus: boolean;
+//     previouslyCompleted: boolean;
+//     icon: string;
+//     id: number;
+//   },
+//   content: {
+//     introMessage: string;
+//     items: ChecklistItem[]
+//   }
+// }[]
+
+type ChecklistsCollection = Checklist[]
+
+type Checklist = {
   metadata: {
     checklistName: string;
     checklistDisplayText: string;
     completionStatus: boolean;
+    previouslyCompleted: boolean;
     icon: string;
     id: number;
   },
@@ -26,7 +44,7 @@ type ChecklistsCollection = {
     introMessage: string;
     items: ChecklistItem[]
   }
-}[]
+}
 
 type ChecklistItem = {
   id: number;
@@ -50,6 +68,7 @@ type Profile = {
 export { 
   LayerVisibility, 
   ChecklistsCollection, 
+  Checklist,
   ChecklistItem,
   ContextProviderProps, 
   BadgesCollection, 
