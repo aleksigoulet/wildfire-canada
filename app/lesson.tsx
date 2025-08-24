@@ -4,6 +4,7 @@ import { useRouter, useLocalSearchParams } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Image } from "expo-image";
 import InterfaceButton from "@/components/interfaceButton";
+import AddXpIcon from "@/components/addXpIcon";
 
 import lessons from "@/assets/lessons";
 import { LessonTextContent } from "@/types/lessonTypes";
@@ -17,7 +18,7 @@ export default function Lesson() {
   const router = useRouter();
 
   // use lessons context to update completion states
-  const { completeLessonById } = useContext(LessonsContext);
+  const { completedLessons, completeLessonById } = useContext(LessonsContext);
 
   // use points context for updating XP
   const { addPoints } = useContext(PointsContext)
@@ -50,6 +51,15 @@ export default function Lesson() {
   }
 
 
+  // define number of points to add for completing a lesson
+  let pointsToAdd = 20;
+
+  // Add less points if the lesson was already completed
+  if (completedLessons[lessonIndex].completed) {
+    pointsToAdd = 5;
+  }
+
+
   // state variable to keep track of page index
   const [ currentPage, setCurrentPage ] = useState(0);
 
@@ -67,7 +77,7 @@ export default function Lesson() {
   // handler for navigating to the next page
   const handleNext = () => {
     // do not let index to exceed the number of available pages
-    if ( currentPage == lessons[0].pages.length) {
+    if ( currentPage == lessons[lessonIndex].pages.length) {
       return;
     }
 
@@ -81,7 +91,7 @@ export default function Lesson() {
     completeLessonById(lessonNumber);
 
     // add points for completing lesson
-    addPoints(20);
+    addPoints(pointsToAdd);
     
     router.dismiss()
   }
@@ -117,7 +127,10 @@ export default function Lesson() {
             height: 120
           }}
         />
-        <InterfaceButton onPress={ handleComplete } title='Complete Lesson' />
+        <View style={styles.completeButtonContainer}>
+          <AddXpIcon points={pointsToAdd}/>
+          <InterfaceButton onPress={ handleComplete } title='Complete Lesson' />
+        </View>
       </View>
     )
   } else {
@@ -332,5 +345,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     gap: 28
-  }
+  },
+  
+  completeButtonContainer: {
+    alignItems: 'flex-end',
+    gap: 8
+  },
 })
