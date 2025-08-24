@@ -1,17 +1,16 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { Text, View, StyleSheet } from "react-native";
+
+import LessonButtonLocked from '@/assets/lessonButton/lesson-button-locked.svg';
 
 // type definition for component properties
 type LessonLockedProps = {
   title: string;
-  // number: string;
 };
 
 export default function LessonMarkerLocked(props: LessonLockedProps) {
   return (
-    <View 
-      style={styles.lessonButton}
-    >
+    <View style={styles.container}>
+      <LessonButtonLocked width={100} />
       <View style={styles.lessonTitle}>
         <Text style={styles.lessonTitleText}>{props.title}</Text>
       </View>
@@ -20,26 +19,23 @@ export default function LessonMarkerLocked(props: LessonLockedProps) {
 }
 
 const styles = StyleSheet.create({
-  lessonButton: {
-    // padding: 10,
-    width: 100,
-    height: 100,
-    backgroundColor: '#e9e9e9ff',
-    borderRadius: 50
+  container: {
+    alignItems: 'center'
   },
 
   lessonTitle: {
-    padding: 10,
-    backgroundColor: 'white',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    backgroundColor: '#BDBAB6',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    top: 80
+    top: -16
   },
 
   lessonTitleText: {
-    // color: 'white',
-    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 16,
   }
 })

@@ -72,11 +72,11 @@ export default function Learn() {
           // element to render for the next lesson to complete
           // ie. the lesson that the user has unlockec
           if ( !isLessonComplete && isPreviousLessonComplete ) {
-            return <LessonMarker title={'Start'} number={item.metadata.id.toString()} />
+            return <LessonMarker title={item.metadata.title} number={item.metadata.id.toString()} />
           }
 
           // element to render for lessons that are locked
-          return <LessonMarkerLocked title={'Blocked'} />
+          return <LessonMarkerLocked title={item.metadata.title} />
 
         }}
         // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
