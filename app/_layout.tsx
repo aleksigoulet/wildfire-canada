@@ -5,6 +5,7 @@ import ChecklistContextProvider from "@/context/ChecklistContextProvider";
 import PointsContextProvider from "@/context/PointsContextProvider";
 import BadgesContextProvider from "@/context/BadgesContextProvider";
 import LessonsContextProvider from "@/context/LessonsContextProvider";
+import ProfileContextProvider from "@/context/ProfileContextProvider";
 
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -74,40 +75,43 @@ export default function RootLayout() {
           <LessonsContextProvider>
             <PointsContextProvider>
               <BadgesContextProvider>
-                <OnboardingContext.Provider value={contextValue}>
-                  <Stack
-                    screenOptions={{
-                      contentStyle: {
-                        backgroundColor: 'white',
-                      }
-                    }}
-                  >
-                    <Stack.Protected guard={onboardingComplete}>
-                      <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
-                      <Stack.Screen 
-                        name="lesson" 
-                        options={{
-                          animation: 'slide_from_bottom', 
-                          animationDuration: 300,                         
-                          gestureEnabled: false,
-                          headerShown: false
-                        }}
-                      />
-                      <Stack.Screen 
-                        name="checklist" 
-                        options={{
-                          animation: 'slide_from_bottom',
-                          animationDuration: 300,
-                          gestureEnabled: false,
-                          headerShown: false,
-                        }}
-                      />
-                    </Stack.Protected>
-                    <Stack.Protected guard={!onboardingComplete} >
-                      <Stack.Screen name="onboarding" options={{ headerShown: false }}/>
-                    </Stack.Protected>
-                  </Stack>
-                </OnboardingContext.Provider>
+                <ProfileContextProvider>
+                  <OnboardingContext.Provider value={contextValue}>
+                    <Stack
+                      screenOptions={{
+                        contentStyle: {
+                          backgroundColor: 'white',
+                        }
+                      }}
+                    >
+                      <Stack.Protected guard={onboardingComplete}>
+                        <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
+                        <Stack.Screen name="profile" options={{ headerBackTitle: 'Back', headerTitle: '' }}/>
+                        <Stack.Screen 
+                          name="lesson" 
+                          options={{
+                            animation: 'slide_from_bottom', 
+                            animationDuration: 300,                         
+                            gestureEnabled: false,
+                            headerShown: false
+                          }}
+                        />
+                        <Stack.Screen 
+                          name="checklist" 
+                          options={{
+                            animation: 'slide_from_bottom',
+                            animationDuration: 300,
+                            gestureEnabled: false,
+                            headerShown: false,
+                          }}
+                        />
+                      </Stack.Protected>
+                      <Stack.Protected guard={!onboardingComplete} >
+                        <Stack.Screen name="onboarding" options={{ headerShown: false }}/>
+                      </Stack.Protected>
+                    </Stack>
+                  </OnboardingContext.Provider>
+                </ProfileContextProvider>
               </BadgesContextProvider>
             </PointsContextProvider>
           </LessonsContextProvider>

@@ -73,7 +73,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="(learn)"
+        name="learn"
         options={{
           title: 'Learn',
           headerShown: false,
@@ -81,7 +81,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="(prepare)"
+        name="prepare"
         options={{
           title: 'Prepare',
           headerShown: false,
@@ -104,7 +104,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="(settings)"
+        name="settings"
         options={{
           title: 'Settings',
           headerShown: false,

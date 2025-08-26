@@ -43,7 +43,7 @@ export default function Settings() {
       <View style={styles.container}>
         <Text style={styles.pageTitle}>Settings</Text>
 
-        <Link href={'/(tabs)/(settings)/profile'}>
+        <Link href={'/profile'}>
           <View style={styles.profileContainer}>
             <Image
               placeholder={{ blurhash }}
@@ -63,7 +63,7 @@ export default function Settings() {
           }}
         />
 
-        <Link href={'/(tabs)/(settings)/developper'}>
+        <Link href={'/(tabs)/settings/developper'}>
           <View style={styles.settingContainer}>
             <Text>Developper</Text>
           </View>
