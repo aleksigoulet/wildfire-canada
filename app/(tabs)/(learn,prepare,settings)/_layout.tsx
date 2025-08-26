@@ -12,8 +12,11 @@ export default function NestedLayout({ segment }: { segment: string }) {
         return <Stack.Screen name="learn" options={{ title: 'Learn', headerShown: false }} />
       case '(prepare)':
         return <Stack.Screen name="prepare" options={{ title: 'Prepare', headerShown: false }} />
+      case '(settings)':
+        return <Stack.Screen name="settings" options={{ title: 'Settings', headerShown: false }} />
     }
-   }, [segment])
+  }, [segment])
+  
 
   return (
     <Stack
