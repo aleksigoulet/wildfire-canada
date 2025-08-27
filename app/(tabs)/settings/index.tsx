@@ -1,10 +1,12 @@
-import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView } from "react-native";
+import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { useState, useContext } from "react";
 import { storeObjectData, removeValue } from "@/utils/storageHandlers";
 import { Profile } from "@/types/commonTypes";
 import { ProfileContext } from "@/context/ProfileContext";
+
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 
 const blurhash =
@@ -43,89 +45,39 @@ export default function Settings() {
       <View style={styles.container}>
         <Text style={styles.pageTitle}>Settings</Text>
 
-        <Link href={'/profile'}>
-          <View style={styles.profileContainer}>
-            <Image
-              placeholder={{ blurhash }}
-              style={styles.profileImage}
-            />
-            <View style={styles.profileTextContainer}>
-              <Text>Username</Text>
-              <Text>See my profile</Text>
+        <Link href={'/profile'} asChild>
+          <Pressable>
+            <View style={styles.profileContainer}>
+              <Image
+                placeholder={{ blurhash }}
+                style={styles.profileImage}
+              />
+              <View style={styles.profileTextContainer}>
+                <Text>Username</Text>
+                <Text>See my profile</Text>
+              </View>
             </View>
-          </View>
+          </Pressable>
         </Link>
 
-        <Button 
-          title="Edit Profile"
+        <Pressable 
           onPress={() => {
             setEditProfileModalVisible(true);
           }}
-        />
-
-        <Link href={'/(tabs)/settings/developper'}>
-          <View style={styles.settingContainer}>
-            <Text>Developper</Text>
+        >
+          <View style={[styles.settingContainer, { marginBottom: 52, paddingVertical: 10 }]}>
+            <Text style={styles.settingText}>Edit Profile</Text>
           </View>
+        </Pressable>
+
+        <Link href={'/(tabs)/settings/developper'} asChild>
+          <Pressable>
+            <View style={styles.settingContainer}>
+              <Text style={styles.settingText}>Developper</Text>
+              <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+            </View>
+          </Pressable>
         </Link>
-        
-        <Text>For Development. This button deletes all game progress data from AsyncStorage.</Text>
-        <Button 
-          title="Reset all progress"
-          onPress={async () => {
-            try {
-              await removeValue('checklists');
-              await removeValue('badges');
-              await removeValue('points');
-              await removeValue('completedLessons');
-
-              alert('Progress succesfully reset.')
-            } catch (error) {
-              console.error('Error in resetting progress [settings.tsx]: ' + error);
-              alert('Error in resetting progress: \n' + error);
-            }
-          }}
-        />
-        <Button  
-          title="Delete Profile Info"
-          onPress={async () => {
-            try {
-              await removeValue('profile');
-
-              alert('Profile deleted.');
-            } catch (error) {
-              console.error("Error in deleting profile [settings.tsx]: " + error);
-              alert("Error in deleting profile: \n" + error);
-            }
-          }}
-        />
-        <Button 
-          title="Reset Onboarding"
-          onPress={async () => {
-            try {
-              await removeValue('onboardingComplete');
-
-              alert('Onboarding reset.');
-            } catch (error) {
-              console.error("Error in resetting onboarding [settings.tsx]: " + error);
-              alert("Error in resetting onboarding: \n" + error);
-            }
-          }}
-        />
-        <Button 
-          title="Delete Notifications"
-          onPress={async () => {
-            try {
-              await removeValue('notifications');
-
-              alert('Notifications reset.');
-            } catch (error) {
-              console.error("Error in resetting notifications [settings.tsx]: " + error);
-              alert("Error in resetting notifications: \n" + error);
-            }
-          }}
-        />
-
 
         {/* Modal to edit profile information */}
         <Modal
@@ -180,6 +132,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
+    marginBottom: 16,
   },
 
   profileTextContainer: {
@@ -195,11 +148,21 @@ const styles = StyleSheet.create({
 
 
   settingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: 'lightgrey',
-    padding: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     width: '100%',
-    borderRadius: 5
+    borderRadius: 10,
+    marginBottom: 16,
   },
+
+  settingText: {
+    fontSize: 16,
+  },
+
 
   modalContainer: {
     flex: 1,
