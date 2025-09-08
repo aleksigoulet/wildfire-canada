@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Text, View, Button, AppState, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { Text, View, Button, AppState, StyleSheet, SafeAreaView, ScrollView, Pressable } from "react-native";
 import * as Notifications from 'expo-notifications';
 import { router } from "expo-router";
 import { getObjectData } from "@/utils/storageHandlers";
 import Notification from "@/components/notification";
+import { removeValue } from "@/utils/storageHandlers";
+import { Image } from "expo-image";
 
 
 // code for notification background task is copied from expo documentation
@@ -179,19 +181,46 @@ export default function Alerts() {
 
         <View style={styles.pageHeader}>
           <Text style={styles.pageTitle}>Alerts</Text>
+          <Button 
+            title='Delete All'
+            onPress={async () => {
+              try {
+                await removeValue('notifications');
+                setNotifications([]);
+              } catch (error) {
+                console.error("Error in resetting notifications [alerts.tsx]: " + error);
+                alert("Could not delete notifications. Please try again.");
+              }
+            }}
+          />
         </View>
 
-        <ScrollView>
-          <View style={styles.scrollContainer}>
-          {
-            notifications?.map((notification: any) => {
-              // return <Text key={ notification.key }>{ notification.data.content }</Text>
-              // console.log(notification);
-              return <Notification key={ notification.key } data={ notification.data } time={ notification.time }/>
-            })
-          }
-          </View>
-        </ScrollView>
+        {
+          notifications[0] ? 
+            <ScrollView>
+              <View style={styles.scrollContainer}>
+              {
+                notifications?.map((notification: any) => {
+                  // return <Text key={ notification.key }>{ notification.data.content }</Text>
+                  // console.log(notification);
+                  return <Notification key={ notification.key } data={ notification.data } time={ notification.time }/>
+                })
+              }
+              </View>
+            </ScrollView> :
+            <View style={styles.emptyNotificationsContainer}>
+              <Image 
+                source={require('@/assets/images/bell.png')}
+                style={{
+                  height: 52,
+                  width: 52,
+                }}
+              />
+              <Text style={styles.emptyNotificationsText}>You're all caught up!</Text>
+            </View>
+        }
+
+
       </View>
     </SafeAreaView>
   );
@@ -219,6 +248,17 @@ const styles = StyleSheet.create({
     gap: 20,
     paddingTop: 22,
     flexDirection: 'column-reverse',
-  }
+  },
+
+  emptyNotificationsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 32,
+  },
+  
+  emptyNotificationsText: {
+    fontSize: 16,
+  },
 
 })
