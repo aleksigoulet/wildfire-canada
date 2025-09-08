@@ -5,6 +5,9 @@ import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
 import { ProfileContext } from "@/context/ProfileContext";
 
+import XPIcon from '@/assets/images/xp-icon.svg'
+import BadgeIcon from '@/assets/images/badge-icon.svg'
+
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
@@ -34,18 +37,17 @@ export default function Profile() {
 
         {/* points overview */}
         <View style={[styles.overviewContainer, {marginTop: 25}]}>
+          {/* view for XP */}
           <View style={styles.scoreSection}>
-            <View style={styles.scoreBox}>
-              <Text>{ points }</Text>
-            </View>
-            <Text style={styles.scoreTitle}>Prepardness Score</Text>
+            <XPIcon />
+            <Text style={styles.scoreText}>{ points }</Text>
           </View>
+
+          {/* view for Badges */}
           <View style={styles.scoreSection}>
-            <View style={styles.scoreBox}>
-              <Text>{ getNumberCompletedBadges() }</Text>
-            </View>
-            <Text style={styles.scoreTitle}>Bagdes</Text>
-          </View>
+            <BadgeIcon />
+            <Text style={styles.scoreText}>{ getNumberCompletedBadges() }</Text>
+          </View>  
         </View>
 
         {/* badges */}
@@ -78,22 +80,20 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
 
   profileImage: {
-    width: 60,
-    height: 60,
+    width: 48,
+    height: 48,
     borderRadius: 50
   },
 
   profileHeaderContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'flex-start',
-    gap: 20,
+    gap: 18,
   },
 
   nameText: {
@@ -103,15 +103,15 @@ const styles = StyleSheet.create({
 
    overviewContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 48
   },
 
   scoreSection: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    transform: [{skewX: '-10deg'}]
   },
 
   scoreBox: {
@@ -124,9 +124,14 @@ const styles = StyleSheet.create({
     
   },
 
+  scoreText: {
+    fontSize: 36,
+    fontFamily: 'Jaro-Regular',
+    color: '#503716'
+  },
+
   scoreTitle: {
     maxWidth: 110,
-    // fontStyle: 'italic',
   },
 
   badgeImage: {
@@ -146,7 +151,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginHorizontal: 'auto',
     gap: 40
   }
 });
