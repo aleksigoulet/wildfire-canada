@@ -1,15 +1,16 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ViewStyle } from "react-native";
 
 import LessonButtonLocked from '@/assets/lessonButton/lesson-button-locked.svg';
 
 // type definition for component properties
 type LessonLockedProps = {
   title: string;
+  style?: ViewStyle;
 };
 
 export default function LessonMarkerLocked(props: LessonLockedProps) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, props.style]}>
       <LessonButtonLocked width={100} />
       <View style={styles.lessonTitle}>
         <Text style={styles.lessonTitleText}>{props.title}</Text>
@@ -20,7 +21,7 @@ export default function LessonMarkerLocked(props: LessonLockedProps) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   lessonTitle: {

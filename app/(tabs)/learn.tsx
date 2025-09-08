@@ -11,6 +11,9 @@ import { BadgesContext } from "@/context/BadgesContext";
 import { ProfileContext } from "@/context/ProfileContext";
 import { LessonsContext } from "@/context/LessonsContext";
 
+
+import Svg, { Path } from "react-native-svg";
+
 export default function Learn() {
   // points context
   const { points } = useContext(PointsContext);
@@ -63,20 +66,52 @@ export default function Learn() {
             isPreviousLessonComplete = completedLessons[index - 1].completed;
           }
 
+          // variable for the horizontal offset of each lesson marker
+          // change the dividend in PI / [number] to adjust the period of the wave
+          const horizontalPosition = Math.sin(( Math.PI / 3.5 ) * index) * 200;
+
 
           // element to render for completed lessons
           if ( isLessonComplete ) {
-            return <LessonMarkerComplete title={item.metadata.title} number={item.metadata.id.toString()} />
+            return (
+              <LessonMarkerComplete 
+                title={item.metadata.title} 
+                number={item.metadata.id.toString()} 
+                // style for hor offset following sine wave
+                // shift marker to the right for positive values
+                // and left for negative values
+                style={ horizontalPosition > 0 ? 
+                  { marginLeft: horizontalPosition } : 
+                  { marginRight: -horizontalPosition }}
+              /> 
+            )
           }
 
           // element to render for the next lesson to complete
           // ie. the lesson that the user has unlockec
           if ( !isLessonComplete && isPreviousLessonComplete ) {
-            return <LessonMarker title={item.metadata.title} number={item.metadata.id.toString()} />
+            return (
+              <LessonMarker 
+                title={item.metadata.title} 
+                number={item.metadata.id.toString()} 
+                // see marker above for styling comments
+                style={ horizontalPosition > 0 ? 
+                  { marginLeft: horizontalPosition } : 
+                  { marginRight: -horizontalPosition }}
+              />
+            )
           }
 
           // element to render for lessons that are locked
-          return <LessonMarkerLocked title={item.metadata.title} />
+          return (
+            <LessonMarkerLocked 
+              title={item.metadata.title} 
+              // see marker above for styling comments
+              style={ horizontalPosition > 0 ? 
+                { marginLeft: horizontalPosition } : 
+                { marginRight: -horizontalPosition }}
+            />
+          )
 
         }}
         // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
@@ -86,9 +121,7 @@ export default function Learn() {
             <View
               style={{
                 width: 5,
-                height: 100,
-                backgroundColor: 'grey',
-                alignSelf: 'center',
+                height: 30,
               }}
             ></View>
           )

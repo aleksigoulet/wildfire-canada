@@ -1,4 +1,4 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
+import { Text, View, Pressable, StyleSheet, ViewStyle } from "react-native";
 import { Link } from "expo-router";
 
 import LessonButtonComplete from '@/assets/lessonButton/lesson-button-complete.svg'
@@ -8,6 +8,7 @@ import LessonButtonCompletePressed from '@/assets/lessonButton/lesson-button-com
 type LessonProps = {
   title: string;
   number: string;
+  style?: ViewStyle;
 };
 
 export default function LessonMarkerComplete(props: LessonProps) {
@@ -16,7 +17,7 @@ export default function LessonMarkerComplete(props: LessonProps) {
       href={`/lesson?number=${props.number}`}
       asChild
     >
-      <Pressable>
+      <Pressable style={props.style}>
         {({pressed}) => (
           <View style={[styles.container, pressed ? styles.containerPressed : null]}>
             {
@@ -36,7 +37,7 @@ export default function LessonMarkerComplete(props: LessonProps) {
 
 const styles = StyleSheet.create({
     container: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   containerPressed: {

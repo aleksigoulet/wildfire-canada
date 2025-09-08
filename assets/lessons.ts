@@ -110,6 +110,171 @@ const lessons: LessonCollection = [
         ]
       }
     ]
+  },
+    {
+    metadata: {
+      id: 4,
+      title: 'Lesson 4'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
+  },
+    {
+    metadata: {
+      id: 5,
+      title: 'Lesson 5'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
+  },
+    {
+    metadata: {
+      id: 6,
+      title: 'Lesson 6'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
+  },
+    {
+    metadata: {
+      id: 7,
+      title: 'Lesson 7'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
+  },
+    {
+    metadata: {
+      id: 8,
+      title: 'Lesson 8'
+    },
+    pages: [
+      {
+        type: ContentType.Intro,
+        content: {
+          text: "In this lesson, we're going to learn about basic fire concepts.",
+          objectives: [
+            {
+              id: 0,
+              item: "Understand the fire triangle"
+            }
+          ]
+        }
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+          },
+          {
+            id: 1,
+            image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      }
+    ]
   }
 ]
 
