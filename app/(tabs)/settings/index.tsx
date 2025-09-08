@@ -15,7 +15,7 @@ const blurhash =
 
 
 export default function Settings() {
-  const { setProfile } = useContext(ProfileContext);
+  const { profile, setProfile } = useContext(ProfileContext);
 
 
   const [ editProfileModalVisible, setEditProfileModalVisible ] = useState<boolean>(false);
@@ -53,7 +53,7 @@ export default function Settings() {
                 style={styles.profileImage}
               />
               <View style={styles.profileTextContainer}>
-                <Text>Username</Text>
+                <Text>{ profile?.username }</Text>
                 <Text>See my profile</Text>
               </View>
             </View>

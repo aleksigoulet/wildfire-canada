@@ -6,12 +6,14 @@ import { Profile } from '@/types/commonTypes';
 // use of Dispatch and SetStateAction adapted from following post
 // https://stackoverflow.com/questions/71297102/typescript-type-for-reacts-usestate-setter-when
 type ProfileContext = {
-  profile: Profile | null;
-  setProfile: Dispatch<SetStateAction<Profile | null>>;
+  profile: Profile;
+  setProfile: Dispatch<SetStateAction<Profile>>;
 }
 
 const emptyProfile = {
-  profile: null,
+  profile: {
+    username: ''
+  },
   setProfile: () => {}
 }
 

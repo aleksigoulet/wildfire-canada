@@ -1,12 +1,17 @@
 import { Text, StyleSheet, View, ScrollView } from "react-native"
 import { Image } from "expo-image";
-import { useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { PointsContext } from "@/context/PointsContext";
 import { BadgesContext } from "@/context/BadgesContext";
 import { ProfileContext } from "@/context/ProfileContext";
+import { useFocusEffect } from 'expo-router';
+import { getObjectData } from "@/utils/storageHandlers";
+import { Profile as ProfileType } from "@/types/commonTypes";
+
 
 import XPIcon from '@/assets/images/xp-icon.svg'
 import BadgeIcon from '@/assets/images/badge-icon.svg'
+// import { Profile as ProfileType } from "@/types/commonTypes";
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
@@ -20,6 +25,26 @@ export default function Profile() {
   // profile context
   const { profile } = useContext(ProfileContext);
 
+  // state to keep track of profile name to display
+  const [ displayProfile, setDisplayProfile ] = useState<ProfileType>(profile);
+
+
+  // need to use a focus effect so that profile name is correctly updated
+  // profile context does not correctly propagate to this screen
+  // for now, retrieve stored profile data every time the screen is focused as a work-around
+  useFocusEffect(
+    useCallback(() => {
+      // retrieve stored data
+      getObjectData('profile')
+      .then(( data ) => {
+        // make sure that data was returned
+        if ( data ) {
+          setDisplayProfile( data );
+        }
+      })
+    }, [])
+  )
+
   return (
     <View style={styles.container}>
       <ScrollView style={{paddingTop: 20}}>
@@ -30,7 +55,7 @@ export default function Profile() {
             style={styles.profileImage}
           />
           <View>
-            <Text style={styles.nameText}>{ profile?.username }</Text>
+            <Text style={styles.nameText}>{ displayProfile.username }</Text>
             <Text>Beginner</Text>
           </View>
         </View>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { ProfileContext } from "./ProfileContext";
-import { getObjectData } from "@/utils/storageHandlers";
+import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
 import { Profile, ContextProviderProps } from "@/types/commonTypes";
 
 /* 
@@ -28,13 +28,20 @@ How to implement correct types
 // into the context from local storage (using AsyncStorage).
 
 export default function ProfileContextProvider({ children }: ContextProviderProps) {
-  const [ profile, setProfile ] = useState<Profile | null>(null);
+  const [ profile, setProfile ] = useState<Profile>({ username: '' });
 
   const getStoredProfile = useCallback(async () => {
     const data = await getObjectData('profile');
 
-    // set the checklist state to the stored checklist object
+    // set the points state to the stored points object
     setProfile(data);
+
+    // if no profile stored, then create a profile object
+    if (data == null) {
+      console.log('ProfileContextProvider: no stored value for profile, creating now...')
+      storeObjectData('profile', { username: '' });
+      setProfile({ username: '' });
+    }
       
   }, [])
 

@@ -33,10 +33,10 @@ export default function PointsContextProvider({ children }: ContextProviderProps
   const getStoredPoints = useCallback(async () => {
     const data = await getObjectData('points');
 
-    // set the checklist state to the stored checklist object
+    // set the points state to the stored points object
     setPoints(data);
 
-    // if no checklists stored, then create a checklist object from the master checklists
+    // if no points stored, then create a new entry for points
     // need to use null explicitly as 0 is falsy
     if (data == null) {
       console.log('PointsContextProvider: no stored value for points, creating now...')
