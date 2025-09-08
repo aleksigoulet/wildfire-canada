@@ -1,4 +1,4 @@
-import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable } from "react-native";
+import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { useState, useContext } from "react";
@@ -87,23 +87,41 @@ export default function Settings() {
           onRequestClose={handleCloseEditProfileModal}
         >
           <View style={styles.modalContainer}>
-            <Text style={styles.modalTitle}>New Username</Text>
-            <TextInput 
-              style={styles.modalInput}
-              value={editingUserName}
-              onChangeText={setEditingUserName}
-            />
-            <Button 
-              title="Submit"
-              onPress={() => {
-                handleSubmitNewProfileInfo();
-                handleCloseEditProfileModal();
-              }}
-            />
             <Button
               title="Close"
               onPress={handleCloseEditProfileModal}
             />
+            {/* 
+              ScrollView needed so that keyboard disappears when screen tapped
+              solution of using scrollview with keyboardShouldPersistTaps from user Eric Kim
+              https://stackoverflow.com/questions/29685421/hide-keyboard-in-react-native?page=1&tab=scoredesc#tab-top
+            */}
+            <ScrollView 
+              keyboardShouldPersistTaps='handled' 
+              style={{ width: '100%' }} 
+              contentContainerStyle={{ flex: 1 }}
+            >
+              <View style={styles.modalFormContainer}>
+                <View style={styles.modalFormInput}>
+                  <Text style={styles.modalTitle}>New Username</Text>
+                  <TextInput 
+                    style={styles.modalTextInput}
+                    value={editingUserName}
+                    onChangeText={setEditingUserName}
+                  />
+                </View>
+                <Button 
+                  title="Submit"
+                  onPress={() => {
+                    handleSubmitNewProfileInfo();
+                    handleCloseEditProfileModal();
+                  }}
+                  // disable submit button if no new username is entered
+                  disabled={ editingUserName ? false : true }
+                />
+              </View>
+            </ScrollView>
+            
           </View>
         </Modal>
       </View>
@@ -122,8 +140,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 24
   },
-
-
 
   profileContainer: {
     backgroundColor: 'lightgrey',
@@ -166,23 +182,36 @@ const styles = StyleSheet.create({
 
   modalContainer: {
     flex: 1,
+    padding: 10,
+    // justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+
+  modalTitle: {
+    fontWeight: '600',
+    fontSize: 18,
+    marginBottom: 6
+  },
+
+  modalFormContainer: {
+    flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
-  modalTitle: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    marginBottom: 10
+  modalFormInput: {
+    width: '90%',
+    marginBottom: 24,
   },
 
-  modalInput: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+  modalTextInput: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     fontSize: 16,
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 10,
-    width: 200
+    width: '100%'
   }
 })
