@@ -30,9 +30,11 @@ export default function ProfileHeader(props: any) {
               <View style={styles.profileContainer}>
                 <Image 
                   placeholder={{blurhash}}
+                  source={require('@/assets/images/profile-placeholder.png')}
                   style={{
-                    width: 40,
-                    height: 40,
+                    width: 48,
+                    height: 48,
+                    bottom: 2,
                     borderRadius: 25
                   }}
                 />

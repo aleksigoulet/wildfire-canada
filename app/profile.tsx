@@ -53,6 +53,7 @@ export default function Profile() {
           <Image
             placeholder={{ blurhash }}
             style={styles.profileImage}
+            source={require('@/assets/images/profile-placeholder.png')}
           />
           <View>
             <Text style={styles.nameText}>{ displayProfile.username }</Text>
@@ -110,8 +111,9 @@ const styles = StyleSheet.create({
   },
 
   profileImage: {
-    width: 48,
-    height: 48,
+    width: 56,
+    height: 56,
+    bottom: 2,
     borderRadius: 50
   },
 
