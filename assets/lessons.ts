@@ -8,7 +8,7 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 1,
-      title: 'Lesson 1'
+      title: 'Intro'
     },
     pages: [
       {
@@ -21,7 +21,7 @@ const lessons: LessonCollection = [
             },
             {
               id: 1,
-              text: "The Chief has advised this wildfire season will be record-breaking, so we better get started!"
+              text: "The Chief has advised that this wildfire season will be record-breaking. So we'd better get started!"
             }
           ]
         }
@@ -35,11 +35,24 @@ const lessons: LessonCollection = [
           },
           {
             id: 1,
-            text: "Wildfires can destroy communities and wildfire smoke can cause significant health problems."
+            text: "In 2023, over 6,000 fires burned over 15 million hectares of land. That's an area bigger than England!"
           },
           {
             id: 2,
-            text: "It's up to us to do what we can to prevent and to be ready for when a wildfire strikes!",
+            text: "They can destroy communities, and wildfire smoke can cause significant health problems.",
+          },
+          {
+            id: 3,
+            text: "It's up to us to do what we can to prevent them and to be ready for when a wildfire strikes!",
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "In this bootcamp, you will learn what causes wildfires and how to handle wildfire-related emergencies."
           }
         ]
       }
@@ -48,7 +61,7 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 2,
-      title: 'Lesson 2'
+      title: 'Basics 1'
     },
     pages: [
       {
@@ -59,6 +72,10 @@ const lessons: LessonCollection = [
             {
               id: 0,
               item: "Understand the fire triangle"
+            },
+            {
+              id: 1,
+              item: "Learn the causes of wildfires"
             }
           ]
         }
@@ -68,11 +85,28 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "The fire triangle describes the three elements needed to start a fire. These elements are heat, fuel, and oxygen. A fire is extinguished by removing any one of the three elements."
           },
           {
             id: 1,
             image: require('@/assets/images/fire-triangle.png'),
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "The majority of wildfires in Canada are caused either by lightning strikes or humans, with human-caused fires representing just over half of reported wildfires."
+          },
+          {
+            id: 1,
+            text: "Lightning strikes create wildfires by igniting dry fuels such as grass, trees or leaves. Hot, dry, and windy climates then provide the necessary conditions for the fire to spread."
+          },
+          {
+            id: 2,
+            text: "Similarly, human activities can ignite dry fuels. Examples of human activities that cause wildfires include: campfires, cigarettes, arson, power line failures, and fireworks.",
           }
         ]
       }
@@ -81,17 +115,17 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 3,
-      title: 'Lesson 3'
+      title: 'Basics 2'
     },
     pages: [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we will learn about the behaviour of wildfires.",
           objectives: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              item: "Learn the factors that affect wildfire behaviour"
             }
           ]
         }
@@ -101,11 +135,36 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "The first element that affects wildfire behaviour is weather."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "Winds help the spread of wildfires by transporting flames and embers across large areas, causing new fuel to burn. Additionally, wind brings more oxygen to the fire."
+          },
+          {
+            id: 2,
+            text: "Precipitation and humidity also play a role in wildfires. Rain and humidity help reduce the spread of fires by preventing fuels from igniting."
+          },
+          {
+            id: 3,
+            text: "Finally, high temperatures result in drier fuels, which create the necessary conditions for fires to start and spread."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Topography is another factor that affects the behaviour of wildfires."
+          },
+          {
+            id: 1,
+            text: "Sloping terrain can hinder or help the spread of fires. Uphill fires burn faster than downhill fires."
+          },
+          {
+            id: 2,
+            text: "The shape of the terrain, such as mountains and valleys, also changes wind patterns. The changes in wind patterns can increase wind speeds, which affects fires."
           }
         ]
       }
@@ -114,17 +173,17 @@ const lessons: LessonCollection = [
     {
     metadata: {
       id: 4,
-      title: 'Lesson 4'
+      title: 'Prepare'
     },
     pages: [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we will learn how to prepare for wildfire emergencies.",
           objectives: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              item: "Prepare for wildfires"
             }
           ]
         }
@@ -134,11 +193,66 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "Make a household emergency plan. Make sure to consider the needs of everyone in your household, including the needs of older adults, children, anyone with special health needs, and animals."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "Gather information from local emergency authorities for information relevant to your local area. Make sure to practice your primary and secondary escape routes."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "It is also essential to take preventive measures that will help protect your home in case of a fire."
+          },
+          {
+            id: 1,
+            text: "Make sure to remove any fuels surrounding your home, such as dried branches and leaves."
+          },
+          {
+            id: 2,
+            text: "Install smoke detectors on every level of your home, including in every bedroom."
+          },
+          {
+            id: 3,
+            text: "To go further, you can also schedule a consultation with your local fire department to discuss how to make your home more fire-resistant."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "You can also take measures to protect yourself from wildfire smoke at home."
+          },
+          {
+            id: 1,
+            text: "Make sure that windows and doors are properly sealed. Seals will help prevent smoke from entering your home."
+          },
+          {
+            id: 2,
+            text: "Additionally, consider investing in a portable air purifier to filter out air pollutants."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Be ready for evacuation by ensuring that your vehicle is fully fueled when there is a threat of wildfire to your community."
+          },
+          {
+            id: 1,
+            text: "In other times, keeping your gas tank at least half full will help you be ready in case of an unexpected or rapidly moving wildfire."
+          },
+          {
+            id: 2,
+            text: "If you need assistance, place a help sign in your window."
           }
         ]
       }
@@ -147,17 +261,17 @@ const lessons: LessonCollection = [
     {
     metadata: {
       id: 5,
-      title: 'Lesson 5'
+      title: 'Evacuations'
     },
     pages: [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we will learn how to handle immediate fire threats and evacuations.",
           objectives: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              item: "Understand the actions to take during an evacuation"
             }
           ]
         }
@@ -167,17 +281,55 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "In the event of a wildfire, monitor communications from local authorities. Follow their instructions and be ready to leave."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "Place your emergency kit and other essential items in your car."
+          },
+          {
+            id: 2,
+            text: "You can also place a message in clear view to let local authorities know where you are and how to contact you."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "Protect your home by closing all doors and windows. Make sure also to cover vents and other openings to prevent smoke and embers from entering your home."
+          },
+          {
+            id: 1,
+            text: "Turn on all lights to increase visibility."
+          },
+          {
+            id: 2,
+            text: "If able, place a ladder to the roof in front of your home to help firefighters if needed."
+          }
+        ]
+      },
+      {
+        type: ContentType.Page,
+        content: [
+          {
+            id: 0,
+            text: "During evacuations, you may need to drive near a wildfire. If driving through a disaster area, stay clear of downed power lines by at least 10 metres to avoid electrocution."
+          },
+          {
+            id: 1,
+            text: "Do not attempt to drive through a wildfire unless directed by emergency officials."
+          },
+          {
+            id: 2,
+            text: "Make sure to follow official evacuation routes."
           }
         ]
       }
     ]
   },
-    {
+  {
     metadata: {
       id: 6,
       title: 'Lesson 6'

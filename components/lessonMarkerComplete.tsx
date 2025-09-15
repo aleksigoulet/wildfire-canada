@@ -36,7 +36,7 @@ export default function LessonMarkerComplete(props: LessonProps) {
 }
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     alignItems: 'center',
   },
 

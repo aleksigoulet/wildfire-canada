@@ -41,7 +41,7 @@ export default function LessonMarker(props: LessonProps) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    width: 100,
+    width: 120,
   },
   
   containerPressed: {
