@@ -45,40 +45,52 @@ export default function Settings() {
       <View style={styles.container}>
         <Text style={styles.pageTitle}>Settings</Text>
 
-        <Link href={'/profile'} asChild>
-          <Pressable>
-            <View style={styles.profileContainer}>
-              <Image
-                placeholder={{ blurhash }}
-                style={styles.profileImage}
-                source={require('@/assets/images/profile-placeholder.png')}
-              />
-              <View style={styles.profileTextContainer}>
-                <Text numberOfLines={2}>{ profile?.username }</Text>
-                <Text>See my profile</Text>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <Link href={'/profile'} asChild>
+            <Pressable>
+              <View style={[styles.settingContainer, styles.profileContainer]}>
+                <Image
+                  placeholder={{ blurhash }}
+                  style={styles.profileImage}
+                  source={require('@/assets/images/profile-placeholder.png')}
+                />
+                <View style={styles.profileTextContainer}>
+                  <Text style={styles.profileText} numberOfLines={2}>{ profile?.username }</Text>
+                  <Text>See my profile</Text>
+                </View>
               </View>
+            </Pressable>
+          </Link>
+
+          <Pressable 
+            onPress={() => {
+              setEditProfileModalVisible(true);
+            }}
+          >
+            <View style={[styles.settingContainer, { marginBottom: 52 }]}>
+              <Text style={styles.settingText}>Edit Profile</Text>
             </View>
           </Pressable>
-        </Link>
 
-        <Pressable 
-          onPress={() => {
-            setEditProfileModalVisible(true);
-          }}
-        >
-          <View style={[styles.settingContainer, { marginBottom: 52, paddingVertical: 10 }]}>
-            <Text style={styles.settingText}>Edit Profile</Text>
-          </View>
-        </Pressable>
-
-        <Link href={'/(tabs)/settings/developper'} asChild>
-          <Pressable>
-            <View style={styles.settingContainer}>
-              <Text style={styles.settingText}>Developper</Text>
-              <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+          <Pressable 
+            onPress={() => {
+              alert('reset all progress')
+            }}
+          >
+            <View style={[styles.settingContainer, styles.settingRed]}>
+              <Text style={[styles.settingText, styles.settingTextRed]}>Reset all progress</Text>
             </View>
           </Pressable>
-        </Link>
+
+          <Link href={'/(tabs)/settings/developper'} asChild>
+            <Pressable>
+              <View style={styles.settingContainer}>
+                <Text style={styles.settingText}>Developper</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+              </View>
+            </Pressable>
+          </Link>
+        </ScrollView>
 
         {/* Modal to edit profile information */}
         <Modal
@@ -136,16 +148,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 
+  scrollContainer: {
+    paddingTop: 20,
+  },
+
   pageTitle: {
     fontSize: 24,
     fontWeight: '600',
-    marginBottom: 24
+    marginBottom: 4
   },
 
   profileContainer: {
-    backgroundColor: 'lightgrey',
-    padding: 10,
-    borderRadius: 10,
+    paddingVertical: 10,
+    borderRadius: 14,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
@@ -153,10 +168,14 @@ const styles = StyleSheet.create({
   },
 
   profileTextContainer: {
-    gap: 4,
     width: '100%',
     flexShrink: 1
   },
+
+  profileText: {
+    fontSize: 16,
+    fontWeight: '600',
+  },  
 
   profileImage: {
     width: 60,
@@ -170,23 +189,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
+    borderColor: '#d0d0d0ff',
+    borderWidth: 1,
+    boxShadow: '0px 1px 2px #D5D5D5',
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 10,
     width: '100%',
     borderRadius: 10,
     marginBottom: 16,
+  },
+
+  settingRed: {
+    borderColor: '#e99a9aff',
+    boxShadow: '0px 1px 2px #E7A8A8'
   },
 
   settingText: {
     fontSize: 16,
   },
 
+  settingTextRed: {
+    color: '#D33C3C',
+  },
 
   modalContainer: {
     flex: 1,
     padding: 10,
-    // justifyContent: 'center',
     alignItems: 'flex-start'
   },
 
