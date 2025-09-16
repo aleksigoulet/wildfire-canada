@@ -47,35 +47,36 @@ export default function Profile() {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{paddingTop: 20}}>
-        {/* user name and profile header */}
-        <View style={styles.profileHeaderContainer}>
-          <Image
-            placeholder={{ blurhash }}
-            style={styles.profileImage}
-            source={require('@/assets/images/profile-placeholder.png')}
-          />
-          <View>
-            <Text style={styles.nameText}>{ displayProfile.username }</Text>
-            <Text>Beginner</Text>
-          </View>
+      {/* user name and profile header */}
+      <View style={styles.profileHeaderContainer}>
+        <View style={styles.profileNameContainer}>
+        <Image
+          placeholder={{ blurhash }}
+          style={styles.profileImage}
+          source={require('@/assets/images/profile-placeholder.png')}
+        />
+        <View>
+          <Text style={styles.nameText}>{ displayProfile.username }</Text>
+          <Text>Beginner</Text>
         </View>
+        </View>
+        
 
         {/* points overview */}
-        <View style={[styles.overviewContainer, {marginTop: 25}]}>
-          {/* view for XP */}
-          <View style={styles.scoreSection}>
-            <XPIcon />
-            <Text style={styles.scoreText}>{ points }</Text>
-          </View>
-
-          {/* view for Badges */}
-          <View style={styles.scoreSection}>
-            <BadgeIcon />
-            <Text style={styles.scoreText}>{ getNumberCompletedBadges() }</Text>
-          </View>  
+        {/* view for XP */}
+        <View style={styles.scoreSection}>
+          <XPIcon />
+          <Text style={styles.scoreText}>{ points }</Text>
         </View>
 
+        {/* view for Badges Icon*/}
+        <View style={styles.scoreSection}>
+          <BadgeIcon />
+          <Text style={styles.scoreText}>{ getNumberCompletedBadges() }</Text>
+        </View>  
+      </View>
+      
+      <ScrollView>
         {/* badges */}
         <View>
           <Text style={styles.sectionTitle}>Badges</Text>
@@ -125,19 +126,21 @@ const styles = StyleSheet.create({
   profileHeaderContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     gap: 18,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+
+  profileNameContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12
   },
 
   nameText: {
     fontWeight: 'bold',
     fontSize: 20
-  },
-
-   overviewContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 48
   },
 
   scoreSection: {
@@ -174,7 +177,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontWeight: 'bold',
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 16,
     marginBottom: 20,
   },
 
