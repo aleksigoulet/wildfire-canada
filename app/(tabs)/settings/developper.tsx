@@ -107,9 +107,36 @@ export default function Developper() {
         }}
       />
       <Button 
-            title="Send Push Code"
-            onPress={handleSendPushCode}
-          />
+        title="Send Push Code"
+        onPress={handleSendPushCode}
+      />
+      <Button 
+        title='fetch test JSON'
+        onPress={async () => {
+          try {
+            // const response = await fetch('http://192.168.1.73:8080/api/test')
+
+            console.log('fetching data');
+
+            const response = await fetch('http://192.168.1.73:8080/api/test', {
+              method: 'GET',
+              headers: {
+                'Authorization': `Api-Key ${process.env.EXPO_PUBLIC_NOTIFICATION_SERVER_API_KEY}`
+              },
+            })
+            const data = await response.json();
+
+            // console.log(data)
+
+            if (data.features) {
+              console.log(data.features[0].geometry.coordinates);
+            }
+ 
+          } catch (e) {
+            console.warn(e);
+          }
+        }}
+      />
     </View>
   )
 }
