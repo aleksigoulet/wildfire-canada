@@ -92,6 +92,7 @@ export default function TabLayout() {
         name="emergency"
         options={{
           title: 'Emergency',
+          headerShown: false,
           tabBarIcon: ({ color }) => <Icons name='flame' size={24} color={color}/>,
         }}
       />
