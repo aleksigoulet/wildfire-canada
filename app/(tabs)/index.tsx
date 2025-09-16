@@ -1,5 +1,4 @@
 import { Text, View, StyleSheet, TouchableOpacity, Pressable, ActivityIndicator, Dimensions } from "react-native";
-import { InteractionManager } from "react-native";
 import { useState, useRef, useCallback } from "react";
 import Mapbox, { 
   MapView, 
@@ -71,12 +70,8 @@ export default function Index() {
   // state to keep track of fire layer visibility
   const [ currentFireLayerVis, setCurrentFireLayerVis ] = useState<LayerVisibility>(LayerVisibility.Visible);
 
-  // state for fire perimeter layer
-  const [ perimeterLayerVis, setPerimeterLayerVis ] = useState<LayerVisibility>(LayerVisibility.Hidden);
-
-  // states for map data
+  // state for map data
   const [ fireData, setFireData ] = useState<FeatureCollection>(emptyFireData);
-  const [ firePerimeterData, setFirePerimeterData ] = useState<FeatureCollection>(emptyFireData);
 
   // state for activity indicator when downloading
   const [ fireDataDownloadActivity, setFireDataDownloadActivity ] = useState<boolean>(false);
@@ -205,42 +200,6 @@ export default function Index() {
     })
   }
 
-  const handleDownloadPerimeterData = async () => {
-    // show an activity indicator for the data downloading
-    setFireDataDownloadActivity(true);
-    
-    // fetch and store current fire perimeter data
-    fetch('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=m3_polygons_current&maxFeatures=100000&outputFormat=JSON')
-    .then(response => response.json())
-    .then((rawJson) => {
-      // CFWIS datamart coordinates are in wrong format
-      // this fixes the coordinates
-      const json : FeatureCollection = fixCoords( rawJson );
-      // console.log(rawJson.features[0].geometry.coordinates)
-      
-      // set the fire perimeter data
-      setFirePerimeterData(json);
-
-      // stop the activity indicator
-      setFireDataDownloadActivity(false);
-
-    })
-    .catch((error) => {
-      // need to have locally stored data in case service not available
-      console.error(
-        "Error downloading fire perimeter data: " + 
-        error + 
-        " \n   ... no locally stored data"
-      );
-
-      // display an alert to the user
-      alert('Error downloading Fire Perimeter Data.');
-
-      // stop the activity indicator
-      setFireDataDownloadActivity(false);
-    })
-  }
-
  
   return (
     <View
@@ -262,10 +221,7 @@ export default function Index() {
           scaleBarEnabled={false}
           pitchEnabled={false}
           onPress={ handleDismissSelectedFire }
-          onDidFinishLoadingMap={ () => {
-            handleDownloadFireData();
-            handleDownloadPerimeterData();
-          } }
+          onDidFinishLoadingMap={ handleDownloadFireData }
         >
           {/* show the user's location */}
           <LocationPuck
@@ -408,22 +364,6 @@ export default function Index() {
 
           </ShapeSource>
 
-          <ShapeSource
-            id="firePerimeters"
-            shape={firePerimeterData}
-          >
-            <FillLayer
-              id="perimeters"
-              belowLayerID="singlePointCustom"
-              style={{
-                visibility: perimeterLayerVis,
-                fillColor: 'red',
-                fillOpacity: 0.5,
-                fillOutlineColor: 'green'
-              }}
-            />
-          </ShapeSource>
-
         </MapView>
 
 
@@ -512,12 +452,6 @@ export default function Index() {
               title="Current Fires"
               state={ currentFireLayerVis } 
               setter={ setCurrentFireLayerVis }
-            />
-
-            <LayerVisibilityButton 
-              title="Fire Perimeters"
-              state={ perimeterLayerVis } 
-              setter={ setPerimeterLayerVis }
             />
 
           </BottomSheetView>
