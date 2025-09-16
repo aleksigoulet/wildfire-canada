@@ -1,10 +1,13 @@
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { View, Text, TextInput, Button, StyleSheet, SafeAreaView, ScrollView, KeyboardAvoidingView } from "react-native";
 import { storeObjectData } from "@/utils/storageHandlers";
+import { Image } from "expo-image";
 
 import { useContext, useState } from "react";
 import { OnboardingContext } from "@/context/OnboardingContext"
+import InterfaceButton from "@/components/interfaceButton";
 
 import { Profile } from "@/types/commonTypes";
+
 
 export default function OnboardingScreen() {
   // import function to update onboarding context
@@ -26,40 +29,78 @@ export default function OnboardingScreen() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Create your username</Text>
-      <TextInput 
-        style={styles.input}
-        value={editingUserName}
-        onChangeText={setEditingUserName}
-      />
-      <Button
-        title="Submit"
-        onPress={handleSubmitNewProfileInfo}
-      />
-      <Button 
-        title="Complete Onboarding"
-        onPress={() => {
-          storeObjectData('onboardingComplete', true);
-          setOnboardingComplete(true);
-        }}
-      />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      {/* keyboard avoiding view needed so that content is not hidden by keyboard */}
+      {/* idea to use this view inspired by following post */}
+      {/* https://stackoverflow.com/questions/40438986/keyboardavoidingview-with-scrollview */}
+      <KeyboardAvoidingView
+        style={styles.keyboardAvoidContainer}
+        behavior="padding"
+      >
+        <ScrollView 
+          style={{ flex: 1 }} 
+          contentContainerStyle={styles.container} 
+          // props below allow keyboard to be dismissed
+          keyboardShouldPersistTaps='handled' 
+          scrollEnabled={false}
+        >
+          <Image 
+            source={require('@/assets/images/firefighter.png')}
+            style={{
+              width: 160,
+              height: 160
+            }}
+          />
+          <Text style={styles.text}>Hello! Welcome to Wildfire Canada. Before we get started, what's your name?</Text>
+          <View style={styles.inputContainer}>
+            <Text style={styles.title}>Choose your username</Text>
+            <TextInput 
+              style={styles.input}
+              value={editingUserName}
+              onChangeText={setEditingUserName}
+            />
+          </View>
+          {/* container view for button styling */}
+          <View 
+            style={{ marginBottom: 48 }}
+          >
+            <InterfaceButton 
+              title="Continue"
+              onPress={() => {
+                handleSubmitNewProfileInfo();
+                storeObjectData('onboardingComplete', true);
+                setOnboardingComplete(true);
+              }}
+            />
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  keyboardAvoidContainer: {
+    flex: 1,
+  },
+  
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 20,
+    gap: 32
   },
 
   title: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: 10,
   },
+
+  text: {
+    fontSize: 16
+  },  
 
   input: {
     paddingHorizontal: 20,
@@ -68,6 +109,10 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 10,
-    width: 200
+    marginBottom: 12,
   },
+
+  inputContainer: {
+    width: '100%'
+  }
 })
