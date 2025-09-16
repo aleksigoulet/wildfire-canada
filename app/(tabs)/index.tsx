@@ -19,9 +19,11 @@ import {
   BottomSheetView
 } from '@gorhom/bottom-sheet';
 
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import LayerVisibilityButton from "@/components/layerVisibilityButton";
 import { FeatureCollection } from 'geojson';
 import { fixCoords } from "@/utils/geoJsonFix";
+import { getControlStageString, getResponseTypeString } from "@/utils/fireInformationHandlers";
 
 // type imports
 import { OnPressEvent } from "@rnmapbox/maps/lib/typescript/src/types/OnPressEvent";
@@ -117,15 +119,34 @@ export default function Index() {
   }
 
   const handleSelectingFire = async ( event: OnPressEvent ) => {
-      console.log(event.features);
+      // console.log(event.features);
       const feature = event.features[0]
       if ( feature.properties ) {
+        // do nothing if a cluster was selected
+        if (feature.properties.cluster) {
+          // dismiss the properties panel if it was previously selected
+          handleDismissSelectedFire();
+          return;
+        }
+
+        // convert the feature's date to a JS Date object
+        const unixDate = Date.parse(feature.properties.startdate);
+        const date = new Date(unixDate);
+
+        // set options for displaying date
+        const options: Intl.DateTimeFormatOptions = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+
+
         const fireDetails : FireDetails = {
           firename: feature.properties.firename,
           hectares: feature.properties.hectares,
-          responseType: feature.properties.response_type,
-          controlStage: feature.properties.stage_of_control,
-          startDate: feature.properties.startdate
+          responseType: getResponseTypeString(feature.properties.response_type),
+          controlStage: getControlStageString(feature.properties.stage_of_control),
+          startDate: date.toLocaleDateString(undefined, options)
         }
 
         setPopupText(fireDetails);
@@ -245,8 +266,8 @@ export default function Index() {
             }}
             // bound the camera to stay over Canada
             maxBounds={{
-              ne: [-45, 85],
-              sw: [-145, 35]
+              ne: [-35, 85],
+              sw: [-160, 20]
             }}
           />
 
@@ -264,8 +285,9 @@ export default function Index() {
             >
               <View
                 style={{
-                  width: 10,
-                  height: 10,
+                  width: 12,
+                  height: 12,
+                  borderRadius: 10,
                   backgroundColor: 'red'
 
                 }}
@@ -290,7 +312,7 @@ export default function Index() {
             id="fires"
             shape={fireData}
             cluster={true}
-            clusterRadius={50}
+            clusterRadius={30}
             onPress={ handleSelectingFire }
           >
 
@@ -300,6 +322,7 @@ export default function Index() {
               style={{
                 textField: ['get', 'point_count_abbreviated'],
                 textFont: ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                textSize: 12,
                 visibility: currentFireLayerVis,
               }}
             />
@@ -309,21 +332,38 @@ export default function Index() {
               belowLayerID="pointCount"
               filter={['has', 'point_count']}
               style={{
-                circleColor: 'orange',
+                circleColor: '#FDC358',
                 // circleColor: [
                 //   'case',
                 //   ['boolean', ['feature-state', 'click'], false],
                 //   'blue',
                 //   'red'
                 // ],
-                circleRadius: 10,
+                circleRadius: 12,
+                visibility: currentFireLayerVis,
+              }}
+            />
+
+            <CircleLayer 
+              id="clusteredPointsOutline"
+              belowLayerID="clusteredPoints"
+              filter={['has', 'point_count']}
+              style={{
+                circleColor: '#DD7207',
+                // circleColor: [
+                //   'case',
+                //   ['boolean', ['feature-state', 'click'], false],
+                //   'blue',
+                //   'red'
+                // ],
+                circleRadius: 14,
                 visibility: currentFireLayerVis,
               }}
             />
 
             <SymbolLayer
               id="singlePointCustom"
-              belowLayerID="clusteredPoints"
+              belowLayerID="clusteredPointsOutline"
               filter={['!', ['has', 'point_count']]}
               style={{
                 iconImage: 'pin',
@@ -373,6 +413,12 @@ export default function Index() {
 
         {/* fire info panel */}
         <View style={[styles.popupContainer, { display: selectedFeature ? 'flex' : 'none'}]}>
+          <View style={[styles.popupRow, styles.popupHeaderRow]}>
+            <Text style={[styles.popupTitle, styles.popupHeaderTitle]}>Fire Information</Text>
+            <Pressable onPress={ handleDismissSelectedFire }>
+              <MaterialIcons name="close" size={24} color="black" />
+            </Pressable>
+          </View>
           <View style={styles.popupRow}>
             <Text style={styles.popupTitle}>Fire Name:</Text>
             <Text style={styles.detailsText}>{ popupText?.firename }</Text>
@@ -488,15 +534,26 @@ const styles = StyleSheet.create({
 
   popupContainer: {
     width: "90%",
-    height: 150,
-    backgroundColor: '#ccc',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    minHeight: 150,
+    backgroundColor: 'white',
     borderRadius: 20,
     position: 'absolute',
     bottom: 20,
     left: 20,
-    padding: 24
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    gap: 6,
+    boxShadow: '0px 2px 3px #AFB1B1'
+  },
+
+  popupHeaderTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+
+  popupHeaderRow: {
+    justifyContent: 'space-between',
+    marginBottom: 12
   },
 
   popupRow: {
@@ -507,7 +564,6 @@ const styles = StyleSheet.create({
 
   popupTitle: {
     fontWeight: '500',
-    // marginBottom: 10,
     fontSize: 16
   },
   
@@ -541,6 +597,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 70,
     right: 20,
+    boxShadow: '0px 2px 2px #AFB1B1'
   },
 
   activityIndicator: {
