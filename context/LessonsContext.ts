@@ -9,11 +9,13 @@ type LessonsContext = {
   completedLessons: LessonCompletionState[];
   setCompletedLessons: Dispatch<SetStateAction<LessonCompletionState[]>>;
   completeLessonById: (lessonId: number) => void;
+  resetLessons: () => void;
 }
 
 // create context with master set of checklists as default
 export const LessonsContext = createContext<LessonsContext>({
   completedLessons: [],
   setCompletedLessons: () => {},
-  completeLessonById: () => {}
+  completeLessonById: () => {},
+  resetLessons: () => {}
 });

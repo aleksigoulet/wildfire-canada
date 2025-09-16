@@ -1,10 +1,15 @@
-import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, ScrollView } from "react-native";
+import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, ScrollView, Alert, AlertButton } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
-import { useState, useContext } from "react";
+import { useState, useContext, use } from "react";
 import { storeObjectData, removeValue } from "@/utils/storageHandlers";
 import { Profile } from "@/types/commonTypes";
+
 import { ProfileContext } from "@/context/ProfileContext";
+import { ChecklistContext } from "@/context/ChecklistContext";
+import { PointsContext } from "@/context/PointsContext";
+import { BadgesContext } from "@/context/BadgesContext";
+import { LessonsContext } from "@/context/LessonsContext";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -16,6 +21,12 @@ const blurhash =
 
 export default function Settings() {
   const { profile, setProfile } = useContext(ProfileContext);
+
+  // import reset functions
+  const { resetBadges } = useContext(BadgesContext);
+  const { resetPoints } = useContext(PointsContext);
+  const { resetLessons } = useContext(LessonsContext);
+  const { resetChecklists } = useContext(ChecklistContext);
 
 
   const [ editProfileModalVisible, setEditProfileModalVisible ] = useState<boolean>(false);
@@ -38,6 +49,44 @@ export default function Settings() {
     setProfile(newProfileInfo);
 
     console.log('Submit New Profile Info [Settings.tsx]: profile successfully saved');
+  }
+
+  const handleResetProgress = () => {
+    const cancelButton: AlertButton = {
+      text: 'Cancel',
+      style: 'cancel' 
+    }
+
+    const resetButton: AlertButton = {
+      text: 'Reset',
+      onPress: handleResetProgressConfirmed,
+      style: 'destructive'
+    }
+
+    Alert.alert(
+      'Are you sure?', 
+      'Pressing Reset will remove all points and badges. All lesson and checklist progress will be lost.',
+      [
+        cancelButton,
+        resetButton
+      ]
+    );
+  }
+
+  const handleResetProgressConfirmed = async () => {
+    try {
+      // reset all the game elements
+      resetBadges();
+      resetPoints();
+      resetChecklists();
+      resetLessons();
+
+      // send an alert to user that progress was correctly reset
+      Alert.alert('', 'Progress has been reset.')
+    } catch (error) {
+      // if there is an error, then tell the user progress could not be reset.
+      Alert.alert('There was a problem resetting progress. Please try again.');
+    }
   }
 
   return (
@@ -73,9 +122,7 @@ export default function Settings() {
           </Pressable>
 
           <Pressable 
-            onPress={() => {
-              alert('reset all progress')
-            }}
+            onPress={ handleResetProgress }
           >
             <View style={[styles.settingContainer, styles.settingRed]}>
               <Text style={[styles.settingText, styles.settingTextRed]}>Reset all progress</Text>

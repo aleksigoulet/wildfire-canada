@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChecklistContext } from "./ChecklistContext";
-import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
+import { getObjectData, storeObjectData, removeValue } from "@/utils/storageHandlers";
 import { checklists as masterChecklists } from "@/assets/checklists/masterChecklists";
 
 import { ChecklistsCollection, ContextProviderProps } from "@/types/commonTypes";
@@ -51,11 +51,21 @@ export default function ChecklistContextProvider({ children }: ContextProviderPr
     getStoredChecklistData();
   }, [])
 
+  /**
+   * Restores all checklists to their original state. All progress will be lost.
+   */
+  const resetChecklists = async () => {
+    await removeValue('checklists');
+    await storeObjectData('checklists', masterChecklists);
+    setChecklistContextData(masterChecklists);
+  }
+
 
   // adapted from resources listed under "updating the context"
   const contextValue = {
     checklists: checklistContextData,
-    setChecklists: setChecklistContextData
+    setChecklists: setChecklistContextData,
+    resetChecklists: resetChecklists
   }
 
   return (

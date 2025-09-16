@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { LessonsContext } from "./LessonsContext";
 import lessons from "@/assets/lessons";
-import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
+import { getObjectData, removeValue, storeObjectData } from "@/utils/storageHandlers";
 
 import { ContextProviderProps } from "@/types/commonTypes";
 import { LessonCompletionState } from "@/types/lessonTypes";
@@ -87,12 +87,30 @@ export default function LessonsContextProvider({ children }: ContextProviderProp
     setLessonCompletion(newLessonCompletionArray)
   }
 
+  /**
+   * Restores all lessons to their original state. All progress will be lost.
+   */
+  const resetLessons = async () => {
+    await removeValue('completedLessons')
+
+    const lessonCompletionObject: LessonCompletionState[] = lessons.map((lesson) => {
+      return {
+        id: lesson.metadata.id,
+        completed: false
+      }
+    })
+
+    await storeObjectData('completedLessons', lessonCompletionObject);
+    setLessonCompletion(lessonCompletionObject);
+  }
+
 
   // adapted from resources listed under "updating the context"
   const contextValue = {
     completedLessons: lessonCompletion,
     setCompletedLessons: setLessonCompletion,
-    completeLessonById: completeLessonById
+    completeLessonById: completeLessonById,
+    resetLessons: resetLessons
   }
 
   return (

@@ -9,10 +9,12 @@ import { ChecklistsCollection } from '@/types/commonTypes';
 type ChecklistContext = {
   checklists: ChecklistsCollection;
   setChecklists: Dispatch<SetStateAction<ChecklistsCollection>>;
+  resetChecklists: () => void;
 }
 
 // create context with master set of checklists as default
 export const ChecklistContext = createContext<ChecklistContext>({
   checklists: masterChecklist,
-  setChecklists: () => {}
+  setChecklists: () => {},
+  resetChecklists: () => {}
 });

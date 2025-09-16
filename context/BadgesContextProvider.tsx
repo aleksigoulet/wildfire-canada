@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { BadgesContext } from "./BadgesContext";
-import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
+import { getObjectData, storeObjectData, removeValue } from "@/utils/storageHandlers";
 import { masterBadges } from "@/assets/masterBadges";
 
 import { BadgesCollection, Badge, ContextProviderProps } from "@/types/commonTypes";
@@ -105,12 +105,22 @@ export default function BadgesContextProvider({ children }: ContextProviderProps
     setBadges(newBadgeCollection);
   }
 
+  /**
+   * Restores all badges to their original state. All progress will be lost.
+   */
+  const resetBadges = async () => {
+    await removeValue('badges');
+    await storeObjectData('badges', masterBadges);
+    setBadges(masterBadges);
+  }
+
   // adapted from resources listed under "updating the context"
   const contextValue = {
     badges: badges,
     setBadges: setBadges,
     getNumberCompletedBadges: getNumberCompletedBadges,
-    unlockBadge: unlockBadge
+    unlockBadge: unlockBadge,
+    resetBadges: resetBadges
   }
 
   return (

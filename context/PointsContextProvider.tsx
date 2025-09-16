@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { PointsContext } from "./PointsContext";
-import { getObjectData, storeObjectData } from "@/utils/storageHandlers";
+import { getObjectData, removeValue, storeObjectData } from "@/utils/storageHandlers";
 import { ContextProviderProps } from "@/types/commonTypes";
 
 /* 
@@ -67,12 +67,21 @@ export default function PointsContextProvider({ children }: ContextProviderProps
       setPoints(newTotal);
   }
 
+  /**
+   * Restores points to zero. All progress will be lost.
+   */
+  const resetPoints = async () => {
+    await removeValue('points');
+    await storeObjectData('points', 0);
+    setPoints(0);
+  }
 
   // adapted from resources listed under "updating the context"
   const contextValue = {
     points: points,
     setPoints: setPoints,
-    addPoints: addPoints
+    addPoints: addPoints,
+    resetPoints: resetPoints
   }
 
   return (
