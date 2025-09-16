@@ -24,9 +24,9 @@ export default function ProfileHeader(props: any) {
         <View style={styles.headerContentContainer}>
 
           {/* view for top line of header */}
-          <View style={styles.headerContentRow}>
+          <Link href={'/profile'}>
+            <View style={styles.headerContentRow}>
             {/* view for profile section */}
-            <Link href={'/profile'}>
               <View style={styles.profileContainer}>
                 <Image 
                   placeholder={{blurhash}}
@@ -38,26 +38,26 @@ export default function ProfileHeader(props: any) {
                     borderRadius: 25
                   }}
                 />
-                <View>
-                  <Text style={styles.usernameText}>{ props.username }</Text>
+                <View style={{ flexGrow: 1 }}>
+                  <Text style={styles.usernameText} numberOfLines={1}>{ props.username }</Text>
                   <Text style={styles.userLevelText}>Beginner</Text>
                 </View>
               </View>
-            </Link>
 
-            {/* view for XP */}
-            <View style={styles.scoreSection}>
-              <XPIcon />
-              <Text style={styles.scoreText}>{ props.points }</Text>
-            </View>
+              {/* view for XP */}
+              <View style={styles.scoreSection}>
+                <XPIcon />
+                <Text style={styles.scoreText}>{ props.points }</Text>
+              </View>
 
-            {/* view for Badges */}
-            <View style={styles.scoreSection}>
-              <BadgeIcon />
-              <Text style={styles.scoreText}>{ props.badges }</Text>
-            </View>   
+              {/* view for Badges */}
+              <View style={styles.scoreSection}>
+                <BadgeIcon />
+                <Text style={styles.scoreText}>{ props.badges }</Text>
+              </View>   
                  
-          </View>
+            </View>
+          </Link>
 
         </View>
 
@@ -86,13 +86,17 @@ const styles = StyleSheet.create({
   headerContentRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%',
+    gap: 18
   },
 
   profileContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10
+    gap: 10,
+    flex: 0.8,
+    flexGrow: 1,
   },
 
   scoreSection: {
@@ -104,12 +108,13 @@ const styles = StyleSheet.create({
   scoreText: {
     fontSize: 36,
     fontFamily: 'Jaro-Regular',
-    color: '#503716'
+    color: '#503716',
   },
 
   usernameText: {
     fontSize: 20,
     fontWeight: 'bold',
+    maxWidth: '80%',
   },
 
   userLevelText: {

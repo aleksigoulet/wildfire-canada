@@ -54,7 +54,7 @@ export default function Settings() {
                 source={require('@/assets/images/profile-placeholder.png')}
               />
               <View style={styles.profileTextContainer}>
-                <Text>{ profile?.username }</Text>
+                <Text numberOfLines={2}>{ profile?.username }</Text>
                 <Text>See my profile</Text>
               </View>
             </View>
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
   profileTextContainer: {
     gap: 4,
     width: '100%',
+    flexShrink: 1
   },
 
   profileImage: {

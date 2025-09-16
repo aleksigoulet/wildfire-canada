@@ -50,30 +50,32 @@ export default function Profile() {
       {/* user name and profile header */}
       <View style={styles.profileHeaderContainer}>
         <View style={styles.profileNameContainer}>
-        <Image
-          placeholder={{ blurhash }}
-          style={styles.profileImage}
-          source={require('@/assets/images/profile-placeholder.png')}
-        />
-        <View>
-          <Text style={styles.nameText}>{ displayProfile.username }</Text>
-          <Text>Beginner</Text>
-        </View>
+          <Image
+            placeholder={{ blurhash }}
+            style={styles.profileImage}
+            source={require('@/assets/images/profile-placeholder.png')}
+          />
+          <View style={{ flexShrink: 1 }}>
+            <Text style={styles.nameText} numberOfLines={2}>{ displayProfile.username }</Text>
+            <Text>Beginner</Text>
+          </View>
         </View>
         
 
         {/* points overview */}
-        {/* view for XP */}
-        <View style={styles.scoreSection}>
-          <XPIcon />
-          <Text style={styles.scoreText}>{ points }</Text>
-        </View>
+        <View style={styles.scoreContainer}>
+          {/* view for XP */}
+          <View style={styles.scoreSection}>
+            <XPIcon />
+            <Text style={styles.scoreText}>{ points }</Text>
+          </View>
 
-        {/* view for Badges Icon*/}
-        <View style={styles.scoreSection}>
-          <BadgeIcon />
-          <Text style={styles.scoreText}>{ getNumberCompletedBadges() }</Text>
-        </View>  
+          {/* view for Badges Icon*/}
+          <View style={styles.scoreSection}>
+            <BadgeIcon />
+            <Text style={styles.scoreText}>{ getNumberCompletedBadges() }</Text>
+          </View>  
+        </View>
       </View>
       
       <ScrollView>
@@ -130,17 +132,24 @@ const styles = StyleSheet.create({
     gap: 18,
     paddingTop: 16,
     paddingBottom: 8,
+    flexWrap: 'wrap',
   },
 
   profileNameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12
+    gap: 12,
+    flexGrow: 1
   },
 
   nameText: {
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+  },
+
+  scoreContainer: {
+    flexDirection: 'row',
+    gap: 26,
   },
 
   scoreSection: {
