@@ -1,27 +1,44 @@
-export const masterBadges = [
+import { BadgesCollection } from "@/types/commonTypes"
+
+export const masterBadges: BadgesCollection = [
   {
     key: 1,
-    name: 'random',
-    complete: true,
+    code: 'first_lesson',
+    name: 'Complete your first lesson',
+    complete: false,
+    completeIcon: require('@/assets/badges/book-badge-bronze.png'),
+    incompleteIcon: require('@/assets/badges/book-badge-bronze-incomplete.png'),
   },
   {
     key: 2,
-    name: 'random',
+    code: '3_lessons',
+    name: 'Complete 3 lessons',
     complete: false,
+    completeIcon: require('@/assets/badges/book-badge-silver.png'),
+    incompleteIcon: require('@/assets/badges/book-badge-silver-incomplete.png'),
   },
   {
     key: 3,
-    name: 'random',
+    code: 'all_lessons',
+    name: 'Complete all lessons',
     complete: false,
+    completeIcon: require('@/assets/badges/book-badge-gold.png'),
+    incompleteIcon: require('@/assets/badges/book-badge-gold-incomplete.png'),
   },
   {
     key: 4,
-    name: 'random',
+    code: 'first_checklist',
+    name: 'Complete your first checklist',
     complete: false,
+    completeIcon: require('@/assets/badges/checklist-badge-bronze.png'),
+    incompleteIcon: require('@/assets/badges/checklist-badge-bronze-incomplete.png'),
   },
   {
     key: 5,
-    name: 'random',
+    code: 'all_checklists',
+    name: 'Complete all checklits',
     complete: false,
+    completeIcon: require('@/assets/badges/checklist-badge-gold.png'),
+    incompleteIcon: require('@/assets/badges/checklist-badge-gold-incomplete.png'),
   }
 ]

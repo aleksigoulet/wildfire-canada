@@ -75,11 +75,42 @@ export default function BadgesContextProvider({ children }: ContextProviderProps
     return count;
   }
 
+  /**
+   * Use this function to unlock a badge. A badge code string must be provided for the badge you wish to unlock.
+   * @param badgeCode - badge code string
+   */
+  const unlockBadge = (badgeCode: string): void => {
+    let newBadgeCollection: BadgesCollection = [];
+
+    // iterate over the badges array
+    badges.forEach((badge) => {
+      // variable to store current badge
+      let updatedBadge: Badge = badge;
+
+      // if current badge matches the badge we want to update,
+      // then set the complete property to 'true'
+      if (badge.code === badgeCode) {
+        updatedBadge = {
+          ...badge,
+          complete: true,
+        };
+      }
+
+      // push the updated badge to a temporary array
+      newBadgeCollection.push(updatedBadge);
+    })
+
+    // store the new data and update context
+    storeObjectData('badges', newBadgeCollection);
+    setBadges(newBadgeCollection);
+  }
+
   // adapted from resources listed under "updating the context"
   const contextValue = {
     badges: badges,
     setBadges: setBadges,
-    getNumberCompletedBadges: getNumberCompletedBadges
+    getNumberCompletedBadges: getNumberCompletedBadges,
+    unlockBadge: unlockBadge
   }
 
   return (

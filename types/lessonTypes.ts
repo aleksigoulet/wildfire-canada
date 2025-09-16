@@ -12,6 +12,7 @@ type Lesson = {
 type LessonMetadata = {
   id: number;
   title: string;
+  unlockBadge?: string;
 }
 
 type IntroPage = IntroWithMultiText | IntroWithObjective;

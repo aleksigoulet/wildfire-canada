@@ -11,6 +11,7 @@ import { LessonTextContent } from "@/types/lessonTypes";
 
 import { LessonsContext } from "@/context/LessonsContext";
 import { PointsContext } from "@/context/PointsContext";
+import { BadgesContext } from "@/context/BadgesContext";
 
 
 
@@ -21,7 +22,10 @@ export default function Lesson() {
   const { completedLessons, completeLessonById } = useContext(LessonsContext);
 
   // use points context for updating XP
-  const { addPoints } = useContext(PointsContext)
+  const { addPoints } = useContext(PointsContext);
+
+  // badge context for unlocking badges
+  const { unlockBadge } = useContext(BadgesContext);
 
   // get lesson number from url params
   const { number } = useLocalSearchParams();
@@ -92,6 +96,14 @@ export default function Lesson() {
 
     // add points for completing lesson
     addPoints(pointsToAdd);
+
+    // unlock any badges that the lesson unlocks
+    const badgeToUnlock = lessons[lessonIndex].metadata.unlockBadge;
+
+    // skip if there is no badges to unlock
+    if ( badgeToUnlock ) {
+      unlockBadge(badgeToUnlock)
+    }
     
     router.dismiss()
   }

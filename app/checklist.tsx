@@ -7,6 +7,7 @@ import { Image } from "expo-image";
 import { useContext } from 'react';
 import { ChecklistContext } from "@/context/ChecklistContext";
 import { PointsContext } from "@/context/PointsContext";
+import { BadgesContext } from "@/context/BadgesContext";
 
 import { useFonts } from 'expo-font';
 import { Icons } from '@/components/icons';
@@ -33,6 +34,9 @@ export default function Checklist() {
 
   // points context
   const { addPoints } = useContext(PointsContext);
+
+  // badges context
+  const { unlockBadge } = useContext(BadgesContext);
 
   // get the checklist context.
   // needed so that Prepare view can be correctly updated when completing a checklist.
@@ -105,7 +109,32 @@ export default function Checklist() {
       // update user's XP points
       addPoints(numberPointsInt);
 
+      // always unlock the first checklist badge
+      unlockBadge('first_checklist');
 
+      // check if we also need to unlock the second checklist badge (all complete)
+
+      // create an array for the completion status of all checklists
+      const checklistCompletions = checklists.map((checklist) => {
+        // if the checklist matches the current checklist, then return true
+        // this is needed because the state does not update fast enough
+        // for correct behaviour
+        if ( checklist.metadata.id === currentChecklist.metadata.id ) {
+          return true;
+        }
+        
+        return checklist.metadata.completionStatus;
+      })
+      
+      // check if all checklists have been completed
+      const allChecklistsComplete = checklistCompletions.every(itemChecked);
+      
+      // if all checklists completed,
+      // then unlock 'all checklists' badge
+      if ( allChecklistsComplete ) {
+        unlockBadge('all_checklists')
+      }
+      
       // save the checklist with updated state and navigate back to Prepare view.
       handleSaveOnClose(updatedChecklist);
       router.dismiss();

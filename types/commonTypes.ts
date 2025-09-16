@@ -57,8 +57,11 @@ type BadgesCollection = Badge[]
 
 type Badge = {
   key: number;
+  code: string;
   name: string;
   complete: boolean;
+  completeIcon: string;
+  incompleteIcon: string;
 }
 
 type Profile = {

@@ -11,11 +11,12 @@ type BadgesContext = {
   badges: BadgesCollection;
   setBadges: Dispatch<SetStateAction<BadgesCollection>>;
   getNumberCompletedBadges: () => number;
-
+  unlockBadge: (arg: string) => void;
 }
 
 export const BadgesContext = createContext<BadgesContext>({
   badges: masterBadges,
   setBadges: () => {},
-  getNumberCompletedBadges: () => 0
+  getNumberCompletedBadges: () => 0,
+  unlockBadge: () => {}
 })

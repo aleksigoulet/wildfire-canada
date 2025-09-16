@@ -8,7 +8,8 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 1,
-      title: 'Intro'
+      title: 'Intro',
+      unlockBadge: 'first_lesson'
     },
     pages: [
       {
@@ -115,7 +116,8 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 3,
-      title: 'Basics 2'
+      title: 'Basics 2',
+      unlockBadge: '3_lessons'
     },
     pages: [
       {

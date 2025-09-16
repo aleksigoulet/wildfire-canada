@@ -81,17 +81,22 @@ export default function Profile() {
           <Text style={styles.sectionTitle}>Badges</Text>
           <View style={styles.badgeContainer}>
             {
-              badges.map((item) => {
+              badges.map((item) => {              
                 return (
-                  <Image 
+                  <View 
                     key={item.key}
-                    source={
-                      item.complete ? 
-                      require('@/assets/images/badge-complete.png') :
-                      require('@/assets/images/badge-incomplete.png')
-                    }
-                    style={styles.badgeImage}
-                  />
+                    style={styles.badge}
+                  >
+                    <Image
+                      source={
+                        item.complete ? 
+                        item.completeIcon :
+                        item.incompleteIcon
+                      }
+                      style={styles.badgeImage}
+                    />
+                    <Text style={[styles.badgeText, item.complete ? null : styles.badgeTextInactive]}>{item.name}</Text>
+                  </View>
                 )
               })
             }
@@ -179,5 +184,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 40
+  },
+
+  badge: {
+    gap: 10,
+    alignItems: 'center',
+    maxWidth: 100
+  },
+
+  badgeText: {
+    textAlign: 'center',
+  },
+
+  badgeTextInactive: {
+    color: 'lightgray'
   }
 });
