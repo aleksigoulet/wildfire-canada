@@ -52,7 +52,7 @@ const emptyFireData : FeatureCollection = {
 }
 
 // API public access token
-Mapbox.setAccessToken(process.env.EXPO_PUBLIC_MB_TOKEN as string);
+Mapbox.setAccessToken(process.env.MB_TOKEN as string ?? process.env.EXPO_PUBLIC_MB_TOKEN as string);
 
 type FireDetails = {
   firename: string;

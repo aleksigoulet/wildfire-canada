@@ -14,7 +14,7 @@ export default ({ config }: ConfigContext) => {
     [
       "@rnmapbox/maps",
       {
-        "RNMapboxMapsDownloadToken": process.env.EXPO_PUBLIC_MB_PRIVATE_TOKEN
+        "RNMapboxMapsDownloadToken": process.env.MB_PRIVATE_TOKEN ?? process.env.EXPO_PUBLIC_MB_PRIVATE_TOKEN
       }
     ]
   )
