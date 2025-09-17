@@ -36,7 +36,7 @@ export const masterBadges: BadgesCollection = [
   {
     key: 5,
     code: 'all_checklists',
-    name: 'Complete all checklits',
+    name: 'Complete all checklist',
     complete: false,
     completeIcon: require('@/assets/badges/checklist-badge-gold.png'),
     incompleteIcon: require('@/assets/badges/checklist-badge-gold-incomplete.png'),
