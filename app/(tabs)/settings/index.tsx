@@ -129,9 +129,18 @@ export default function Settings() {
             </View>
           </Pressable>
 
+          <Link href={'/(tabs)/settings/acknowledgements'} asChild>
+            <Pressable>
+              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
+                <Text style={styles.settingText}>Acknowledgements</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+              </View>
+            </Pressable>
+          </Link>
+
           <Link href={'/(tabs)/settings/developper'} asChild>
             <Pressable>
-              <View style={styles.settingContainer}>
+              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
                 <Text style={styles.settingText}>Developper</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
               </View>
@@ -245,6 +254,10 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
     marginBottom: 16,
+  },
+
+  settingContainerWithArrow: {
+    paddingVertical: 8,
   },
 
   settingRed: {
