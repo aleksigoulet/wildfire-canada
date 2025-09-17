@@ -1,4 +1,4 @@
-import { View, SafeAreaView, Text, Button, StyleSheet } from "react-native"
+import { View, Text, Button, StyleSheet } from "react-native"
 import { removeValue } from "@/utils/storageHandlers";
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';

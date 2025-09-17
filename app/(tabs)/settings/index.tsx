@@ -47,8 +47,6 @@ export default function Settings() {
 
     // update the profile context
     setProfile(newProfileInfo);
-
-    console.log('Submit New Profile Info [Settings.tsx]: profile successfully saved');
   }
 
   const handleResetProgress = () => {

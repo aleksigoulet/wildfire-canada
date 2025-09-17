@@ -11,7 +11,6 @@ import { Profile as ProfileType } from "@/types/commonTypes";
 
 import XPIcon from '@/assets/images/xp-icon.svg'
 import BadgeIcon from '@/assets/images/badge-icon.svg'
-// import { Profile as ProfileType } from "@/types/commonTypes";
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';

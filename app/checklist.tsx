@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Pressable, SafeAreaView, Button, ScrollView } from "react-native";
+import { Text, View, StyleSheet, Pressable, SafeAreaView, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { storeObjectData, getObjectData } from "@/utils/storageHandlers";
@@ -11,7 +11,6 @@ import { BadgesContext } from "@/context/BadgesContext";
 
 import { useFonts } from 'expo-font';
 import { Icons } from '@/components/icons';
-import XPIcon from '@/assets/images/xp-icon.svg'
 
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
@@ -93,8 +92,6 @@ export default function Checklist() {
     // then update checklist completion state
     // and add points
     if (allCheckboxesTrue) {
-      console.log('Checklist Completion Event [checklist.tsx]: changing checklist status');
-
       const updatedChecklist : ChecklistType = {
         ...currentChecklist,
         metadata: {

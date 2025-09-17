@@ -3,8 +3,6 @@ import { Image } from 'expo-image';
 import { Link } from "expo-router";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { SvgUri } from 'react-native-svg';
-
 import XPIcon from '@/assets/images/xp-icon.svg'
 import BadgeIcon from '@/assets/images/badge-icon.svg'
 

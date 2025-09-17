@@ -39,7 +39,6 @@ export default function PointsContextProvider({ children }: ContextProviderProps
     // if no points stored, then create a new entry for points
     // need to use null explicitly as 0 is falsy
     if (data == null) {
-      console.log('PointsContextProvider: no stored value for points, creating now...')
       storeObjectData('points', 0);
       setPoints(0);
     }

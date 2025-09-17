@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Pressable, SafeAreaView, Button } from "react-native";
+import { Text, View, StyleSheet, Pressable, SafeAreaView } from "react-native";
 import { useState, useContext } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -48,7 +48,6 @@ export default function Lesson() {
     // if index greater than the number of lessons in array
     // then show first lesson
     if (newIndex >= lessons.length) {
-      console.log(lessonIndex);
       newIndex = 0 
     }
 
@@ -224,7 +223,6 @@ export default function Lesson() {
             <View style={styles.pageContentContainer}>
               <Image 
                 source={require('@/assets/images/firefighter.png')}
-                // cachePolicy='memory'
                 style={{
                   width: 46,
                   height: 46

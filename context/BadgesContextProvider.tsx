@@ -40,7 +40,6 @@ export default function BadgesContextProvider({ children }: ContextProviderProps
 
     // if no checklists stored, then create a checklist object from the master checklists
     if (!data) {
-      console.log('BadgesContextProvider: badges do not exist yet, creating...')
       storeObjectData('badges', masterBadges);
       setBadges(masterBadges);
     }

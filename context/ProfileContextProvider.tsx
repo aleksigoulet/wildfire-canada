@@ -38,7 +38,6 @@ export default function ProfileContextProvider({ children }: ContextProviderProp
 
     // if no profile stored, then create a profile object
     if (data == null) {
-      console.log('ProfileContextProvider: no stored value for profile, creating now...')
       storeObjectData('profile', { username: '' });
       setProfile({ username: '' });
     }

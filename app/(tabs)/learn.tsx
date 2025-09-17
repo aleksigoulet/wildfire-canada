@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView, Dimensions } from "react-native";
+import { View, StyleSheet, FlatList, Dimensions } from "react-native";
 import { useContext } from "react";
 import LessonMarker from "@/components/lessonMarker";
 import LessonMarkerLocked from "@/components/lessonMarkerLocked";

@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, Pressable, ActivityIndicator, Dimensions } from "react-native";
+import { Text, View, StyleSheet, Pressable, ActivityIndicator, Dimensions } from "react-native";
 import { useState, useRef, useCallback } from "react";
 import Mapbox, { 
   MapView, 
@@ -6,11 +6,9 @@ import Mapbox, {
   Camera, 
   ShapeSource, 
   SymbolLayer, 
-  FillLayer, 
   Images, 
   Image,
   CircleLayer,
-  MarkerView, 
 } from "@rnmapbox/maps";
 
 import {
@@ -115,7 +113,6 @@ export default function Index() {
   }
 
   const handleSelectingFire = async ( event: OnPressEvent ) => {
-      // console.log(event.features);
       const feature = event.features[0]
       if ( feature.properties ) {
         // do nothing if a cluster was selected
@@ -180,11 +177,7 @@ export default function Index() {
     })
     .catch((error) => {
       // need to have locally stored data in case service not available
-      console.error(
-        "Error downloading fire data: " + 
-        error + 
-        " \n   ... reverting to locally stored data");
-
+      alert('Could not connect to server, using old fire data for map.')
       // import fire data - currently stored locally
       const rawJson : FeatureCollection = require('../../assets/fireData.json');
 
@@ -215,8 +208,6 @@ export default function Index() {
           // set the style so that the map fills the whole container
           style={styles.map} 
           projection="mercator"
-          // change the style of the map
-          // styleURL="mapbox://styles/mapbox/outdoors-v12"
           rotateEnabled={false}
           scaleBarEnabled={false}
           pitchEnabled={false}
@@ -265,7 +256,7 @@ export default function Index() {
                 }}
               ></View>
             </Image>
-            <Image
+            {/* <Image
               name="pin-blue"
             >
               <View
@@ -276,7 +267,7 @@ export default function Index() {
 
                 }}
               ></View>
-            </Image>
+            </Image> */}
           </Images>
 
 
@@ -305,12 +296,6 @@ export default function Index() {
               filter={['has', 'point_count']}
               style={{
                 circleColor: '#FDC358',
-                // circleColor: [
-                //   'case',
-                //   ['boolean', ['feature-state', 'click'], false],
-                //   'blue',
-                //   'red'
-                // ],
                 circleRadius: 12,
                 visibility: currentFireLayerVis,
               }}
@@ -322,12 +307,6 @@ export default function Index() {
               filter={['has', 'point_count']}
               style={{
                 circleColor: '#DD7207',
-                // circleColor: [
-                //   'case',
-                //   ['boolean', ['feature-state', 'click'], false],
-                //   'blue',
-                //   'red'
-                // ],
                 circleRadius: 14,
                 visibility: currentFireLayerVis,
               }}
@@ -339,19 +318,6 @@ export default function Index() {
               filter={['!', ['has', 'point_count']]}
               style={{
                 iconImage: 'pin',
-                // iconImage: getImageName(['get', 'id'])
-                // iconImage: [
-                //   'case',
-                //   true,
-                //   'pin-blue',
-                //   'pin'
-                // ]
-                // iconSize: [
-                //   'case',
-                //   ['==', ['get', 'id'], 'activefires_current.fid-39e62338_19859b53c17_b5e'],
-                //   2,
-                //   1
-                // ]
                 iconSize: [
                   'case',
                   ['boolean', ['get', 'selected'], false],
@@ -410,7 +376,6 @@ export default function Index() {
         {/* Button to toggle layers panel */}
         <Pressable 
           style={styles.layerMenu}
-          // onPress={() => setLayersPanelVisibility(true)}
           onPress={ handlePresentModalPress }
         >
           <Ionicons name="layers-outline" size={24} color="black" />
@@ -424,8 +389,6 @@ export default function Index() {
         */}
         <BottomSheetModal
           ref={bottomSheetModalRef}
-          // onChange={handleSheetChanges}
-          // backdropComponent={renderBackdrop}
           handleStyle={{paddingBottom: 0}}
           backdropComponent={ props => (
             <BottomSheetBackdrop {...props}

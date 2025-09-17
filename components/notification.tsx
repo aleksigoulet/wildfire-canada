@@ -56,8 +56,7 @@ export default function Notification(props: any) {
   return (
     <View style={styles.container}>
       <View style={styles.notificationTopLine}>
-        <Text style={styles.titleText}>{ props.data.title }</Text>
-        {/* <Text style={styles.contentText}>{ `${props.time.getHours()}:${props.time.getMinutes()}` }</Text> */}
+        <Text style={styles.titleText}>{ props.data.title }</Text>        
         <Text style={styles.contentText}>{ timeDiffDisplay }</Text>
       </View>
         {

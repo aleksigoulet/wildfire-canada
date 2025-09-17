@@ -9,7 +9,7 @@ async function storeObjectData(key: string, value: any): Promise<void> {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem(key, jsonValue);
   } catch (error) {
-    console.error('Store Object Data: error storing data: /n' + error);
+    return
   }
 }
 
@@ -21,7 +21,7 @@ async function getObjectData(key: string) {
     const jsonValue = await AsyncStorage.getItem(key);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (error) {
-    console.error('Get Object Data: error storing data: /n' + error);
+    return null
   }
 }
 
@@ -31,11 +31,8 @@ async function removeValue(key: string) {
     await AsyncStorage.removeItem(key)
   } catch(e) {
     // remove error
-    console.error('AsyncStorage: error removing value: \n' + e);
     throw e;
   }
-
-  console.log('Removed item at ' + key);
 }
 
 export { storeObjectData, getObjectData, removeValue };

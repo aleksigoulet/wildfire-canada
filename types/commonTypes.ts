@@ -14,20 +14,6 @@ type ContextProviderProps = {
 }
 
 // types for checklist collection
-// type ChecklistsCollection = {
-//   metadata: {
-//     checklistName: string;
-//     checklistDisplayText: string;
-//     completionStatus: boolean;
-//     previouslyCompleted: boolean;
-//     icon: string;
-//     id: number;
-//   },
-//   content: {
-//     introMessage: string;
-//     items: ChecklistItem[]
-//   }
-// }[]
 
 type ChecklistsCollection = Checklist[]
 

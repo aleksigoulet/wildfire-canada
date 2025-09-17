@@ -40,7 +40,6 @@ export default function ChecklistContextProvider({ children }: ContextProviderPr
 
     // if no checklists stored, then create a checklist object from the master checklists
     if (!data) {
-      console.log('ChecklistContextProvider: checklists does not exist yet, creating...')
       storeObjectData('checklists', masterChecklists);
       setChecklistContextData(masterChecklists);
     }

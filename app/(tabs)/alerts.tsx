@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Text, View, Button, AppState, StyleSheet, SafeAreaView, ScrollView, Pressable } from "react-native";
+import { Text, View, Button, AppState, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import * as Notifications from 'expo-notifications';
 import { router } from "expo-router";
 import { getObjectData } from "@/utils/storageHandlers";
@@ -33,9 +33,6 @@ TaskManager.defineTask<Notifications.NotificationTaskPayload>(SAVE_NOTIFICATION_
       // if no stored notifications are found
       // then create a new notifications array and store 
       if ( storedNotifications == null ) {
-        console.log('notifications data does not exist yet, creating...');
-       
-
         const newData = [{
           data: data.data.body,
           key: 1,        
@@ -146,8 +143,6 @@ export default function Alerts() {
       // collect the passed data from the notification
       const notificationContent = response.request.content.data;
 
-      const currentTime = new Date();
-
       // create a new object to update state
       const notificationObject = {
         data: notificationContent,
@@ -188,7 +183,6 @@ export default function Alerts() {
                 await removeValue('notifications');
                 setNotifications([]);
               } catch (error) {
-                console.error("Error in resetting notifications [alerts.tsx]: " + error);
                 alert("Could not delete notifications. Please try again.");
               }
             }}
@@ -201,8 +195,6 @@ export default function Alerts() {
               <View style={styles.scrollContainer}>
               {
                 notifications?.map((notification: any) => {
-                  // return <Text key={ notification.key }>{ notification.data.content }</Text>
-                  // console.log(notification);
                   return <Notification key={ notification.key } data={ notification.data } time={ notification.time }/>
                 })
               }

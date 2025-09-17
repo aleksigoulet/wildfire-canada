@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
-import { Link } from "expo-router";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import ProfileHeader from "@/components/profileHeader";
 import ChecklistButton from "@/components/checklistButton";
 

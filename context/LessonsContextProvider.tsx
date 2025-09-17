@@ -41,8 +41,6 @@ export default function LessonsContextProvider({ children }: ContextProviderProp
 
     // if no checklists stored, then create a checklist object from the master checklists
     if (!data) {
-      console.log('getLessonProgress() [LessonsContextProvider.tsx]: lessons completion status does not exist yet, creating...')
-
       const lessonCompletionObject: LessonCompletionState[] = lessons.map((lesson) => {
         return {
           id: lesson.metadata.id,

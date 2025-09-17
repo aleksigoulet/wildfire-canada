@@ -50,7 +50,7 @@ async function registerForPushNotificationsAsync() {
           }
 
         } catch (error) {
-          console.warn('Error submitting push token to server: ' + error)
+          alert('Could not register for notifications.')
         }
 
       }
@@ -59,7 +59,6 @@ async function registerForPushNotificationsAsync() {
     }
 
     if (finalStatus !== 'granted') {
-      console.log('User did not allow push notifications')
       return;
     }
 

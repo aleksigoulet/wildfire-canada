@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button, StyleSheet, SafeAreaView, ScrollView, KeyboardAvoidingView } from "react-native";
+import { View, Text, TextInput, StyleSheet, SafeAreaView, ScrollView, KeyboardAvoidingView } from "react-native";
 import { storeObjectData } from "@/utils/storageHandlers";
 import { Image } from "expo-image";
 
@@ -24,8 +24,6 @@ export default function OnboardingScreen() {
 
     // need to store data first before setting new profile context value
     storeObjectData('profile', newProfileInfo);
-
-    console.log('Submit New Profile Info [onboarding/index.tsx]: profile successfully saved');
   }
 
   return (
