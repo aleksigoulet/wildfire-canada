@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Pressable, Text, StyleSheet } from "react-native"
+import { Pressable, Text, StyleSheet, ViewStyle } from "react-native"
 
 
 type InterfaceButtonProps = {
@@ -9,6 +9,7 @@ type InterfaceButtonProps = {
   light?: boolean;
   inactive?: boolean;
   icon?: ReactNode;
+  style?: ViewStyle;
 }
 
 export default function InterfaceButton( props: InterfaceButtonProps ) {
@@ -40,7 +41,8 @@ export default function InterfaceButton( props: InterfaceButtonProps ) {
           null,
         props.inactive ? 
           styles.inactiveButton : 
-          null
+          null,
+        props.style
       ]}
     >
       { props.icon }

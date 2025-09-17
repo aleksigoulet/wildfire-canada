@@ -131,18 +131,22 @@ export default function Lesson() {
   // if all pages are completed then show completion message
   if ( currentPage === lessons[lessonIndex].pages.length ) {
     contentJSX = (
-      <View style={styles.content}>
-        <Text style={styles.titleText}>Lesson Complete!</Text>
-        <Image 
-          source={require('@/assets/images/checkmark-green.png')}
-          style={{
-            width: 120,
-            height: 120
-          }}
-        />
+      <View style={styles.pageContainer}>
+        <View style={styles.content}>
+          <Text style={styles.titleText}>Lesson Complete!</Text>
+          <Image 
+            source={require('@/assets/images/checkmark-green.png')}
+            style={{
+              width: 120,
+              height: 120
+            }}
+          />
+        </View>
         <View style={styles.completeButtonContainer}>
           <AddXpIcon points={pointsToAdd}/>
-          <InterfaceButton onPress={ handleComplete } title='Complete Lesson' />
+          <View>
+            <InterfaceButton onPress={ handleComplete } title='Complete Lesson' />
+          </View>
         </View>
       </View>
     )
@@ -155,86 +159,92 @@ export default function Lesson() {
     // store appropriate content in contentJSX depending on page type
     if ( page.type === 'intro' ) {
       contentJSX = (
-        <View style={styles.content}>
-          <Image 
-            source={require('@/assets/images/firefighter.png')}
-            style={{
-                width: 160,
-                height: 160
-              }}
-          />
-          <View style={styles.textContainer}>
-            <Text style={styles.contentText}>{ page.content.text }</Text>
-            <View>
-              <Text style={[styles.contentText, { fontWeight: 'bold' }]}>Objectives:</Text>
+        <View style={styles.pageContainer}>
+          <View style={styles.content}>
+            <Image 
+              source={require('@/assets/images/firefighter.png')}
+              style={{
+                  width: 160,
+                  height: 160
+                }}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.contentText}>{ page.content.text }</Text>
+              <View>
+                <Text style={[styles.contentText, { fontWeight: 'bold' }]}>Objectives:</Text>
 
-              {/* 
-                bullet list code adapted from following resource
-                https://www.atomlab.dev/tutorials/react-native-bullet-list
-              */}
-              <View style={styles.bulletListContainer}>
-                {
-                  page.content.objectives.map((objective: any) => {
-                    return( 
-                      <BulletListItem text={ objective.item } key={ objective.id }/>
-                    )
-                  })
-                }
+                {/* 
+                  bullet list code adapted from following resource
+                  https://www.atomlab.dev/tutorials/react-native-bullet-list
+                */}
+                <View style={styles.bulletListContainer}>
+                  {
+                    page.content.objectives.map((objective: any) => {
+                      return( 
+                        <BulletListItem text={ objective.item } key={ objective.id }/>
+                      )
+                    })
+                  }
+                </View>
               </View>
             </View>
           </View>
-          <InterfaceButton onPress={ handleNext } title='Start Lesson' />
+          <InterfaceButton onPress={ handleNext } title='Start Lesson' style={styles.buttonContainer} />
         </View>
       )
     } else if ( page.type === 'intro-multi' ) {
 
       contentJSX = (
-        <View style={styles.content}>
-          <Image 
-            source={require('@/assets/images/firefighter.png')}
-            style={{
-                width: 160,
-                height: 160
-              }}
-          />
-          {/* <Image source={'@/assets/images/firefighter.png'}/> */}
-          <View style={styles.textContainer}>
-            {
-              page.content.multiText.map((paragraph: LessonTextContent) => {
-                return <Text key={ paragraph.id } style={[styles.contentText, styles.centerText]}>{ paragraph.text }</Text>
-              })
-            }
+        <View style={styles.pageContainer}>
+          <View style={styles.content}>
+            <Image 
+              source={require('@/assets/images/firefighter.png')}
+              style={{
+                  width: 160,
+                  height: 160
+                }}
+            />
+            {/* <Image source={'@/assets/images/firefighter.png'}/> */}
+            <View style={styles.textContainer}>
+              {
+                page.content.multiText.map((paragraph: LessonTextContent) => {
+                  return <Text key={ paragraph.id } style={[styles.contentText, styles.centerText]}>{ paragraph.text }</Text>
+                })
+              }
+            </View>
           </View>
-          <InterfaceButton onPress={ handleNext } title='Start Lesson'/>
+          <InterfaceButton onPress={ handleNext } title='Start Lesson' style={styles.buttonContainer} />
         </View>
       )
 
     } else if ( page.type === 'page' ) {
       contentJSX = (
-        <View style={styles.content}>
-          <View style={styles.pageContentContainer}>
-            <Image 
-              source={require('@/assets/images/firefighter.png')}
-              // cachePolicy='memory'
-              style={{
-                width: 46,
-                height: 46
-              }}
-            />
-            <View style={styles.textContainer}>
-              {
-                page.content.map((section: any) => {
-                  for (var property in section) {
-                    // if the content is text then display text
-                    if (property == 'text') {
-                      return <Text key={section.id} style={styles.contentText}>{section[property]}</Text>
-                    } else if (property == 'image') {
-                      // if content is image then display image
-                      return <Image key={section.id} source={section[property]} style={{ width: 220, height: 220 }}/>
+        <View style={styles.pageContainer}>
+          <View style={styles.content}>
+            <View style={styles.pageContentContainer}>
+              <Image 
+                source={require('@/assets/images/firefighter.png')}
+                // cachePolicy='memory'
+                style={{
+                  width: 46,
+                  height: 46
+                }}
+              />
+              <View style={styles.textContainer}>
+                {
+                  page.content.map((section: any) => {
+                    for (var property in section) {
+                      // if the content is text then display text
+                      if (property == 'text') {
+                        return <Text key={section.id} style={styles.contentText}>{section[property]}</Text>
+                      } else if (property == 'image') {
+                        // if content is image then display image
+                        return <Image key={section.id} source={section[property]} style={{ width: 220, height: 220 }}/>
+                      }
                     }
-                  }
-                })
-              }
+                  })
+                }
+              </View>
             </View>
           </View>
           <View style={styles.buttonContainer}>
@@ -331,9 +341,14 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 1,
-    gap: 54,
+    gap: 32,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  pageContainer: {
+    flex: 1, 
+    alignItems: 'center'
   },
 
   textContainer: {
@@ -354,11 +369,13 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     flexDirection: 'row',
-    gap: 28
+    gap: 28,
+    marginBottom: 36
   },
   
   completeButtonContainer: {
     alignItems: 'flex-end',
-    gap: 8
+    gap: 8,
+    marginBottom: 36
   },
 })

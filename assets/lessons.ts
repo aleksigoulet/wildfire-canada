@@ -400,7 +400,8 @@ const lessons: LessonCollection = [
     {
     metadata: {
       id: 8,
-      title: 'Lesson 8'
+      title: 'Lesson 8',
+      unlockBadge: 'all_lessons'
     },
     pages: [
       {
