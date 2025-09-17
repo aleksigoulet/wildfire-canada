@@ -1,4 +1,4 @@
-import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, ScrollView, Alert, AlertButton } from "react-native";
+import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, KeyboardAvoidingView, ScrollView, Alert, AlertButton } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { useState, useContext, use } from "react";
@@ -169,36 +169,45 @@ export default function Settings() {
               title="Close"
               onPress={handleCloseEditProfileModal}
             />
-            {/* 
-              ScrollView needed so that keyboard disappears when screen tapped
-              solution of using scrollview with keyboardShouldPersistTaps from user Eric Kim
-              https://stackoverflow.com/questions/29685421/hide-keyboard-in-react-native?page=1&tab=scoredesc#tab-top
-            */}
-            <ScrollView 
-              keyboardShouldPersistTaps='handled' 
-              style={{ width: '100%' }} 
-              contentContainerStyle={{ flex: 1 }}
+            
+            {/* keyboard avoiding view needed so that content is not hidden by keyboard */}
+            {/* idea to use this view inspired by following post */}
+            {/* https://stackoverflow.com/questions/40438986/keyboardavoidingview-with-scrollview */}
+            <KeyboardAvoidingView
+              style={styles.keyboardAvoidContainer}
+              behavior="padding"
             >
-              <View style={styles.modalFormContainer}>
-                <View style={styles.modalFormInput}>
-                  <Text style={styles.modalTitle}>New Username</Text>
-                  <TextInput 
-                    style={styles.modalTextInput}
-                    value={editingUserName}
-                    onChangeText={setEditingUserName}
+              {/* 
+                ScrollView needed so that keyboard disappears when screen tapped
+                solution of using scrollview with keyboardShouldPersistTaps from user Eric Kim
+                https://stackoverflow.com/questions/29685421/hide-keyboard-in-react-native?page=1&tab=scoredesc#tab-top
+              */}
+              <ScrollView 
+                keyboardShouldPersistTaps='handled' 
+                style={{ width: '100%' }} 
+                contentContainerStyle={{ flex: 1 }}
+              >
+                <View style={styles.modalFormContainer}>
+                  <View style={styles.modalFormInput}>
+                    <Text style={styles.modalTitle}>New Username</Text>
+                    <TextInput 
+                      style={styles.modalTextInput}
+                      value={editingUserName}
+                      onChangeText={setEditingUserName}
+                    />
+                  </View>
+                  <Button 
+                    title="Submit"
+                    onPress={() => {
+                      handleSubmitNewProfileInfo();
+                      handleCloseEditProfileModal();
+                    }}
+                    // disable submit button if no new username is entered
+                    disabled={ editingUserName ? false : true }
                   />
                 </View>
-                <Button 
-                  title="Submit"
-                  onPress={() => {
-                    handleSubmitNewProfileInfo();
-                    handleCloseEditProfileModal();
-                  }}
-                  // disable submit button if no new username is entered
-                  disabled={ editingUserName ? false : true }
-                />
-              </View>
-            </ScrollView>
+              </ScrollView>
+            </KeyboardAvoidingView>
             
           </View>
         </Modal>
@@ -211,6 +220,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+
+  keyboardAvoidContainer: {
+    flex: 1,
+    width: '100%'
   },
 
   scrollContainer: {
