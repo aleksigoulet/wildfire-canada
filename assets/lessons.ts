@@ -36,7 +36,7 @@ const lessons: LessonCollection = [
           },
           {
             id: 1,
-            text: "In 2023, over 6,000 fires burned over 15 million hectares of land. That's an area bigger than England!"
+            text: "In 2023, over 6,000 fires burned over 15 million hectares of land. That's an area bigger than England! [3]"
           },
           {
             id: 2,
@@ -68,7 +68,7 @@ const lessons: LessonCollection = [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we're going to learn about basic fire concepts. All content in this lesson was copied and/or adapted from reference [2] - see settings.",
           objectives: [
             {
               id: 0,
@@ -123,7 +123,7 @@ const lessons: LessonCollection = [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we will learn about the behaviour of wildfires.",
+          text: "In this lesson, we will learn about the behaviour of wildfires. All content in this lesson was copied and/or adapted from reference [2] - see settings.",
           objectives: [
             {
               id: 0,
@@ -172,7 +172,7 @@ const lessons: LessonCollection = [
       }
     ]
   },
-    {
+  {
     metadata: {
       id: 4,
       title: 'Prepare'
@@ -181,7 +181,7 @@ const lessons: LessonCollection = [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we will learn how to prepare for wildfire emergencies.",
+          text: "In this lesson, we will learn how to prepare for wildfire emergencies. All content in this lesson was copied and/or adapted from reference [1] - see settings.",
           objectives: [
             {
               id: 0,
@@ -269,7 +269,7 @@ const lessons: LessonCollection = [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we will learn how to handle immediate fire threats and evacuations.",
+          text: "In this lesson, we will learn how to handle immediate fire threats and evacuations. All content in this lesson was copied and/or adapted from reference [1] - see settings.",
           objectives: [
             {
               id: 0,

@@ -10,7 +10,8 @@ export default function Emergency() {
         </View>
 
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Text style={styles.title}>When a Fire is Approaching</Text>
+          <Text style={{ marginTop: 22 }}>All content below is copied from reference [1] - see settings.</Text>
+          <Text style={[styles.title, { marginTop: 8 }]}>When a Fire is Approaching</Text>
           {/* https://stackoverflow.com/questions/39110460/react-native-unordered-style-list */}
           <View style={styles.bulletListContainer}>
             <BulletListItem text="Wait for updates from authorities." />
@@ -82,7 +83,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 12,
     marginTop: 22,
-    fontSize: 20
+    fontSize: 20,
+    color: '#484848'
   },
 
   subtitle: {
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 12,
     marginTop: 24,
+    color: '#646464'
   },
 
   listText: {

@@ -12,6 +12,7 @@ export default function Settings() {
       <Stack.Screen name="index" options={{ headerShown: false }}/>
       <Stack.Screen name="acknowledgements" options={{ headerBackTitle: 'Back', headerTitle: '' }}/>
       <Stack.Screen name="developper" options={{ headerBackTitle: 'Back', headerTitle: '' }}/>
+      <Stack.Screen name="references" options={{ headerBackTitle: 'Back', headerTitle: '' }}/>
     </Stack>
   )
 }
