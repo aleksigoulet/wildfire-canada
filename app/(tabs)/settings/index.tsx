@@ -1,8 +1,8 @@
 import { Text, View, Button, Modal, StyleSheet, TextInput, SafeAreaView, Pressable, KeyboardAvoidingView, ScrollView, Alert, AlertButton } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
-import { useState, useContext, use } from "react";
-import { storeObjectData, removeValue } from "@/utils/storageHandlers";
+import { useState, useContext } from "react";
+import { storeObjectData } from "@/utils/storageHandlers";
 import { Profile } from "@/types/commonTypes";
 
 import { ProfileContext } from "@/context/ProfileContext";
@@ -121,13 +121,14 @@ export default function Settings() {
             </View>
           </Pressable>
 
-          <Pressable 
-            onPress={ handleResetProgress }
-          >
-            <View style={[styles.settingContainer, styles.settingRed]}>
-              <Text style={[styles.settingText, styles.settingTextRed]}>Reset all progress</Text>
-            </View>
-          </Pressable>
+          <Link href={'/(tabs)/settings/developper'} asChild>
+            <Pressable>
+              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
+                <Text style={styles.settingText}>Developper</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+              </View>
+            </Pressable>
+          </Link>
 
           <Link href={'/(tabs)/settings/references'} asChild>
             <Pressable>
@@ -140,21 +141,20 @@ export default function Settings() {
 
           <Link href={'/(tabs)/settings/acknowledgements'} asChild>
             <Pressable>
-              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
+              <View style={[styles.settingContainer, styles.settingContainerWithArrow, { marginBottom: 52 }]}>
                 <Text style={styles.settingText}>Acknowledgements</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
               </View>
             </Pressable>
           </Link>
 
-          <Link href={'/(tabs)/settings/developper'} asChild>
-            <Pressable>
-              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
-                <Text style={styles.settingText}>Developper</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
-              </View>
-            </Pressable>
-          </Link>
+          <Pressable 
+            onPress={ handleResetProgress }
+          >
+            <View style={[styles.settingContainer, styles.settingRed]}>
+              <Text style={[styles.settingText, styles.settingTextRed]}>Reset all progress</Text>
+            </View>
+          </Pressable>
         </ScrollView>
 
         {/* Modal to edit profile information */}
