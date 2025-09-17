@@ -38,7 +38,7 @@ async function registerForPushNotificationsAsync() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Api-Key ${process.env.NOTIFICATION_SERVER_API_KEY ?? process.env.EXPO_PUBLIC_NOTIFICATION_SERVER_API_KEY}`
+              'Authorization': `Api-Key ${process.env.EXPO_PUBLIC_NOTIFICATION_SERVER_API_KEY}`
             },
             body: JSON.stringify({
               token: tokenToSend
