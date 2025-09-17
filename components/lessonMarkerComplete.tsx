@@ -38,6 +38,7 @@ export default function LessonMarkerComplete(props: LessonProps) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    maxWidth: 120,
   },
 
   containerPressed: {
@@ -58,5 +59,6 @@ const styles = StyleSheet.create({
   lessonTitleText: {
     color: 'white',
     fontSize: 16,
+    textAlign: 'center',
   }
 })

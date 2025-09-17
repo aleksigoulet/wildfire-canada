@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
   lessonTitleText: {
     color: 'white',
     fontSize: 16,
+    textAlign: 'center',
   }
 })

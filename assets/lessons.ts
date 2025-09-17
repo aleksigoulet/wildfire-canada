@@ -334,17 +334,17 @@ const lessons: LessonCollection = [
   {
     metadata: {
       id: 6,
-      title: 'Lesson 6'
+      title: 'After Evacuation'
     },
     pages: [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we'll discuss what to do after an evacuation. All content in this lesson was copied and/or adapted from reference [1] - see settings.",
           objectives: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              item: "Know what actions to take after evacuating."
             }
           ]
         }
@@ -354,11 +354,15 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "Continue to monitor communications channels for updates on when it is safe to return home."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "Do not make phone calls unless necessary. Communicate using other methods such as text or email.",
+          },
+          {
+            id: 3,
+            text: "Stay at least 10 metres away from downed power lines",
           }
         ]
       }
@@ -367,17 +371,17 @@ const lessons: LessonCollection = [
     {
     metadata: {
       id: 7,
-      title: 'Lesson 7'
+      title: "Returning Home"
     },
     pages: [
       {
         type: ContentType.Intro,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
+          text: "In this lesson, we'll discuss important information for returning home after an evacuation. All content in this lesson was copied and/or adapted from reference [1] - see settings.",
           objectives: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              item: "Know what to consider before returning home"
             }
           ]
         }
@@ -387,11 +391,19 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "Wait until it is safe to return."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "Work with authorities to determine if it is safe to enter your home.",
+          },
+          {
+            id: 2,
+            text: "Test smoke detectors and carbon monoxide alarms.",
+          },
+          {
+            id: 3,
+            text: "Remove spoiled food from the fridge.",
           }
         ]
       }
@@ -400,18 +412,17 @@ const lessons: LessonCollection = [
     {
     metadata: {
       id: 8,
-      title: 'Lesson 8',
+      title: 'Conclusion',
       unlockBadge: 'all_lessons'
     },
     pages: [
       {
-        type: ContentType.Intro,
+        type: ContentType.IntroMulti,
         content: {
-          text: "In this lesson, we're going to learn about basic fire concepts.",
-          objectives: [
+          multiText: [
             {
               id: 0,
-              item: "Understand the fire triangle"
+              text: 'Congratulations for completing the course!'
             }
           ]
         }
@@ -421,11 +432,11 @@ const lessons: LessonCollection = [
         content: [
           {
             id: 0,
-            text: "Here's the fire triangle. We can stop a fire by removing any one of the three elements."
+            text: "You are now fully prepared to prevent and handle wildfires."
           },
           {
             id: 1,
-            image: require('@/assets/images/fire-triangle.png'),
+            text: "I might even put in a good word with the Chief for you, maybe you can join our firefighting efforts!",
           }
         ]
       }

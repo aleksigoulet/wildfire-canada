@@ -22,6 +22,7 @@ export default function LessonMarkerLocked(props: LessonLockedProps) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    maxWidth: 120,
   },
 
   lessonTitle: {
@@ -38,5 +39,6 @@ const styles = StyleSheet.create({
   lessonTitleText: {
     color: 'white',
     fontSize: 16,
+    textAlign: 'center'
   }
 })
