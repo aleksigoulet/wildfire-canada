@@ -247,6 +247,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 20,
     paddingTop: 22,
+    paddingBottom: 64,
     flexDirection: 'column-reverse',
   },
 

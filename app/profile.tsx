@@ -78,7 +78,7 @@ export default function Profile() {
         </View>
       </View>
       
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 64 }}>
         {/* badges */}
         <View>
           <Text style={styles.sectionTitle}>Badges</Text>

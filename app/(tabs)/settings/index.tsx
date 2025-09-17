@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
 
   scrollContainer: {
     paddingTop: 20,
+    paddingBottom: 64,
   },
 
   pageTitle: {

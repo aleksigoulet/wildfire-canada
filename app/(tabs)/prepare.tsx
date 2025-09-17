@@ -71,7 +71,7 @@ export default function Prepare() {
         badges={getNumberCompletedBadges()}
         username={profile?.username}
       />
-      <ScrollView style={styles.contentContainer}>
+      <ScrollView style={styles.contentContainer} contentContainerStyle={{ marginBottom: 64 }}>
 
         {
           remainingChecklists ? 
