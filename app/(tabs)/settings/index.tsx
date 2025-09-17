@@ -119,15 +119,6 @@ export default function Settings() {
             </View>
           </Pressable>
 
-          <Link href={'/(tabs)/settings/developper'} asChild>
-            <Pressable>
-              <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
-                <Text style={styles.settingText}>Developper</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
-              </View>
-            </Pressable>
-          </Link>
-
           <Link href={'/(tabs)/settings/references'} asChild>
             <Pressable>
               <View style={[styles.settingContainer, styles.settingContainerWithArrow]}>
