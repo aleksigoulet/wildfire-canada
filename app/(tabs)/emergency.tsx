@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import BulletListItem from "@/components/bulletListItem";
 
 export default function Emergency() {
   return (
@@ -11,12 +12,37 @@ export default function Emergency() {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.title}>When a Fire is Approaching</Text>
           {/* https://stackoverflow.com/questions/39110460/react-native-unordered-style-list */}
-          <View>
-            <Text style={styles.listText}>1.  Listen for updates from authorities.</Text>
-            <Text style={styles.listText}>2.  Be prepared to evacuate at a moment's notice.</Text>
-            <Text style={styles.listText}>3.  Have your vehicle stocked with supplies.</Text>
-            <Text style={styles.listText}>4.  Bring pets inside.</Text>
-            <Text style={styles.listText}>5.  Follow designated evacuation routes.</Text>
+          <View style={styles.bulletListContainer}>
+            <BulletListItem text="Wait for updates from authorities." />
+            <BulletListItem text="Be prepared to evacuate at a moment's notice." />
+            <BulletListItem text="Have your vehicle stocked with supplies." />
+            <BulletListItem text="Bring pets inside." />
+            <BulletListItem text="Review designated evacuation routes." />
+          </View>
+          <Text style={styles.subtitle}>Preparing your home</Text>
+          <View style={styles.bulletListContainer}>
+            <BulletListItem text="Close all doors and windows." />
+            <BulletListItem text="Close all vents and openings." />
+            <BulletListItem text="Place a ladder to the roof to assist firefighters" />
+          </View>
+          <Text style={styles.subtitle}>Driving during an evacuation</Text>
+          <View style={styles.bulletListContainer}>
+            <BulletListItem text="Stay at least 10 metres away from downed power lines." />
+            <BulletListItem text="Do not drive through a fire unless directed by officials." />
+            <BulletListItem text="Follow designated evacuation routes." />
+          </View>
+          <Text style={styles.title}>After a Wildfire</Text>
+          <View style={styles.bulletListContainer}>
+            <BulletListItem text="Continue to monitor officials communication channels for updates." />
+            <BulletListItem text="Do not make phone calls unless necessary. Communicate using other methods such as text or email." />
+            <BulletListItem text="Stay away from downed power lines." />
+          </View>
+          <Text style={styles.subtitle}>Returning home</Text>
+          <View style={styles.bulletListContainer}>
+            <BulletListItem text="Wait until is is safe to return." />
+            <BulletListItem text="Work with authorities to determine if it is safe to enter your home." />
+            <BulletListItem text="Test smoke detectors and carbon monoxide alarms." />
+            <BulletListItem text="Remove spoiled food from the fridge." />
           </View>
         </ScrollView>
       </View>
@@ -31,8 +57,12 @@ const styles = StyleSheet.create({
   },
 
   scrollContainer: {
-    flex: 1,
-    paddingTop: 22,
+    paddingBottom: 64,
+  },
+
+  bulletListContainer: {
+    paddingLeft: 6,
+    gap: 6,
   },
 
   pageTitle: {
@@ -50,8 +80,16 @@ const styles = StyleSheet.create({
 
   title: {
     fontWeight: 'bold',
-    marginBottom: 20,
-    fontSize: 18
+    marginBottom: 12,
+    marginTop: 22,
+    fontSize: 20
+  },
+
+  subtitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 12,
+    marginTop: 24,
   },
 
   listText: {

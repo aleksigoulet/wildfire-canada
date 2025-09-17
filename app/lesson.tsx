@@ -5,6 +5,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Image } from "expo-image";
 import InterfaceButton from "@/components/interfaceButton";
 import AddXpIcon from "@/components/addXpIcon";
+import BulletListItem from "@/components/bulletListItem";
 
 import lessons from "@/assets/lessons";
 import { LessonTextContent } from "@/types/lessonTypes";
@@ -175,10 +176,7 @@ export default function Lesson() {
                 {
                   page.content.objectives.map((objective: any) => {
                     return( 
-                      <View key={ objective.id } style={styles.bulletListItem}>
-                        <Text style={styles.bullet}>{'\u25CF'}</Text>
-                        <Text  style={styles.contentText}>{ objective.item }</Text> 
-                      </View>
+                      <BulletListItem text={ objective.item } key={ objective.id }/>
                     )
                   })
                 }
