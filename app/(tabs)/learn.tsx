@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView } from "react-native";
+import { Text, View, ScrollView, StyleSheet, Pressable, FlatList, SafeAreaView, Dimensions } from "react-native";
 import { useContext } from "react";
 import LessonMarker from "@/components/lessonMarker";
 import LessonMarkerLocked from "@/components/lessonMarkerLocked";
@@ -11,8 +11,6 @@ import { BadgesContext } from "@/context/BadgesContext";
 import { ProfileContext } from "@/context/ProfileContext";
 import { LessonsContext } from "@/context/LessonsContext";
 
-
-import Svg, { Path } from "react-native-svg";
 
 export default function Learn() {
   // points context
@@ -53,6 +51,10 @@ export default function Learn() {
             return null
           }
 
+          // variable to store the amplitude of the sine curve
+          // getting the width of the screen and scaling allows for responsive design
+          const maxOffset = Dimensions.get('window').width * 0.5;
+
           // constant to keep track of the current item's completion state
           const isLessonComplete = completedLessons[index].completed;
 
@@ -68,7 +70,7 @@ export default function Learn() {
 
           // variable for the horizontal offset of each lesson marker
           // change the dividend in PI / [number] to adjust the period of the wave
-          const horizontalPosition = Math.sin(( Math.PI / 3.5 ) * index) * 200;
+          const horizontalPosition = Math.sin(( Math.PI / 3.5 ) * index) * maxOffset;
 
 
           // element to render for completed lessons
