@@ -10,12 +10,12 @@ const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 
-export default function ProfileHeader(props: any) {
+export default function ProfileHeader({points, badges, username, ...props}: any) {
   const insets = useSafeAreaInsets();
 
   return (
       // this view needs inline styles for proper access to top inset
-      <View style={[styles.header, { minHeight: insets.top + 70 }]}>
+      <View style={[styles.header, { minHeight: insets.top + 70 }]} {...props}>
         {/* top bar */}
         <View style={[styles.headerTop, { height: insets.top }]}></View>
 

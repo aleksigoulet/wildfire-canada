@@ -87,7 +87,7 @@ const correctedCollection : FeatureCollection = {
   ]
 }
 
-
+// polygon collection to test
 const testPolygonCollection : FeatureCollection = {
   "type": "FeatureCollection",
   "features": [
@@ -138,6 +138,7 @@ const testPolygonCollection : FeatureCollection = {
   ]
 }
 
+// corrected polygon collection to compare test result
 const correctedPolygonCollection : FeatureCollection = {
   "type": "FeatureCollection",
   "features": [

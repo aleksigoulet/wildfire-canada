@@ -69,6 +69,7 @@ export default function Prepare() {
         points={points}  
         badges={getNumberCompletedBadges()}
         username={profile?.username}
+        testID='Prepare.ProfileHeader'
       />
       <ScrollView style={styles.contentContainer} contentContainerStyle={{ marginBottom: 64 }}>
 
@@ -90,6 +91,7 @@ export default function Prepare() {
                   icon={ checklist.metadata.icon }
                   key={ checklist.metadata.id }
                   previouslyCompleted={ checklist.metadata.previouslyCompleted }
+                  testID='Prepare.ChecklistButton'
                 />
               )
             }
@@ -115,7 +117,8 @@ export default function Prepare() {
                   icon={ checklist.metadata.icon }
                   key={ checklist.metadata.id } 
                   previouslyCompleted={ checklist.metadata.previouslyCompleted }  
-                  complete               
+                  complete   
+                  testID='Prepare.ChecklistButton'            
                 />
               )
             }

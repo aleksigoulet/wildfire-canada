@@ -10,6 +10,7 @@ type ChecklistButtonProps = {
   icon: string;
   previouslyCompleted: boolean;
   complete?: boolean;
+  testID?: string;
 }
 
 export default function ChecklistButton(props : ChecklistButtonProps) {
@@ -35,6 +36,7 @@ export default function ChecklistButton(props : ChecklistButtonProps) {
   return (
     <Link 
       href={ `${props.href}&numberPoints=${ pointsToAdd }`}
+      testID={ props.testID }
       asChild
     >
       <Pressable>

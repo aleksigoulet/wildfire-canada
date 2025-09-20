@@ -113,48 +113,59 @@ export default function Index() {
   }
 
   const handleSelectingFire = async ( event: OnPressEvent ) => {
-      const feature = event.features[0]
-      if ( feature.properties ) {
-        // do nothing if a cluster was selected
-        if (feature.properties.cluster) {
-          // dismiss the properties panel if it was previously selected
-          handleDismissSelectedFire();
-          return;
-        }
+    // access the feature that was pressed
+    const feature = event.features[0]
 
-        // convert the feature's date to a JS Date object
-        const unixDate = Date.parse(feature.properties.startdate);
-        const date = new Date(unixDate);
-
-        // set options for displaying date
-        const options: Intl.DateTimeFormatOptions = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-
-
-        const fireDetails : FireDetails = {
-          firename: feature.properties.firename,
-          hectares: feature.properties.hectares,
-          responseType: getResponseTypeString(feature.properties.response_type),
-          controlStage: getControlStageString(feature.properties.stage_of_control),
-          startDate: date.toLocaleDateString(undefined, options)
-        }
-
-        setPopupText(fireDetails);
-        setSelectedFeature(feature.id);
-
-        const newFeatures = fireData.features.map((feat) => {
-          if ( feat.id == feature.id ) {
-            return { ...feat, properties: {...feat.properties, selected: true} };
-          } else {
-            return { ...feat, properties: {...feat.properties, selected: false} };
-          }
-        })
-
-        setFireData({...fireData, features: newFeatures});
+    // check that the feature has a set of properties
+    // do nothing if it doesn't
+    if ( feature.properties ) {
+      // do nothing if a cluster was selected
+      if (feature.properties.cluster) {
+        // dismiss the properties panel if it was previously selected
+        handleDismissSelectedFire();
+        return;
       }
+
+      // convert the feature's date to a JS Date object
+      const unixDate = Date.parse(feature.properties.startdate);
+      const date = new Date(unixDate);
+
+      // set options for displaying date
+      const options: Intl.DateTimeFormatOptions = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+
+      // object to store data to be displayed in fire details popup
+      const fireDetails : FireDetails = {
+        firename: feature.properties.firename,
+        hectares: feature.properties.hectares,
+        responseType: getResponseTypeString(feature.properties.response_type),
+        controlStage: getControlStageString(feature.properties.stage_of_control),
+        startDate: date.toLocaleDateString(undefined, options)
+      }
+
+      // set the data for the fire details popup
+      setPopupText(fireDetails);
+      // store the id of the selected feature
+      setSelectedFeature(feature.id);
+
+      // create a new array of features with updated properties
+      const newFeatures = fireData.features.map((feat) => {
+        // set the "selected" property to true if current
+        // iteration is the pressed feature
+        if ( feat.id == feature.id ) {
+          return { ...feat, properties: {...feat.properties, selected: true} };
+        } else {
+          // otherwise set the "selected" property to false
+          return { ...feat, properties: {...feat.properties, selected: false} };
+        }
+      })
+
+      // update the fire data state variable with the updated features
+      setFireData({...fireData, features: newFeatures});
+    }
   }
 
   const handleDownloadFireData = async () => {
