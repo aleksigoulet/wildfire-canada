@@ -37,7 +37,7 @@ export default function ProfileHeader({points, badges, username, ...props}: any)
                   }}
                 />
                 <View style={{ flexGrow: 1 }}>
-                  <Text style={styles.usernameText} numberOfLines={1}>{ props.username }</Text>
+                  <Text style={styles.usernameText} numberOfLines={1}>{ username }</Text>
                   <Text style={styles.userLevelText}>Beginner</Text>
                 </View>
               </View>
@@ -45,13 +45,13 @@ export default function ProfileHeader({points, badges, username, ...props}: any)
               {/* view for XP */}
               <View style={styles.scoreSection}>
                 <XPIcon />
-                <Text style={styles.scoreText}>{ props.points }</Text>
+                <Text style={styles.scoreText}>{ points }</Text>
               </View>
 
               {/* view for Badges */}
               <View style={styles.scoreSection}>
                 <BadgeIcon />
-                <Text style={styles.scoreText}>{ props.badges }</Text>
+                <Text style={styles.scoreText}>{ badges }</Text>
               </View>   
                  
             </View>
