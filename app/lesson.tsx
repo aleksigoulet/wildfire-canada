@@ -352,7 +352,6 @@ const styles = StyleSheet.create({
   textContainer: {
     gap: 20,
     justifyContent: 'center',
-
     // use of flex shrink ensures that text wraps around
     // copied from solution by user Ashok R in following post
     // https://stackoverflow.com/questions/36284453/react-native-text-going-off-my-screen-refusing-to-wrap-what-to-do

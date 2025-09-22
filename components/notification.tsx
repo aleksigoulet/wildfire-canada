@@ -4,12 +4,13 @@ import { Icons } from "./icons";
 
 export default function Notification(props: any) {
 
+  // code below for icons copied from docs
+  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
   const [fontsLoaded] = useFonts({
     IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
   });
 
-  // code below for icons copied from docs
-  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
+
   if (!fontsLoaded) {
     return null;
   }

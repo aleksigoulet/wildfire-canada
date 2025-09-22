@@ -144,7 +144,9 @@ export default function Checklist() {
     router.dismiss();
   }
 
+  // handler to reset the current checklist
   const handleReset = () => {
+    // change all checked values to false
     const udpatedItems = currentChecklist.content.items.map(( item: ChecklistItem ) => {
       return {
         ...item,
@@ -152,6 +154,7 @@ export default function Checklist() {
       }
     })
 
+    // create an udpated checklist
     const updatedChecklist = {
       ...currentChecklist,
       metadata: {
@@ -164,20 +167,26 @@ export default function Checklist() {
       }
     }
 
+    // update the current checklist state
     setCurrentChecklist(updatedChecklist);
   }
 
+  // code below for icons copied from docs
+  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
   const [fontsLoaded] = useFonts({
     IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
   });
 
+  // retrieve checklist from storage every time the page is loaded
   useEffect(() => {
     getObjectData('checklists')
     .then(data => {
+      // find the selected checklist
       data.forEach((checklist: any) => {
         if (checklist.metadata.id != id) {
           return;
         }      
+        // upate checklist state with the selected checklist
         setCurrentChecklist(checklist);
       })
     })

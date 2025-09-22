@@ -71,8 +71,13 @@ export default function Prepare() {
         username={profile?.username}
         testID='Prepare.ProfileHeader'
       />
+      {/* 
+        scroll view with padding to make sure that content is visible on different devices. 
+        margin ensures that content is not covered by navigation tabs
+      */}
       <ScrollView style={styles.contentContainer} contentContainerStyle={{ marginBottom: 64 }}>
 
+        {/* section for incomplete checklists */}
         {
           remainingChecklists ? 
           <Text style={styles.titleText}>Remaining Tasks</Text> :
@@ -99,6 +104,7 @@ export default function Prepare() {
           null
         }
 
+        {/* section for completed checklists */}
         {
           completedChecklists ? 
           <Text style={styles.titleText}>Completed Tasks</Text> :

@@ -180,9 +180,12 @@ export default function Alerts() {
             title='Delete All'
             onPress={async () => {
               try {
+                // delete stored notifications
                 await removeValue('notifications');
+                // update notifications context to empty array
                 setNotifications([]);
               } catch (error) {
+                // display alert if there is an error
                 alert("Could not delete notifications. Please try again.");
               }
             }}
@@ -191,6 +194,7 @@ export default function Alerts() {
 
         {
           notifications[0] ? 
+            // display notifications if there are notifications stored
             <ScrollView>
               <View style={styles.scrollContainer}>
               {
@@ -200,6 +204,7 @@ export default function Alerts() {
               }
               </View>
             </ScrollView> :
+            // display placeholder message if there are no notifications
             <View style={styles.emptyNotificationsContainer}>
               <Image 
                 source={require('@/assets/images/bell.png')}

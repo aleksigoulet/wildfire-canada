@@ -18,6 +18,7 @@ import {
 } from '@gorhom/bottom-sheet';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import LayerVisibilityButton from "@/components/layerVisibilityButton";
 import { FeatureCollection } from 'geojson';
 import { fixCoords } from "@/utils/geoJsonFix";
@@ -27,7 +28,6 @@ import { getControlStageString, getResponseTypeString } from "@/utils/fireInform
 import { OnPressEvent } from "@rnmapbox/maps/lib/typescript/src/types/OnPressEvent";
 import { LayerVisibility } from "@/types/commonTypes";
 
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 // create a dummy fire data object 
@@ -253,6 +253,7 @@ export default function Index() {
             https://rnmapbox.github.io/docs/examples/SymbolCircleLayer/Earthquakes
           */}
 
+          {/* define fire marker pins */}
           <Images>
             <Image
               name="pin"
@@ -267,18 +268,6 @@ export default function Index() {
                 }}
               ></View>
             </Image>
-            {/* <Image
-              name="pin-blue"
-            >
-              <View
-                style={{
-                  width: 10,
-                  height: 10,
-                  backgroundColor: 'blue'
-
-                }}
-              ></View>
-            </Image> */}
           </Images>
 
 

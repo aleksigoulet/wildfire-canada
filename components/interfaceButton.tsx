@@ -25,6 +25,7 @@ export default function InterfaceButton( props: InterfaceButtonProps ) {
         // otherwise complete the passed event listener
         props.onPress();
       }} 
+      // style the button based on passed props
       style={({ pressed }) => [ 
         styles.lessonButton, 
         pressed ? 

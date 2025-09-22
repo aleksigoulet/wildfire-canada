@@ -22,7 +22,9 @@ Notifications.setNotificationHandler({
 
 
 export default function TabLayout() {
-
+  // code below for icons copied from docs
+  // https://docs.expo.dev/guides/icons/#createiconsetfromicomoon
+  // load custom icons
   const [fontsLoaded] = useFonts({
     IcoMoon: require('@/assets/icomoon/icomoon.ttf'),
   });
@@ -46,73 +48,73 @@ export default function TabLayout() {
 
   return (
     <ProfileContextProvider>
-    <Tabs 
-      screenOptions={{ 
-        tabBarActiveTintColor: '#E25706',
-        tabBarInactiveTintColor: '#303030',
-        tabBarLabelStyle: {
-          fontSize: 10,
-          marginTop: 6
-        },
-        tabBarStyle: {
-          backgroundColor: '#F1F5F2',
-          height: 96,
-          paddingTop: 4
-        },
-        sceneStyle: {
-          backgroundColor: 'white'
-        }
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Map",
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='map-marker' size={24} color={color}/>,
+      <Tabs 
+        screenOptions={{ 
+          tabBarActiveTintColor: '#E25706',
+          tabBarInactiveTintColor: '#303030',
+          tabBarLabelStyle: {
+            fontSize: 10,
+            marginTop: 6
+          },
+          tabBarStyle: {
+            backgroundColor: '#F1F5F2',
+            height: 96,
+            paddingTop: 4
+          },
+          sceneStyle: {
+            backgroundColor: 'white'
+          }
         }}
-      />
-      <Tabs.Screen
-        name="learn"
-        options={{
-          title: 'Learn',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='book' size={24} color={color}/>,
-        }}
-      />
-      <Tabs.Screen
-        name="prepare"
-        options={{
-          title: 'Prepare',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='list-check' size={24} color={color}/>,
-        }}
-      />
-      <Tabs.Screen
-        name="emergency"
-        options={{
-          title: 'Emergency',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='flame' size={24} color={color}/>,
-        }}
-      />
-      <Tabs.Screen
-        name="alerts"
-        options={{
-          title: 'Alerts',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='bell' size={24} color={color}/>,
-        }}
-      />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: 'Settings',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <Icons name='settings' size={24} color={color}/>,
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Map",
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='map-marker' size={24} color={color}/>,
+          }}
+        />
+        <Tabs.Screen
+          name="learn"
+          options={{
+            title: 'Learn',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='book' size={24} color={color}/>,
+          }}
+        />
+        <Tabs.Screen
+          name="prepare"
+          options={{
+            title: 'Prepare',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='list-check' size={24} color={color}/>,
+          }}
+        />
+        <Tabs.Screen
+          name="emergency"
+          options={{
+            title: 'Emergency',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='flame' size={24} color={color}/>,
+          }}
+        />
+        <Tabs.Screen
+          name="alerts"
+          options={{
+            title: 'Alerts',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='bell' size={24} color={color}/>,
+          }}
+        />
+        <Tabs.Screen
+          name="settings"
+          options={{
+            title: 'Settings',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Icons name='settings' size={24} color={color}/>,
+          }}
+        />
+      </Tabs>
     </ProfileContextProvider>
   );
 }

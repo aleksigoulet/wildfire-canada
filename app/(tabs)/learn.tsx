@@ -116,8 +116,9 @@ export default function Learn() {
           )
 
         }}
-        // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
         contentContainerStyle={styles.scrollContainer}
+        // Idea to use ItemSeparatorComponent adapted from answer by marcel099 in post below
+        // https://stackoverflow.com/questions/73338922/how-do-i-add-gap-in-between-items-in-flatlist
         ItemSeparatorComponent={() => {
           return (
             <View

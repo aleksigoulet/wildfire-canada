@@ -11,6 +11,7 @@ const dummyData = {
   }
 }
 
+// store the dummy data before running test suite
 beforeAll(() => {
   storeObjectData('dummyData', dummyData);
 })
@@ -42,41 +43,30 @@ describe("storeObjectData()", () => {
     // check that setItem was called correctly.
     expect(AsyncStorage.setItem).toHaveBeenLastCalledWith('myTestKey', jsonValue);
   })
-
-  // it("Only accepts object values", async () => {
-  //   await storeObjectData('testKey2', 'test value');
-
-  //   expect(storeObjectData).toThrow();
-  // })
-
 })
 
 describe("getObjectData()", () => {
   it("uses AsyncStorage's getItem() method", async () => {
+    // retrieve dummy data from storage
     await getObjectData('dummyData');
 
+    // check that getItem was called correctly
     expect(AsyncStorage.getItem).toHaveBeenLastCalledWith('dummyData');
   })
 
   it('returns null if provided key does not exist', async () => {
+    // try to retrieve a value that does not exist
     const result = await getObjectData("myKey");
 
+    // result should be null
     expect(result).toEqual(null);
   })
 
   it('returns the appropriate stored object when called', async () => {
+    // retrieve an object from storage
     const result = await getObjectData("dummyData");
 
+    // check that the right object was retrieved
     expect(result).toEqual(dummyData);
   })
-
-  // it('rejects non-string keys', async () => {
-  //   // use of line below by user Alex Wayne in following post
-  //   // https://stackoverflow.com/questions/71560982/how-do-you-test-a-function-argument-with-the-wrong-type-in-ts-jest
-
-  //   // @ts-expect-error testing wrong argument type
-  //   const result = await getObjectData(1);
-
-  //   expect(result).toThrow();
-  // })
 })

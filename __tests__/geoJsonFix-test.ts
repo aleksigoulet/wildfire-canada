@@ -192,14 +192,18 @@ const correctedPolygonCollection : FeatureCollection = {
 
 describe('fixCoords()', () => {
   it('returns a given GeoJSON feature collection of POINTS with coordinates converted to WGS 84 format', () => {
+    // fix coordinates of test collection
     const result = fixCoords(testCollection);
 
+    // check that the updated coordinates are correct
     expect(result).toEqual(correctedCollection);
   });
 
   it('returns a given GeoJSON feature collection of POLYGONS with coordinates converted to WGS 84 format', () => {
+    // fix coordinates of polygon test collection
     const result = fixCoords(testPolygonCollection);
 
+    // check that the updated coordinates are correct
     expect(result).toEqual(correctedPolygonCollection);
   })
 });

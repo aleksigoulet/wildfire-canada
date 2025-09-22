@@ -5,6 +5,10 @@ import WebLink from "@/components/webLink";
 export default function References() {
   return (
     <View style={styles.container}>
+      {/* 
+        scroll view with padding to make sure that content is visible on different devices. 
+        padding ensures that content is not covered by navigation tabs
+      */}
       <ScrollView style={{ paddingBottom: 64 }}>
         <Text style={styles.sectionTitleText}>Content</Text>
         <View style={styles.attributionContainer}>

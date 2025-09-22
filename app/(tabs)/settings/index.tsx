@@ -20,6 +20,7 @@ const blurhash =
 
 
 export default function Settings() {
+  // import profile context
   const { profile, setProfile } = useContext(ProfileContext);
 
   // import reset functions
@@ -29,15 +30,23 @@ export default function Settings() {
   const { resetChecklists } = useContext(ChecklistContext);
 
 
+  // state for edit profile modal
   const [ editProfileModalVisible, setEditProfileModalVisible ] = useState<boolean>(false);
+
+  // state for edit username input field
   const [ editingUserName, setEditingUserName ] = useState<string>('');
 
+  // handler for closing the edit profile modal
   const handleCloseEditProfileModal = () => {
+    // set visibility to false
     setEditProfileModalVisible(false);
+    // clear the input field
     setEditingUserName('');
   }
 
+  // function to update the profile info
   const handleSubmitNewProfileInfo = () => {
+    // create the profile object
     const newProfileInfo: Profile = {
       username: editingUserName
     }
@@ -49,18 +58,22 @@ export default function Settings() {
     setProfile(newProfileInfo);
   }
 
+  // handler for when the user presses reset progress
   const handleResetProgress = () => {
+    // properties for alert cancel button
     const cancelButton: AlertButton = {
       text: 'Cancel',
       style: 'cancel' 
     }
 
+    // properties for alert reset button
     const resetButton: AlertButton = {
       text: 'Reset',
       onPress: handleResetProgressConfirmed,
       style: 'destructive'
     }
 
+    // display a confirmation message before resetting
     Alert.alert(
       'Are you sure?', 
       'Pressing Reset will remove all points and badges. All lesson and checklist progress will be lost.',
@@ -71,6 +84,7 @@ export default function Settings() {
     );
   }
 
+  // function to reset all game progress
   const handleResetProgressConfirmed = async () => {
     try {
       // reset all the game elements

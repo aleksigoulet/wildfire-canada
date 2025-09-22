@@ -25,7 +25,9 @@ async function getObjectData(key: string) {
   }
 }
 
-
+/** Function to delete values stored with AsyncStorage.
+ * @param { string } key - The key of the value to delete.
+*/
 async function removeValue(key: string) {
   try {
     await AsyncStorage.removeItem(key)
